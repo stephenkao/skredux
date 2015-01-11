@@ -1,0 +1,34 @@
+{
+  "name": "skredux",
+  "description": "Stephen Kao",
+  "version": "0.0.1",
+  "homepage": "https://github.com/stephenkao/skredux",
+  "author": {
+    "name": "Stephen Kao"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/git@github.com:stephenkao/skredux.git"
+  },
+  "main": "index.js",
+  "engines": {
+    "node": "*"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-cli": "~0.1.9",
+    "grunt-concurrent": "^1.0.0",
+    "grunt-contrib-compass": "~0.6.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-nodemon": "^0.3.0",
+    "grunt-notify": "^0.4.1",
+    "requirejs": "~2.1.11",
+    "underscore": "^1.7.0"
+  },
+  "keywords": [
+    "grunt"
+  ],
+  "dependencies": {
+    "express": "^4.10.6"
+  }
+}

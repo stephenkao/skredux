@@ -28,5 +28,7 @@ keystone.set('500', function(err, req, res, next) {
 exports = module.exports = function(app) {
     app.get('/what', function (request, response) {
         console.log('what');
+		response.setHeader('Content-Type', 'application/json');
+		response.end(JSON.stringify({'what': 'blah'}));
     });
 };

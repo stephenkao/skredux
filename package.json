@@ -29,6 +29,7 @@
     "grunt"
   ],
   "dependencies": {
-    "express": "^4.10.6"
+    "express": "^4.10.6",
+    "keystone": "^0.2.41"
   }
 }

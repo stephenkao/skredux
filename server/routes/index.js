@@ -7,7 +7,6 @@ keystone.pre('routes', middleware.initErrorHandlers);
 keystone.pre('routes', middleware.initLocals);
 keystone.pre('render', middleware.flashMessages);
 
-/*
 // Handle 404 errors
 keystone.set('404', function(req, res, next) {
     res.notfound();
@@ -22,7 +21,6 @@ keystone.set('500', function(err, req, res, next) {
     }
     res.err(err, title, message);
 });
-*/
 
 // Bind Routes
 exports = module.exports = function(app) {

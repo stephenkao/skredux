@@ -1,0 +1,18 @@
+@import "lib/gumby/gumby";
+@import "compass";
+
+@import "settings";
+
+body {
+        background-color: #222222;
+}
+
+.row {
+        background-color: white;
+}
+
+.character-list li {
+        @include fancytiles(4, 2, 1);
+        @include margin-leader(4);
+        @include margin-trailer(4);
+}

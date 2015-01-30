@@ -3,16 +3,16 @@
 
 @import "settings";
 
-body {
-        background-color: #222222;
-}
+@import "fonts";
 
-.row {
-        background-color: white;
+.scripted {
+	@extend %kaofont;
+
+	font-size: 8em;
 }
 
 .character-list li {
-        @include fancytiles(4, 2, 1);
+        @include fancytiles(3, 1, 1);
         @include margin-leader(4);
         @include margin-trailer(4);
 }

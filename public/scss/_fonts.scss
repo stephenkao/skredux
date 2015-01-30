@@ -1,0 +1,105 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: "kaofont";
+	src:url("font/kaofont.eot");
+	src:url("font/kaofont.eot?#iefix") format("embedded-opentype"),
+		url("font/kaofont.woff") format("woff"),
+		url("font/kaofont.ttf") format("truetype"),
+		url("font/kaofont.svg#kaofont") format("svg");
+	font-weight: normal;
+	font-style: normal;
+
+}
+
+[data-icon]:before {
+	font-family: "kaofont" !important;
+	content: attr(data-icon);
+	font-style: normal !important;
+	font-weight: normal !important;
+	font-variant: normal !important;
+	text-transform: none !important;
+	speak: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+	font-family: "kaofont" !important;
+	font-style: normal !important;
+	font-weight: normal !important;
+	font-variant: normal !important;
+	text-transform: none !important;
+	speak: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-bo:before {
+	content: "a";
+}
+.icon-chen:before {
+	content: "b";
+}
+.icon-ci:before {
+	content: "c";
+}
+.icon-dian:before {
+	content: "d";
+}
+.icon-gao:before {
+	content: "e";
+}
+.icon-gong:before {
+	content: "f";
+}
+.icon-hui:before {
+	content: "g";
+}
+.icon-ke:before {
+	content: "h";
+}
+.icon-ming:before {
+	content: "i";
+}
+.icon-nao:before {
+	content: "j";
+}
+.icon-niu:before {
+	content: "k";
+}
+.icon-shou:before {
+	content: "l";
+}
+.icon-shu:before {
+	content: "m";
+}
+.icon-wu:before {
+	content: "n";
+}
+.icon-xue:before {
+	content: "o";
+}
+.icon-ye:before {
+	content: "p";
+}
+.icon-yi:before {
+	content: "q";
+}
+.icon-yu:before {
+	content: "r";
+}
+.icon-yu2:before {
+	content: "s";
+}
+.icon-yue:before {
+	content: "t";
+}
+
+%kaofont {
+	font-family: "kaofont";
+	line-height: 1;
+}

@@ -33,7 +33,7 @@ var routes = {
 
 exports = module.exports = function(app) {
 	////////// Static files
-	app.get(/^(.+[css|svg|js])$/, function(request, response){
+	app.get(/^(.+[css|svg|js|ttf|woff])$/, function(request, response){
         var what = process.cwd() + request.params[0];
         console.log(what);
 		response.sendfile(what);

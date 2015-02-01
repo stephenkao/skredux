@@ -5,10 +5,48 @@
 
 @import "fonts";
 
-.scripted {
-	@extend %kaofont;
+@-webkit-keyframes redPulse {
+  from { -webkit-box-shadow: 0 0 30px #eb1c2a;}
+  50% { -webkit-box-shadow: 0 0 80px #c91a26; }
+  to { -webkit-box-shadow: 0 0 30px #eb1c2a;}
+}
 
-	font-size: 8em;
+.main-content {
+	@include padding-leader(2);
+
+	@media #{$medium-up} {
+		@include padding-leader(6);
+	}
+}
+
+.tiles--scripted {
+
+	&:hover {
+		color: #888;
+	}
+
+	i {
+		@include fancytiles(4, 4, 1);
+		@extend %kaofont;
+
+		text-align: center;
+		font-size: 8em;
+		font-size: 50vw;
+
+		@media #{$medium-up} {
+			font-size: 8em;
+			font-size: 14vw;
+		}
+	}
+
+	a {
+		box-shadow: 0 0 1px 1px #888;
+		border-radius: 2em;
+
+		-webkit-animation-name: redPulse;
+		-webkit-animation-duration: 2s;
+		-webkit-animation-iteration-count: infinite;
+	}
 }
 
 .character-list li {

@@ -1,4 +1,3 @@
-
 /*global module, require */
 
 /**
@@ -63,13 +62,14 @@
 				options: {
 					spawn: false,
 					interval: 5007,
-					debounceDelay: 500
+					debounceDelay: 2000
 				},
 
 				javascript: {
 					files: [
 						'public/javascripts/**/*.js',
-						'!public/javascripts/lib/**/*.js'
+						'!public/javascripts/lib/**/*.js',
+						'!public/javascripts/**/.#*',
 					],
 					tasks: [
 						'jshint'
@@ -77,7 +77,8 @@
 				},
 				sass: {
 					files: [
-						'public/scss/**/*.scss'
+						'public/scss/**/*.scss',
+						'!public/scss/**/.#*'
 					],
 					tasks: [
 						'compass:dev'

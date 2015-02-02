@@ -5,12 +5,6 @@
 
 @import "fonts";
 
-@-webkit-keyframes redPulse {
-  from { -webkit-box-shadow: 0 0 30px #eb1c2a;}
-  50% { -webkit-box-shadow: 0 0 80px #c91a26; }
-  to { -webkit-box-shadow: 0 0 30px #eb1c2a;}
-}
-
 .main-content {
 	@include padding-leader(2);
 
@@ -35,17 +29,8 @@
 
 		@media #{$medium-up} {
 			font-size: 8em;
-			font-size: 14vw;
+			font-size: 12vw;
 		}
-	}
-
-	a {
-		box-shadow: 0 0 1px 1px #888;
-		border-radius: 2em;
-
-		-webkit-animation-name: redPulse;
-		-webkit-animation-duration: 2s;
-		-webkit-animation-iteration-count: infinite;
 	}
 }
 

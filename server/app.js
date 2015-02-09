@@ -11,11 +11,11 @@
         'views': 'templates/views',
         'view engine': 'jade',
         'auto update': true,
-        'mongo': 'mongodb://localhost/my-project',
+        'mongo': 'mongodb://localhost/stephenkao',
         'session': true,
         'auth': true,
         'user model': 'User',
-        'cookie secret': '(your secret here)',
+        'cookie secret': 'pooploop',
 
         'cloudinary config': {
             cloud_name: 'djzskuqmo',

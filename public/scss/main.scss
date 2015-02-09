@@ -15,10 +15,6 @@
 
 .tiles--scripted {
 
-	&:hover {
-		color: #888;
-	}
-
 	i {
 		@include fancytiles(4, 4, 1);
 		@extend %kaofont;
@@ -27,7 +23,7 @@
 		font-size: 8em;
 		font-size: 50vw;
 
-		@media #{$medium-up} {
+		@media #{$large-up} {
 			font-size: 8em;
 			font-size: 12vw;
 		}

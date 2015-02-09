@@ -1,52 +1,70 @@
-var keystone = require('keystone'),
-    middleware = require('./middleware'),
-    importRoutes = keystone.importer(__dirname);
+/*global require, module, exports, process, __dirname */
 
-var assetsDir = '../../target/';
+(function () {
+	var keystone = require('keystone'),
+	    middleware = require('./middleware'),
+	    importRoutes = keystone.importer(__dirname);
 
-// Common Middleware
-keystone.pre('routes', middleware.initErrorHandlers);
-keystone.pre('routes', middleware.initLocals);
-keystone.pre('render', middleware.flashMessages);
+	var assetsDir = '../../target/';
+
+	// Common Middleware
+	keystone.pre('routes', middleware.initErrorHandlers);
+	keystone.pre('routes', middleware.initLocals);
+	keystone.pre('render', middleware.flashMessages);
 
 /*
-// Handle 404 errors
-keystone.set('404', function(req, res, next) {
-    res.notfound();
-});
-
-// Handle other errors
-keystone.set('500', function(err, req, res, next) {
-    var title, message;
-    if (err instanceof Error) {
-        message = err.message;
-        err = err.stack;
-    }
-    res.err(err, title, message);
-});
-*/
-
-// Bind Routes
-var routes = {
-	views: importRoutes('./views')
-};
-
-exports = module.exports = function(app) {
-	////////// Static files
-	app.get(/^(.+[css|svg|js|ttf|woff])$/, function(request, response){
-        var what = process.cwd() + request.params[0];
-        console.log(what);
-		response.sendfile(what);
+	// Handle 404 errors
+	keystone.set('404', function(req, res, next) {
+		res.notfound();
 	});
 
-	// Views
-	app.get('/', routes.views.index);
-//	app.get('/blog/:category?', routes.views.blog);
-//	app.get('/blog/post/:post', routes.views.post);
+	// Handle other errors
+	keystone.set('500', function(err, req, res, next) {
+		var title, message;
+		if (err instanceof Error) {
+			message = err.message;
+			err = err.stack;
+		}
+		res.err(err, title, message);
+	});
+*/
 
-    app.get('/what', function (request, response) {
-        console.log('what');
-		response.setHeader('Content-Type', 'application/json');
-		response.end(JSON.stringify({'what': 'blah'}));
-    });
-};
+	// Bind Routes
+	var routes = {
+		views: importRoutes('./views')
+	};
+
+	// Retrieve
+	var MongoClient = require('mongodb').MongoClient;
+	MongoClient.connect('mongodb://localhost:27017/stephenkao', function(err, db) {
+		if (!err) {
+			console.log('We are connected');
+		}
+	});
+
+	var PostsData = require('../data/posts');
+	exports = module.exports = function(app) {
+		// Views
+		app.get(/^\/(index)?$/, routes.views.index);
+
+		// AJAX
+		app.get('/blog/latest', function (request, response) {
+			PostsData.getLatest();
+
+			response.setHeader('Content-Type', 'application/json');
+			response.end(JSON.stringify({'what': 'blah'}));
+		});
+
+		////////// Static files
+		app.get(/^(.+[css|svg|js|ttf|woff])$/, function(request, response){
+			var filename = process.cwd() + request.params[0];
+			response.sendfile(filename);
+		});
+
+		/*
+		 app.get('/what', function (request, response) {
+		 console.log('what');
+		 });
+		 */
+	};
+})();

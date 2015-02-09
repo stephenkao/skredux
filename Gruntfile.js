@@ -17,7 +17,7 @@
 					jshintrc: '.jshintrc',
 					reporter: require('jshint-stylish'),
 					ignores: [
-						'public/javascripts/lib'
+						'public/javascript/lib'
 					],
 					force: true
 				},

@@ -34,6 +34,7 @@
     "grunt-contrib-requirejs": "^0.4.4",
     "grunt-jscs": "^1.2.0",
     "jshint-stylish": "^1.0.0",
-    "keystone": "^0.2.41"
+    "keystone": "^0.2.41",
+    "mongodb": "^1.4.30"
   }
 }

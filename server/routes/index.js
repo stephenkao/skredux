@@ -35,12 +35,6 @@
 	};
 
 	// Retrieve
-	var MongoClient = require('mongodb').MongoClient;
-	MongoClient.connect('mongodb://localhost:27017/stephenkao', function(err, db) {
-		if (!err) {
-			console.log('We are connected');
-		}
-	});
 
 	var PostsData = require('../data/posts');
 	exports = module.exports = function(app) {

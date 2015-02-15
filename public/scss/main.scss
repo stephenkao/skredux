@@ -19,19 +19,40 @@
 		@include fancytiles(4, 4, 1);
 		@extend %kaofont;
 
+		padding-top: 30px;
+
 		text-align: center;
 		font-size: 8em;
 		font-size: 50vw;
+		border-radius: 200px;
+		box-shadow: 0 0 12px -2px #ddd;
+
+		&:hover {
+			-webkit-animation-name: pulse;
+			-webkit-animation-duration: 800ms;
+			-webkit-animation-iteration-count: infinite;
+		}
 
 		@media #{$large-up} {
 			font-size: 8em;
 			font-size: 12vw;
 		}
+
+		a {
+			color: #555;
+		}
 	}
 }
 
-.character-list li {
-        @include fancytiles(3, 1, 1);
-        @include margin-leader(4);
-        @include margin-trailer(4);
+
+@-webkit-keyframes pulse {
+	from {
+		box-shadow: 0 0 10px 0 #444;
+	}
+	99% {
+		box-shadow: 0 0 400px 0 #fff;
+	}
+	to {
+		box-shadow: none;
+	}
 }

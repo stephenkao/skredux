@@ -1,19 +1,24 @@
 @import "lib/gumby/gumby";
 @import "compass";
+@import "compass/css3/transition";
 
 @import "settings";
 
 @import "fonts";
 
 .main-content {
-	@include padding-leader(2);
-
-	@media #{$medium-up} {
-		@include padding-leader(6);
-	}
+	@include padding-leader(1);
 }
 
+$dropshadow-spread: 2px;
+$dropshadow-color: #f0f0f0;
+
 .tiles--scripted {
+
+	// Overrides
+	a {
+		color: #666;
+	}
 
 	i {
 		@include fancytiles(4, 4, 1);
@@ -24,35 +29,68 @@
 		text-align: center;
 		font-size: 8em;
 		font-size: 50vw;
-		border-radius: 200px;
-		box-shadow: 0 0 12px -2px #ddd;
-
-		&:hover {
-			-webkit-animation-name: pulse;
-			-webkit-animation-duration: 800ms;
-			-webkit-animation-iteration-count: infinite;
-		}
+		color: #bbb;
 
 		@media #{$large-up} {
 			font-size: 8em;
-			font-size: 12vw;
+			font-size: 10vw;
+		}
+	}
+
+	.rhythmic {
+		$highlight-width: 2px;
+		$highlight-time: 200ms;
+		$shadow-time: 800ms;
+
+		@include transition(box-shadow $shadow-time);
+
+		position: relative;
+
+		box-shadow: 0 0 40px 0 $white;
+
+		&:hover {
+			box-shadow: 0 1px 17px 0px $dropshadow-color;
 		}
 
-		a {
-			color: #555;
+		&:before,
+		&:after {
+			@include transition(width, $highlight-time ease-out, height $highlight-time ease-out);
+			
+			position: absolute;
+
+			left: 0;
+
+			content: "";
+			background-color: darken($dropshadow-color, 2%);
+		}
+		&:before {
+			width: 0%;
+			height: $highlight-width;
+
+			bottom: 0;
+		}
+		&:hover:before {
+			width: 100%;
+		}
+		&:after {
+			width: $highlight-width;
+			height: 0%;
+
+			top: 0;
+		}
+
+		&:hover:after {
+			height: 100%;
 		}
 	}
 }
 
-
 @-webkit-keyframes pulse {
 	from {
-		box-shadow: 0 0 10px 0 #444;
-	}
-	99% {
-		box-shadow: 0 0 400px 0 #fff;
+		box-shadow: 0 0 40px 0 $dropshadow-color;
 	}
 	to {
+		box-shadow: 0 0 400px 0 $white;
 		box-shadow: none;
 	}
 }

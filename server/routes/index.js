@@ -1,18 +1,34 @@
 /*global require, module, exports, process, __dirname */
 
 (function () {
-	var keystone = require('keystone'),
-	    middleware = require('./middleware'),
-	    importRoutes = keystone.importer(__dirname);
+    'use strict';
 
-	var assetsDir = '../../target/';
+    var keystone = require('keystone'),
+        middleware = require('./middleware'),
+        importRoutes = keystone.importer(__dirname),
+        views = importRoutes('./views'),
+        PostsController = require('../controllers/posts.controller'),
+        serviceCallback;
 
-	// Common Middleware
-	keystone.pre('routes', middleware.initErrorHandlers);
-	keystone.pre('routes', middleware.initLocals);
-	keystone.pre('render', middleware.flashMessages);
+    /**
+     * A wrapper callback for when a Mongo error comes back
+     */
+    serviceCallback = function(response) {
+        return function(err, obj) {
+            if (err) {
+                response.send(500);
+            } else {
+                response.send(obj);
+            }
+        };
+    };
 
-/*
+    // Common Middleware
+    keystone.pre('routes', middleware.initErrorHandlers);
+    keystone.pre('routes', middleware.initLocals);
+    keystone.pre('render', middleware.flashMessages);
+
+    /*
 	// Handle 404 errors
 	keystone.set('404', function(req, res, next) {
 		res.notfound();
@@ -27,38 +43,23 @@
 		}
 		res.err(err, title, message);
 	});
-*/
+     */
 
-	// Bind Routes
-	var routes = {
-		views: importRoutes('./views')
-	};
-
-	// Retrieve
-
-	var PostsData = require('../data/posts');
-	exports = module.exports = function(app) {
+    // Retrieve
+    exports = module.exports = function(app) {
 		// Views
-		app.get(/^\/(index)?$/, routes.views.index);
+        app.get(/^\/(index)?$/, views.index);
+//        app.get(/^\/(blog)?$/, views.blog);
 
-		// AJAX
-		app.get('/blog/latest', function (request, response) {
-			PostsData.getLatest();
+        // AJAX
+        app.get('/posts/latest', function (request, response) {
+            PostsController.getLatest(serviceCallback(response));
+        });
 
-			response.setHeader('Content-Type', 'application/json');
-			response.end(JSON.stringify({'what': 'blah'}));
-		});
-
-		////////// Static files
-		app.get(/^(.+[css|svg|js|ttf|woff])$/, function(request, response){
-			var filename = process.cwd() + request.params[0];
-			response.sendfile(filename);
-		});
-
-		/*
-		 app.get('/what', function (request, response) {
-		 console.log('what');
-		 });
-		 */
-	};
-})();
+        ////////// Static files
+        app.get(/^(.+[css|svg|js|ttf|woff])$/, function(request, response){
+            var filename = process.cwd() + request.params[0];
+            response.sendfile(filename);
+        });
+    };
+}());

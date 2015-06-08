@@ -1,3 +1,5 @@
-require('./users.js');
-require('./posts.js');
-require('./postCategories.js');
+/*global require */
+
+require('./user.model.js');
+require('./post.model.js');
+require('./postCategory.model.js');

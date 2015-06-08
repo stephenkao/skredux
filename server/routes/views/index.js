@@ -1,9 +1,13 @@
-var keystone = require('keystone');
+/*global require, exports, module */
 
-exports = module.exports = function(req, res) {
+(function () {
+    'use strict';
 
-    var view = new keystone.View(req, res);
+    var keystone = require('keystone');
 
-    view.render('index');
+    exports = module.exports = function(req, res) {
+        var view = new keystone.View(req, res);
 
-}
+        view.render('index');
+    };
+}());

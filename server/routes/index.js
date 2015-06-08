@@ -43,13 +43,12 @@
 		}
 		res.err(err, title, message);
 	});
-     */
+    */
 
     // Retrieve
     exports = module.exports = function(app) {
 		// Views
         app.get(/^\/(index)?$/, views.index);
-//        app.get(/^\/(blog)?$/, views.blog);
 
         // AJAX
         app.get('/posts/latest', function (request, response) {
@@ -57,7 +56,7 @@
         });
 
         ////////// Static files
-        app.get(/^(.+[css|svg|js|ttf|woff])$/, function(request, response){
+        app.get(/^(.+[css|svg|js|ttf|woff])$/, function(request, response) {
             var filename = process.cwd() + request.params[0];
             response.sendfile(filename);
         });

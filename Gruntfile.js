@@ -17,7 +17,7 @@
 					jshintrc: '.jshintrc',
 					reporter: require('jshint-stylish'),
 					ignores: [
-						'public/javascript/lib'
+						'public/javascripts/lib/**/*.js'
 					],
 					force: true
 				},
@@ -91,8 +91,8 @@
 				},
 				tasks: [
 					'watch:javascript',
-					'watch:sass',
-					'nodemon:run'
+					'watch:sass'
+//					'nodemon:run'
 				]
 			},
 			nodemon: {

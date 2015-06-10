@@ -10,25 +10,11 @@
         PostsController = require('../controllers/posts.controller'),
         serviceCallback;
 
-    /**
-     * A wrapper callback for when a Mongo error comes back
-     */
-    serviceCallback = function(response) {
-        return function(err, obj) {
-            if (err) {
-                response.send(500);
-            } else {
-                response.send(obj);
-            }
-        };
-    };
-
     // Common Middleware
-    keystone.pre('routes', middleware.initErrorHandlers);
-    keystone.pre('routes', middleware.initLocals);
+//    keystone.pre('routes', middleware.initErrorHandlers);
+//    keystone.pre('routes', middleware.initLocals);
     keystone.pre('render', middleware.flashMessages);
 
-    /*
 	// Handle 404 errors
 	keystone.set('404', function(req, res, next) {
 		res.notfound();
@@ -43,12 +29,27 @@
 		}
 		res.err(err, title, message);
 	});
-    */
 
-    // Retrieve
+    /**
+     * A wrapper callback for when a Mongo error comes back
+     */
+    serviceCallback = function(response) {
+        return function(err, obj) {
+            debugger;
+
+            if (err) {
+                response.send(500);
+            } else {
+                response.send(obj);
+            }
+        };
+    };
+
+    // Retrievals
     exports = module.exports = function(app) {
 		// Views
         app.get(/^\/(index)?$/, views.index);
+        app.get(/^\/(blog)?$/, views.blog);
 
         // AJAX
         app.get('/posts/latest', function (request, response) {

@@ -1,43 +1,63 @@
 extends ../layouts/default
 
 mixin post(post)
-    h2
-        a(href='/post/#{post.slug}')
-            | #{post.title}
-    span
-        | Talking about
-    ul.list--tag
-        each tag, index in post.categories
-            li
-                if index == post.categories.length -1
-                    |#{tag.name}
-                else
-                    |#{tag.name},
-    p.post
-        !{post.content.brief}
+    article.post
+        h2
+            span
+                | #{post.title}
+
+        div.post__metadata
+            span
+                | Published #{moment(post.publishedDate).format('DD MMMM YYYY')}
+
+            span
+                | - covering topics like
+            ul
+                each tag, index in post.categories
+                    li
+                        if index == post.categories.length -1
+                            |##{tag.name}
+                        else
+                            |##{tag.name},
+
+        p
+            !{post.content.extended}
 
 block content
-    .container: .row
+  .row.section--title
+    .twelve.columns.centered
+      .tiles--scripted
+        i
+          | e
+        i
+          | r
+        i
+          | b
+  .row
+    .twelve.columns.centered
+      .container: .row
         .col-sm-8.col-md-9
-            if filters.category && !data.category
-                h3.text-muted Invalid Category.
-            else
-                if data.posts.results.length
+          if filters.category && !data.category
+              h3.text-muted Invalid Category.
+          else
+              if data.posts.results.length
 
-                    .blog
-                        each post in data.posts.results
-                            +post(post)
+                  .blog
+                      each post in data.posts.results
+                          +post(post)
 
-                    if data.posts.totalPages > 1
-                        h4.text-weight-normal Showing
-                            strong #{data.posts.first}
-                            |  to
-                            strong #{data.posts.last}
-                            |  of
-                            strong #{data.posts.total}
-                            |  posts.
-                    else
-                        h4.text-weight-normal Showing #{utils.plural(data.posts.results.length, '* post')}.
+                  h4 More to come!
+
+                    //- if data.posts.totalPages > 1
+                    //-     h4.text-weight-normal Showing
+                    //-         strong #{data.posts.first}
+                    //-         |  to
+                    //-         strong #{data.posts.last}
+                    //-         |  of
+                    //-         strong #{data.posts.total}
+                    //-         |  posts.
+                    //- else
+                    //-     h4.text-weight-normal Showing #{utils.plural(data.posts.results.length, '* post')}.
 
 
                     //- if data.posts.totalPages > 1

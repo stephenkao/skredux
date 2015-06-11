@@ -1,0 +1,36 @@
+.blog {
+        .tiles--scripted {
+                i {
+		                @include fancytiles(3);
+
+                        color: $header-font-color;
+
+                        @media #{$large-up} {
+			                    font-size: 20vw;
+		                }
+                }
+        }
+}
+
+.section--title {
+        border-bottom: 1.5px solid $header-font-color;
+        margin-top: 10rem;
+        margin-bottom: 10rem;
+}
+
+.post {
+        margin-bottom: 4rem;
+}
+
+.post__metadata {
+
+        @include font-size($small);
+
+        span,
+        ul,
+        li {
+                padding-right: 0.4em;
+
+                display: inline;
+        }
+}

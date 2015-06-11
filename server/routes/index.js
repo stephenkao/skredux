@@ -11,8 +11,8 @@
         serviceCallback;
 
     // Common Middleware
-//    keystone.pre('routes', middleware.initErrorHandlers);
-//    keystone.pre('routes', middleware.initLocals);
+    keystone.pre('routes', middleware.initErrorHandlers);
+    keystone.pre('routes', middleware.initLocals);
     keystone.pre('render', middleware.flashMessages);
 
 	// Handle 404 errors
@@ -35,8 +35,6 @@
      */
     serviceCallback = function(response) {
         return function(err, obj) {
-            debugger;
-
             if (err) {
                 response.send(500);
             } else {

@@ -18,9 +18,9 @@ $max-device-width: 2880px;						// Max Document Size
 $nav-distance: 0; 							// Navigation distance from the top of the viewport
 
 // Typography
-//$font-family: "Open Sans";
-//$font-family: "PT Sans";
-$font-family: "Gill Sans";
+$font-family: 'Merriweather', serif;
+$header-font-family: 'Oxygen', sans-serif;
+//$font-family: "Gill Sans";
 $font-style-italic: italic;
 $icons: entypo;
 $font-smoothing: antialiased;
@@ -34,14 +34,14 @@ $font-weight-light: 300;
 $font-weight-thin: 300;
 
 $header-font-weight: $font-weight-thin;
-$body-font-weight: $font-weight-regular;
+$body-font-weight: $font-weight-light;
 $type-font-weight: $font-weight-regular;
 $link-font-weight: $font-weight-regular;
 $button-font-weight: $font-weight-semibold;
 $tabs-font-weight: $font-weight-semibold;
 
 // Vertical Rhythm Spacing
-//$base-line-height: ms(1) !default;
+//$base-line-height: ms(0) !default;
 $rhythm-spacing: .168;
 $rhythm-height: .711;
 
@@ -69,19 +69,21 @@ $absurd: ms(10);
 
 // Typography Colors
 $header-font-color: #444444 !default;
-$header-link-color: #d04526 !default;
+$header-link-color: #33332D !default;
 $header-link-hover-color: #c03d20 !default;
 $body-font-color: #555555 !default;
 //$body-link-color: #d04526 !default;
 $body-link-color: #c03d20 !default;
-$body-link-hover-color: #3085d6 !default;
+//$body-link-hover-color: #3085d6 !default;
+$body-link-hover-color: #9fb4cc !default;
 
 // User Interface Colors
 $global-bg-color: #fff;
 $navbar-color: rgba(255, 255, 255, 0);
 $navbar-link-color: #555;
 
-$primary-color: #3085d6;
+//$primary-color: #3085d6;
+$primary-color: #9fb4cc;
 $secondary-color: #42a35a;
 $default-color: #f2f2f2;
 $info-color: #4a4d50;

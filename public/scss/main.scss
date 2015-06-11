@@ -6,6 +6,8 @@
 
 @import "fonts";
 
+@import "components/blog";
+
 .main-content {
 	@include padding-leader(1);
 }
@@ -55,7 +57,7 @@ $dropshadow-color: #f0f0f0;
 		&:before,
 		&:after {
 			@include transition(width, $highlight-time ease-out, height $highlight-time ease-out);
-			
+
 			position: absolute;
 
 			left: 0;

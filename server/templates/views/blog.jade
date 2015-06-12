@@ -1,38 +1,31 @@
 extends ../layouts/default
 
 mixin post(post)
-    article.post
-        h2
-            span
-                | #{post.title}
+  article.post
+    h2
+      | #{post.title}
 
-        div.post__metadata
-            span
-                | Published #{moment(post.publishedDate).format('DD MMMM YYYY')}
-
-            span
-                | - covering topics like
-            ul
-                each tag, index in post.categories
-                    li
-                        if index == post.categories.length -1
-                            |##{tag.name}
-                        else
-                            |##{tag.name},
-
-        p
-            !{post.content.extended}
+    div.post__metadata
+      span
+        | Published #{moment(post.publishedDate).format('DD MMMM YYYY')}
+      span
+        | - covering topics like
+      ul
+        each tag, index in post.categories
+          li
+            if index == post.categories.length - 1
+              |##{tag.name}
+            else
+              |##{tag.name},
+    p
+      !{post.content.extended}
 
 block content
-  .row.section--title
-    .twelve.columns.centered
+  .row.title--page
+    .twelve.columns
       .tiles--scripted
         i
-          | e
-        i
-          | r
-        i
-          | b
+          | a
   .row
     .twelve.columns.centered
       .container: .row

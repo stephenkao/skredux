@@ -96,3 +96,7 @@ $dropshadow-color: #f0f0f0;
 		box-shadow: none;
 	}
 }
+
+.rhythmic {
+	@include margin-trailer(2);
+}

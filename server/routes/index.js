@@ -15,20 +15,20 @@
     keystone.pre('routes', middleware.initLocals);
     keystone.pre('render', middleware.flashMessages);
 
-	// Handle 404 errors
-	keystone.set('404', function(req, res, next) {
-		res.notfound();
-	});
+        // Handle 404 errors
+        keystone.set('404', function(req, res, next) {
+                res.notfound();
+        });
 
-	// Handle other errors
-	keystone.set('500', function(err, req, res, next) {
-		var title, message;
-		if (err instanceof Error) {
-			message = err.message;
-			err = err.stack;
-		}
-		res.err(err, title, message);
-	});
+        // Handle other errors
+        keystone.set('500', function(err, req, res, next) {
+                var title, message;
+                if (err instanceof Error) {
+                        message = err.message;
+                        err = err.stack;
+                }
+                res.err(err, title, message);
+        });
 
     /**
      * A wrapper callback for when a Mongo error comes back
@@ -45,9 +45,10 @@
 
     // Retrievals
     exports = module.exports = function(app) {
-		// Views
+        // Views
         app.get(/^\/(index)?$/, views.index);
         app.get(/^\/(blog)?$/, views.blog);
+        app.get(/^\/(jobs)?$/, views.jobs);
 
         // AJAX
         app.get('/posts/latest', function (request, response) {

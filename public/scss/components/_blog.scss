@@ -1,21 +1,21 @@
-.blog {
+.blog,
+.jobs {
         .tiles--scripted {
                 i {
-		                @include fancytiles(3);
+		        @include fancytiles(1);
 
                         color: $header-font-color;
 
                         @media #{$large-up} {
-			                    font-size: 20vw;
-		                }
+			        font-size: 20vw;
+		        }
                 }
         }
 }
 
-.section--title {
-        border-bottom: 1.5px solid $header-font-color;
-        margin-top: 10rem;
-        margin-bottom: 10rem;
+.title--page {
+	@include margin-leader(8);
+	@include margin-trailer(6);
 }
 
 .post {

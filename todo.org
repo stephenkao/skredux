@@ -1,0 +1,26 @@
+* TODOs
+- [ ] Environment
+  - [ ] Auto start servers on startup (http://askubuntu.com/questions/814/how-to-run-scripts-on-start-up)
+  - [ ] Database snapshots (daily?)
+  - [ ] Auto-rotate logs (http://www.thegeekstuff.com/2010/07/logrotate-examples/)
+  - [ ] Mail server (https://help.ubuntu.com/community/MailServer)
+  - [ ] Error handling
+
+- [-] Server
+  - [ ] Clustering/recommendations
+  - [-] Views
+    - [X] Index
+    - [X] Blog
+    - [ ] Work
+  - [ ] Status script (daily emails?)
+  - [ ] Crawler
+  - [ ] API
+    - [ ] PostCategory
+      - [ ] Similarity/clustering
+
+- [ ] Client
+  - [ ] SVG
+    - [ ] 404 (迷路)
+    - [ ] Error page (禁)
+    - [ ] Social icons (Facebook, Twitter, Instagram, GitHub)
+  - [ ] Navigation bar (http://aquatilis.tv/)

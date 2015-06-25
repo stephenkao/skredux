@@ -5,98 +5,38 @@
 @import "settings";
 
 @import "fonts";
-
 @import "components/blog";
 
-.main-content {
-	@include padding-leader(1);
-}
-
-$dropshadow-spread: 2px;
-$dropshadow-color: #f0f0f0;
-
-.tiles--scripted {
-
-	// Overrides
-	a {
-		color: #666;
-	}
-
-	i {
-		@include fancytiles(4, 4, 1);
-		@extend %kaofont;
-
-		padding-top: 30px;
-
-		text-align: center;
-		font-size: 8em;
-		font-size: 50vw;
-		color: #bbb;
-
-		@media #{$large-up} {
-			font-size: 8em;
-			font-size: 10vw;
-		}
-	}
-
-	.rhythmic {
-		$highlight-width: 2px;
-		$highlight-time: 200ms;
-		$shadow-time: 800ms;
-
-		@include transition(box-shadow $shadow-time);
-
-		position: relative;
-
-		box-shadow: 0 0 40px 0 $white;
-
-		&:hover {
-			box-shadow: 0 1px 17px 0px $dropshadow-color;
-		}
-
-		&:before,
-		&:after {
-			@include transition(width, $highlight-time ease-out, height $highlight-time ease-out);
-
-			position: absolute;
-
-			left: 0;
-
-			content: "";
-			background-color: darken($dropshadow-color, 2%);
-		}
-		&:before {
-			width: 0%;
-			height: $highlight-width;
-
-			bottom: 0;
-		}
-		&:hover:before {
-			width: 100%;
-		}
-		&:after {
-			width: $highlight-width;
-			height: 0%;
-
-			top: 0;
-		}
-
-		&:hover:after {
-			height: 100%;
-		}
-	}
-}
-
-@-webkit-keyframes pulse {
-	from {
-		box-shadow: 0 0 40px 0 $dropshadow-color;
-	}
-	to {
-		box-shadow: 0 0 400px 0 $white;
-		box-shadow: none;
-	}
-}
-
-.row.rhythmic {
+.title--page {
 	@include margin-trailer(2);
+
+        overflow: hidden;
+
+        background-color: $black;
+
+        .icon {
+		width: auto;
+		padding: 20px;
+
+		font-size: 10vw;
+                border-radius: 50%;
+                box-shadow: 0 0 0 40px $white;
+		color: red;
+        }
+}
+
+.post {
+        @include margin-trailer(2);
+}
+
+.post__metadata {
+        @include font-size($small);
+
+        span,
+        ul,
+        li {
+                padding-right: 0.4em;
+
+                display: inline;
+        }
 }

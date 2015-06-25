@@ -1,5 +1,11 @@
 extends ../layouts/default
 
+block header
+  .title--page
+    .row
+      .twelve.columns
+        i.icon.icon--bo
+
 mixin post(post)
   article.post
     h2
@@ -21,11 +27,6 @@ mixin post(post)
       !{post.content.extended}
 
 block content
-  .row.title--page
-    .twelve.columns
-      .tiles--scripted
-        i
-          | a
   .row
     .twelve.columns.centered
       .container: .row

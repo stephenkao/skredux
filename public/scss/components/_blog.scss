@@ -12,25 +12,3 @@
                 }
         }
 }
-
-.title--page {
-	@include margin-leader(8);
-	@include margin-trailer(6);
-}
-
-.post {
-        margin-bottom: 4rem;
-}
-
-.post__metadata {
-
-        @include font-size($small);
-
-        span,
-        ul,
-        li {
-                padding-right: 0.4em;
-
-                display: inline;
-        }
-}

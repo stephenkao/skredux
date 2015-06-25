@@ -34,72 +34,108 @@
 	text-transform: none !important;
 	speak: none;
 	line-height: 1;
+
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-}
-
-.icon-bo:before {
-	content: "a";
-}
-.icon-chen:before {
-	content: "b";
-}
-.icon-ci:before {
-	content: "c";
-}
-.icon-dian:before {
-	content: "d";
-}
-.icon-gao:before {
-	content: "e";
-}
-.icon-gong:before {
-	content: "f";
-}
-.icon-hui:before {
-	content: "g";
-}
-.icon-ke:before {
-	content: "h";
-}
-.icon-ming:before {
-	content: "i";
-}
-.icon-nao:before {
-	content: "j";
-}
-.icon-niu:before {
-	content: "k";
-}
-.icon-shou:before {
-	content: "l";
-}
-.icon-shu:before {
-	content: "m";
-}
-.icon-wu:before {
-	content: "n";
-}
-.icon-xue:before {
-	content: "o";
-}
-.icon-ye:before {
-	content: "p";
-}
-.icon-yi:before {
-	content: "q";
-}
-.icon-yu:before {
-	content: "r";
-}
-.icon-yu2:before {
-	content: "s";
-}
-.icon-yue:before {
-	content: "t";
 }
 
 %kaofont {
 	font-family: "kaofont";
 	line-height: 1;
+}
+
+.icon--bo:before {
+	content: "\e600";
+}
+
+.icon--chen:before {
+	content: "\e601";
+}
+
+.icon--ci:before {
+	content: "\e602";
+}
+
+.icon--dian:before {
+	content: "\e603";
+}
+
+.icon--facebook:before {
+	content: "\e604";
+}
+
+.icon--gao:before {
+	content: "\e605";
+}
+
+.icon--gong:before {
+	content: "\e606";
+}
+
+.icon--hui:before {
+	content: "\e607";
+}
+
+.icon--instagram:before {
+	content: "\e608";
+}
+
+.icon--ke:before {
+	content: "\e609";
+}
+
+.icon--ming:before {
+	content: "\e60a";
+}
+
+.icon--nao:before {
+	content: "\e60b";
+}
+
+.icon--niu:before {
+	content: "\e60c";
+}
+
+.icon--shou:before {
+	content: "\e60d";
+}
+
+.icon--shu:before {
+	content: "\e60e";
+}
+
+.icon--twitter:before {
+	content: "\e60f";
+}
+
+.icon--wu:before {
+	content: "\e610";
+}
+
+.icon--xue:before {
+	content: "\e611";
+}
+
+.icon--ye:before {
+	content: "\e612";
+}
+
+.icon--yi:before {
+	content: "\e613";
+}
+
+.icon--yu:before {
+	content: "\e614";
+}
+
+.icon--yu2:before {
+	content: "\e615";
+}
+
+.icon--yue:before {
+	content: "\e616";
+}
+
+.icon--zhuan:before {
+	content: "\e617";
 }

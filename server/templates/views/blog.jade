@@ -7,6 +7,9 @@ block header
         i.icon.icon--bo
 
 mixin post(post)
+  if post.image.exists
+    img(style="width: 40vw; height: 40vw; border-radius: 50%; background-image: url('#{post._.image.fit(1200,1200)}')").image--main
+
   article.post
     h2
       | #{post.title}
@@ -14,17 +17,23 @@ mixin post(post)
     div.post__metadata
       span
         | Published #{moment(post.publishedDate).format('DD MMMM YYYY')}
-      span
-        | - covering topics like
-      ul
-        each tag, index in post.categories
-          li
-            if index == post.categories.length - 1
-              |##{tag.name}
-            else
-              |##{tag.name},
+
+      if post.categories.length
+        span
+          | - covering topics like
+        ul
+          each tag, index in post.categories
+            li
+              if index == post.categories.length - 1
+                |##{tag.name}
+              else
+                |##{tag.name},
+
     p
       !{post.content.extended}
+
+mixin separator
+  hr
 
 block content
   .row
@@ -39,6 +48,7 @@ block content
                   .blog
                       each post in data.posts.results
                           +post(post)
+                          +separator
 
                   h4 More to come!
 

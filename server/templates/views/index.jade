@@ -1,46 +1,35 @@
 extends ../layouts/default
 
+mixin separator
+  .separator
+    i.icon.icon--yi
+
+block header
+  .title--page
+    .row
+      .twelve.columns
+        i.icon.icon--shou
+
 block content
-  .row
-    .twelve.columns.centered
-      .tiles--scripted
-        i
-          | n
-        i
-          | i
-        i.rhythmic
-          a(href="/")
-            | r
-        i
-          | b
+  .emblem
+    i.icon.icon--gao
 
-        i.rhythmic
-          a(href="/education")
-            | o
-        i
-          | d
-        i
-          | j
-        i
-          | q
+  +separator
 
-        i
-          | m
-        i
-          | c
-        i.rhythmic
-          a(href="/blog")
-            | a
-        i
-          | h
-
-
-        i.rhythmic
-          a(href="/work")
-            | f
-        i
-          | s
-        i
-          | k
-        i
-          | t
+  .tiles
+    i.icon.icon--xue
+    i.icon.icon--dian
+    i.icon.icon--nao
+    i.icon.icon--yi
+    i.icon.icon--shu
+    i.icon.icon--ci
+    i.icon.icon--bo
+    i.icon.icon--ke
+    i.icon.icon--gong
+    i.icon.icon--yu2
+    i.icon.icon--niu
+    i.icon.icon--yue
+    i.icon.icon--wu
+    i.icon.icon--ming
+    i.icon.icon--yu
+    i.icon.icon--chen

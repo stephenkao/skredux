@@ -13,6 +13,7 @@
         overflow: hidden;
 
         background-color: $black;
+	text-align: center;
 
         .icon {
 		$icon-size: 20vw;
@@ -21,12 +22,12 @@
 		width: auto;
 		padding: $icon-spacing;
 		margin: -$icon-spacing 0;
-		margin-left: $icon-spacing;
+//		margin-left: $icon-spacing;
 
 		font-size: $icon-size;
                 border-radius: 50%;
 		box-shadow: 0 0 0 $icon-spacing $white;
-		color: red;
+		color: orangered;
         }
 }
 
@@ -37,12 +38,12 @@
 
 	text-align: center;
 
-	&:before {
-		$separator-height: 4px;
+	&:before,
+	&:after {
+		$separator-height: 50px;
 
 		width: 100%;
 		height: $separator-height;
-		margin-top: -$separator-height / 2;
 
 		position: absolute;
 		top: 50%;
@@ -53,12 +54,22 @@
 		content: "";
 	}
 
+	&:before {
+		margin-top: -80px;
+	}
+
+	&:after {
+		margin-top: 30px;
+	}
+
 	.icon {
 		$icon-size: 30vw;
+		$border-length: 10px;
 
-		border: 4px solid $black;
+		border: $border-length solid $black;
 
 		border-radius: 50%;
+		box-shadow: 0 0 0 $border-length $white;
 		font-size: $icon-size;
 		background-color: $white;
 		color: $black;
@@ -102,8 +113,19 @@
 	font-size: 8em;
 }
 
+.scroll {
+	border: 50px solid $black;
+	border-top: 0;
+	border-bottom: 0;
+	margin: 0 10%;
+}
+
 .post {
         @include margin-trailer(2);
+}
+
+.cozy--bottom {
+	margin-bottom: 0;
 }
 
 .post__metadata {

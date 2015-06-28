@@ -1,4 +1,5 @@
 extends ../layouts/default
+include ../mixins/separators
 
 block header
   .title--page
@@ -7,87 +8,83 @@ block header
         i.icon.icon--bo
 
 mixin post(post)
-  if post.image.exists
-    img(style="width: 40vw; height: 40vw; border-radius: 50%; background-image: url('#{post._.image.fit(1200,1200)}')").image--main
+  article.row.post
+    .twelve.columns
+      .scroll
+        .post__content
+          h2.post__title
+            | #{post.title}
 
-  article.post
-    h2
-      | #{post.title}
+          div.post__metadata
+            span
+              | Published #{moment(post.publishedDate).format('DD MMMM YYYY')}
 
-    div.post__metadata
-      span
-        | Published #{moment(post.publishedDate).format('DD MMMM YYYY')}
+            if post.categories.length
+              span
+                | - covering topics like
+              ul
+                each tag, index in post.categories
+                  li
+                    if index == post.categories.length - 1
+                      |##{tag.name}
+                    else
+                      |##{tag.name},
 
-      if post.categories.length
-        span
-          | - covering topics like
-        ul
-          each tag, index in post.categories
-            li
-              if index == post.categories.length - 1
-                |##{tag.name}
-              else
-                |##{tag.name},
+          if post.image.exists
+            .emblem.full-bleed
+              img(style="width: 30vw; height: 30vw; border-radius: 50%; background-image: url('#{post._.image.fit(1200,1200)}')").image.image--main
 
-    p
-      !{post.content.extended}
-
-mixin separator
-  hr
+          p
+            !{post.content.extended}
 
 block content
-  .row
-    .twelve.columns.centered
-      .container: .row
-        .col-sm-8.col-md-9
-          if filters.category && !data.category
-              h3.text-muted Invalid Category.
-          else
-              if data.posts.results.length
+  if filters.category && !data.category
+      h3.text-muted Invalid Category.
+  else
+      if data.posts.results.length
 
-                  .blog
-                      each post in data.posts.results
-                          +post(post)
-                          +separator
+          .blog
+            +separator(true)
+            each post in data.posts.results
+              +post(post)
+              +separator(true)
 
-                  h4 More to come!
-
-                    //- if data.posts.totalPages > 1
-                    //-     h4.text-weight-normal Showing
-                    //-         strong #{data.posts.first}
-                    //-         |  to
-                    //-         strong #{data.posts.last}
-                    //-         |  of
-                    //-         strong #{data.posts.total}
-                    //-         |  posts.
-                    //- else
-                    //-     h4.text-weight-normal Showing #{utils.plural(data.posts.results.length, '* post')}.
+            //- if data.posts.totalPages > 1
+            //-     h4.text-weight-normal Showing
+            //-         strong #{data.posts.first}
+            //-         |  to
+            //-         strong #{data.posts.last}
+            //-         |  of
+            //-         strong #{data.posts.total}
+            //-         |  posts.
+            //- else
+            //-     h4.text-weight-normal Showing #{utils.plural(data.posts.results.length, '* post')}.
 
 
-                    //- if data.posts.totalPages > 1
-                    //-     ul.pagination
-                    //-         if data.posts.previous
-                    //-             li: a(href='?page=' + data.posts.previous): span.glyphicon.glyphicon-chevron-left
-                    //-         else
-                    //-             li.disabled: a(href='?page=' + 1): span.glyphicon.glyphicon-chevron-left
-                    //-         each p, i in data.posts.pages
-                    //-             li(class=data.posts.currentPage == p ? 'active' : null)
-                    //-                 a(href='?page=' + (p == '...' ? (i ? data.posts.totalPages : 1) : p ))= p
-                    //-         if data.posts.next
-                    //-             li: a(href='?page=' + data.posts.next): span.glyphicon.glyphicon-chevron-right
-                    //-         else
-                    //-             li.disabled: a(href='?page=' + data.posts.totalPages): span.entypo.glyphicon.glyphicon-chevron-right
+            //- if data.posts.totalPages > 1
+            //-     ul.pagination
+            //-         if data.posts.previous
+            //-             li: a(href='?page=' + data.posts.previous): span.glyphicon.glyphicon-chevron-left
+            //-         else
+            //-             li.disabled: a(href='?page=' + 1): span.glyphicon.glyphicon-chevron-left
+            //-         each p, i in data.posts.pages
+            //-             li(class=data.posts.currentPage == p ? 'active' : null)
+            //-                 a(href='?page=' + (p == '...' ? (i ? data.posts.totalPages : 1) : p ))= p
+            //-         if data.posts.next
+            //-             li: a(href='?page=' + data.posts.next): span.glyphicon.glyphicon-chevron-right
+            //-         else
+            //-             li.disabled: a(href='?page=' + data.posts.totalPages): span.entypo.glyphicon.glyphicon-chevron-right
 
-                else
-                    if data.category
-                        h3.text-muted There are no posts in the category #{data.category.name}.
-                    else
-                        h3.text-muted There are no posts yet.
+        else
+            if data.category
+                h3.text-muted There are no posts in the category #{data.category.name}.
+            else
+                h3.text-muted There are no posts yet.
 
-        //- if data.categories.length
-        //-     .col-sm-4.col-md-3
-        //-         h2 Categories
-        //-         .list-group(style='margin-top: 70px;')
-        //-             a(href='/blog', class=!data.category ? 'active' : false).list-group-item All Categories
-        //-             each cat in data.categories
-        //-                 a(href='/blog/' + cat.key, class=data.category && data.category.id == cat.id ? 'active' : false).list-group-item= cat.name
+//- if data.categories.length
+//-     .col-sm-4.col-md-3
+//-         h2 Categories
+//-         .list-group(style='margin-top: 70px;')
+//-             a(href='/blog', class=!data.category ? 'active' : false).list-group-item All Categories
+//-             each cat in data.categories
+//-                 a(href='/blog/' + cat.key, class=data.category && data.category.id == cat.id ? 'active' : false).list-group-item= cat.name

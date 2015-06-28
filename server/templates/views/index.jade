@@ -1,8 +1,5 @@
 extends ../layouts/default
-
-mixin separator(cozy)
-  div(class=cozy ? "separator cozy--bottom" : "separator")
-    i.icon.icon--yi
+include ../mixins/separators
 
 block header
   .title--page
@@ -11,27 +8,39 @@ block header
         i.icon.icon--shou
 
 block content
+
   .emblem
     i.icon.icon--gao
 
+  h1.header--page="welcome"
+
   +separator(true)
 
-  .tiles.scroll
-    i.icon.icon--xue
-    i.icon.icon--dian
-    i.icon.icon--nao
-    i.icon.icon--yi
-    i.icon.icon--shu
-    i.icon.icon--ci
-    i.icon.icon--bo
-    i.icon.icon--ke
-    i.icon.icon--gong
-    i.icon.icon--yu2
-    i.icon.icon--niu
-    i.icon.icon--yue
-    i.icon.icon--wu
-    i.icon.icon--ming
-    i.icon.icon--yu
-    i.icon.icon--chen
+  .row
+    .twelve.columns
+      .tiles.scroll
+        a(href="/education")
+          i.icon.icon--xue
+        i.icon.icon--dian
+        i.icon.icon--nao
+        i.icon.icon--yi
+
+        a(href="/blog")
+          i.icon.icon--shu
+        i.icon.icon--ci
+        i.icon.icon--bo
+        i.icon.icon--ke
+
+        a(href="/work")
+          i.icon.icon--gong
+        i.icon.icon--yu2
+        i.icon.icon--niu
+        i.icon.icon--yue
+
+        a(href="/")
+          i.icon.icon--wu
+        i.icon.icon--ming
+        i.icon.icon--yu
+        i.icon.icon--chen
 
   +separator(true)

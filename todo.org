@@ -24,3 +24,6 @@
     - [ ] Error page (禁)
     - [ ] Social icons (Facebook, Twitter, Instagram, GitHub)
   - [ ] Navigation bar (http://aquatilis.tv/)
+
+- [ ] Ideas
+  - [ ] Crawl a website and use Vibrant.js (https://github.com/jariz/vibrant.js/blob/master/src/Vibrant.coffee) to cluster dominant image colors

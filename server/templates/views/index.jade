@@ -1,6 +1,19 @@
 extends ../layouts/default
 include ../mixins/separators
 
+mixin trigram
+  - var n = 0
+  .trigram
+    while n < 3
+      if n == 0 || n == 2
+        +trigram-line(true)
+      else
+        +trigram-line
+      - n++
+
+mixin trigram-line(yin)
+  div(class=yin ? "trigram__line trigram__line--yin" : "trigram__line")
+
 block header
   .title--page
     .row
@@ -9,38 +22,14 @@ block header
 
 block content
 
-  .emblem
-    i.icon.icon--gao
-
-  h1.header--page="welcome"
-
-  +separator(true)
-
-  .row
-    .twelve.columns
-      .tiles.scroll
-        a(href="/education")
-          i.icon.icon--xue
-        i.icon.icon--dian
-        i.icon.icon--nao
-        i.icon.icon--yi
-
-        a(href="/blog")
-          i.icon.icon--shu
-        i.icon.icon--ci
-        i.icon.icon--bo
-        i.icon.icon--ke
-
-        a(href="/work")
-          i.icon.icon--gong
-        i.icon.icon--yu2
-        i.icon.icon--niu
-        i.icon.icon--yue
-
-        a(href="/")
-          i.icon.icon--wu
-        i.icon.icon--ming
-        i.icon.icon--yu
-        i.icon.icon--chen
-
-  +separator(true)
+  .baguajing
+    .baguajing__outer
+      .baguajing__inner
+        +trigram
+        +trigram
+        +trigram
+        +trigram
+        +trigram
+        +trigram
+        +trigram
+        +trigram

@@ -5,187 +5,86 @@
 @import "settings";
 
 @import "fonts";
-@import "components/blog";
 
-$footer-height: 60px;
-$rhythm-unit: "rem";
+$border-length: 10px;
+$trigram-line-height: 1px;
+$trigram-margin-bottom: 10 * $trigram-line-height;
+$trigram-height: 3 * ($trigram-line-height + $trigram-margin-bottom);
 
-$scroll-gutter: 50px;
-
-.main {
-        padding-bottom: $footer-height;
+.trigram__line {
+        height: $trigram-line-height;
+        margin: 0 auto;
+        margin-bottom: $trigram-margin-bottom;
 
         position: relative;
-}
+        z-index: 10;
 
-.footer {
-        width: 100%;
-
-        position: absolute;
-        bottom: 0;
-
-        text-align: right;
-}
-
-.footer__label {
-        width: 100px;
-
-        opacity: 0.1;
-}
-
-.title--page {
-        @include margin-trailer(8);
-
-        overflow: hidden;
-
-        text-align: center;
-        background-color: $black;
-
-        .icon {
-                $icon-size: 20vw;
-                $icon-spacing: $icon-size / 5;
-
-                width: auto;
-                padding: $icon-spacing;
-                margin: -$icon-spacing 0;
-                //      margin-left: $icon-spacing;
-
-                font-size: $icon-size;
-                border-radius: 50%;
-                box-shadow: 0 0 0 $icon-spacing $white;
-                color: orangered;
+        @for $i from 1 through 3 {
+                &:nth-child(#{$i}) {
+                        width: (34% * $i);
+                }
         }
-}
-
-.emblem {
-        position: relative;
-
-        text-align: center;
 
         &:before,
         &:after {
-                width: 100%;
-                height: $scroll-gutter;
+                @include transition(width 200ms);
+
+                width: 50%;
+                height: $trigram-line-height;
 
                 position: absolute;
-                top: 50%;
-                left: 0;
-                z-index: -10;
+                z-index: 15;
 
                 background-color: $black;
                 content: "";
         }
 
         &:before {
-                margin-top: -80px;
+                left: 0;
         }
 
         &:after {
-                margin-top: 30px;
-        }
-
-        .icon,
-        .image {
-                $icon-size: 30vw;
-                $border-length: 10px;
-
-                padding: 0.1em;
-                border: $border-length solid $black;
-
-                border-radius: 50%;
-                box-shadow: 0 0 0 $border-length $white;
-                font-size: $icon-size;
-                background-color: $white;
-                color: $black;
+                right: 0;
         }
 }
 
-.header--page {
-        @include margin-trailer(8);
-
-        text-align: center;
+.trigram__line--yin {
+        &:before,
+        &:after {
+                width: 40%;
+        }
 }
 
-.separator {
-        @include margin-trailer(4);
+.baguajing {
+        $num-sides: 8;
+        $theta: 360 / $num-sides;
+        $baguajing-diameter: 500px;
+
+        $trigram-width: $baguajing-diameter / 5; // @TODO: Arbitrary
+        $trigram-delta: $baguajing-diameter/ 2; // @TODO: Arbitrary
+
+        width: $baguajing-diameter;
+        height: $baguajing-diameter;
+        margin: 0 auto;
 
         position: relative;
 
-        background-color: $black;
-        text-align: center;
-
-        &:after {
-                width: 100%;
-                height: 1px;
+        .trigram {
+                width: $trigram-width;
+                margin-left: -$trigram-width / 2;
+                margin-top: - $trigram-height / 2;
 
                 position: absolute;
+                left: 50%;
                 top: 50%;
-                left: 0;
-
-                background-color: white;
-                content: "";
         }
 
-        .icon {
-                border-radius: 50%;
-                box-shadow: 0 0 0 20px $white;
-                color: $white;
-                font-size: 80px;
-        }
-}
+        @for $i from 1 through $num-sides {
+                $deg: ($i - 1) * $theta;
 
-.tiles .icon {
-        @include fancytiles(4, 4, 1);
-        @include margin-leader(1);
-        @include margin-trailer(1);
+                .trigram:nth-child(#{$i}) {
 
-        margin-right: 0;
-        margin-left: 0;
-
-        font-size: 8em;
-}
-
-.scroll {
-        border: $scroll-gutter solid $black;
-        border-top: 0;
-        border-bottom: 0;
-}
-
-$post-gutter: 2em;
-.full-bleed {
-        margin-left: -$post-gutter;
-        margin-right: -$post-gutter;
-}
-
-.cozy--bottom {
-        margin-bottom: 0;
-}
-
-.post__content {
-        @include padding-trailer(2);
-
-        padding-left: $post-gutter;
-        padding-right: $post-gutter;
-}
-
-.post__title,
-.post__metadata {
-        text-align: center;
-}
-
-.post__title {
-        @include padding-leader(2);
-}
-
-.post__metadata {
-        @include font-size($small);
-        @include padding-trailer(2);
-
-        span,
-        ul,
-        li {
-                padding-right: 0.4em;
-
-                display: inline;
+                        @include transform(rotate(#{$deg}deg) translate3d(0, #{$trigram-delta}, 0));
+        	}
         }
 }

@@ -7,9 +7,29 @@
 @import "fonts";
 
 $border-length: 10px;
+
+// Bagua dimensions
+$num-sides: 8;
+$diameter--outer: 500px;
+$diameter--inner: 300px;
+$theta: 360 / $num-sides;
+
+// Trigram dimensions
+$trigram-width: $diameter--outer / 4; // @TODO: Arbitrary
+$icon-width--bagua: $trigram-width / 2;
+$icon-width--featured: $trigram-width / 2;
 $trigram-line-height: 1px;
 $trigram-margin-bottom: 10 * $trigram-line-height;
-$trigram-height: 3 * ($trigram-line-height + $trigram-margin-bottom);
+$trigram-height: 3 * ($trigram-line-height + $trigram-margin-bottom) + $icon-width--bagua;
+$trigram-delta: $diameter--inner - 1.5 * $trigram-height;
+
+.trigram {
+        text-align: center;
+
+        &.active .icon {
+                @include transform(translateY(-130px) scale(3));
+        }
+}
 
 .trigram__line {
         height: $trigram-line-height;
@@ -20,8 +40,8 @@ $trigram-height: 3 * ($trigram-line-height + $trigram-margin-bottom);
         z-index: 10;
 
         @for $i from 1 through 3 {
-                &:nth-child(#{$i}) {
-                        width: (34% * $i);
+                &:nth-of-type(#{$i}) {
+                        width: (30% * $i);
                 }
         }
 
@@ -56,23 +76,19 @@ $trigram-height: 3 * ($trigram-line-height + $trigram-margin-bottom);
 }
 
 .baguajing {
-        $num-sides: 8;
-        $theta: 360 / $num-sides;
-        $baguajing-diameter: 500px;
+        @include transition(transform 200ms);
 
-        $trigram-width: $baguajing-diameter / 5; // @TODO: Arbitrary
-        $trigram-delta: $baguajing-diameter/ 2; // @TODO: Arbitrary
-
-        width: $baguajing-diameter;
-        height: $baguajing-diameter;
+        width: $diameter--outer;
+        height: $diameter--outer;
         margin: 0 auto;
 
         position: relative;
 
         .trigram {
                 width: $trigram-width;
+                height: $trigram-height;
                 margin-left: -$trigram-width / 2;
-                margin-top: - $trigram-height / 2;
+                margin-top: -$trigram-height / 2;
 
                 position: absolute;
                 left: 50%;
@@ -82,9 +98,20 @@ $trigram-height: 3 * ($trigram-line-height + $trigram-margin-bottom);
         @for $i from 1 through $num-sides {
                 $deg: ($i - 1) * $theta;
 
-                .trigram:nth-child(#{$i}) {
+                &.spun--#{$i} {
+                        @include transform(rotate(-#{$deg}deg));
+                }
 
+                .trigram:nth-child(#{$i}) {
                         @include transform(rotate(#{$deg}deg) translate3d(0, #{$trigram-delta}, 0));
         	}
+        }
+
+        .icon {
+                width: $icon-width--bagua;
+                height: $icon-width--bagua;
+
+                font-size: $icon-width--bagua;
+                color: $black;
         }
 }

@@ -15,6 +15,7 @@
     keystone.pre('routes', middleware.initLocals);
     keystone.pre('render', middleware.flashMessages);
 
+/*
     // Handle 404 errors
     keystone.set('404', function(req, res, next) {
 //        res.notfound();
@@ -31,6 +32,7 @@
 //        res.err(err, title, message);
         res.send(500);
     });
+*/
 
     /**
      * A wrapper callback for when a Mongo error comes back

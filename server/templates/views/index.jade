@@ -1,9 +1,10 @@
 extends ../layouts/default
 include ../mixins/separators
 
-mixin trigram
+mixin trigram(type)
   - var n = 0
-  .trigram
+  div(class=(type == "yu") ? "trigram active" : "trigram")
+    i(class="icon icon--#{type}")
     while n < 3
       if n == 0 || n == 2
         +trigram-line(true)
@@ -21,15 +22,14 @@ block header
         i.icon.icon--shou
 
 block content
-
   .baguajing
     .baguajing__outer
       .baguajing__inner
-        +trigram
-        +trigram
-        +trigram
-        +trigram
-        +trigram
-        +trigram
-        +trigram
-        +trigram
+        +trigram("yu").active
+        +trigram("shou")
+        +trigram("bo")
+        +trigram("gong")
+        +trigram("xue")
+        +trigram("shou")
+        +trigram("bo")
+        +trigram("gong")

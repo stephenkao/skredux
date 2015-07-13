@@ -1,33 +1,34 @@
-@import "lib/gumby/gumby";
-@import "compass";
-@import "compass/css3/transition";
-
 @import "settings";
 
 @import "fonts";
+
+* {
+        box-sizing: border-box;
+}
 
 $border-length: 10px;
 
 // Bagua dimensions
 $num-sides: 8;
-$diameter--outer: 500px;
-$diameter--inner: 300px;
+$diameter--outer: 600px;
+$diameter--inner: 350px;
 $theta: 360 / $num-sides;
 
 // Trigram dimensions
 $trigram-width: $diameter--outer / 4; // @TODO: Arbitrary
 $icon-width--bagua: $trigram-width / 2;
 $icon-width--featured: $trigram-width / 2;
+
 $trigram-line-height: 1px;
 $trigram-margin-bottom: 10 * $trigram-line-height;
-$trigram-height: 3 * ($trigram-line-height + $trigram-margin-bottom) + $icon-width--bagua;
-$trigram-delta: $diameter--inner - 1.5 * $trigram-height;
+$trigram-height: 4 * ($trigram-line-height + $trigram-margin-bottom) + $icon-width--bagua;
+$trigram-delta: $diameter--inner - $trigram-height;
 
 .trigram {
         text-align: center;
 
         &.active .icon {
-                @include transform(translateY(-130px) scale(3));
+                transform: translateY(-130px) scale(3);
         }
 }
 
@@ -47,15 +48,14 @@ $trigram-delta: $diameter--inner - 1.5 * $trigram-height;
 
         &:before,
         &:after {
-                @include transition(width 200ms);
-
                 width: 50%;
                 height: $trigram-line-height;
 
                 position: absolute;
                 z-index: 15;
 
-                background-color: $black;
+                transition: width 200ms;
+                background-color: black;
                 content: "";
         }
 
@@ -75,14 +75,21 @@ $trigram-delta: $diameter--inner - 1.5 * $trigram-height;
         }
 }
 
-.baguajing {
-        @include transition(transform 200ms);
+.baguajing__outer,
+.baguajing__inner {
+        border: $border-length solid black;
 
+        border-radius: 50%;
+}
+
+.baguajing {
         width: $diameter--outer;
         height: $diameter--outer;
         margin: 0 auto;
 
         position: relative;
+
+        transition: transform 200ms;
 
         .trigram {
                 width: $trigram-width;
@@ -99,12 +106,12 @@ $trigram-delta: $diameter--inner - 1.5 * $trigram-height;
                 $deg: ($i - 1) * $theta;
 
                 &.spun--#{$i} {
-                        @include transform(rotate(-#{$deg}deg));
+                        transform: rotate(-#{$deg}deg);
                 }
 
                 .trigram:nth-child(#{$i}) {
-                        @include transform(rotate(#{$deg}deg) translate3d(0, #{$trigram-delta}, 0));
-        	}
+                        transform: rotate(#{$deg}deg) translate3d(0, #{$trigram-delta}, 0);
+        	    }
         }
 
         .icon {
@@ -112,6 +119,24 @@ $trigram-delta: $diameter--inner - 1.5 * $trigram-height;
                 height: $icon-width--bagua;
 
                 font-size: $icon-width--bagua;
-                color: $black;
+                color: black;
         }
+}
+
+.baguajing__outer {
+        width: $diameter--outer;
+        height: $diameter--outer;
+
+        position: relative;
+}
+
+.baguajing__inner {
+        width: $diameter--inner;
+        height: $diameter--inner;
+        margin-left: -$diameter--inner / 2;
+        margin-top: -$diameter--inner / 2;
+
+        position: absolute;
+        left: 50%;
+        top: 50%;
 }

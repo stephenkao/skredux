@@ -24,7 +24,8 @@ gulp.task('css:dev', function () {
         .pipe(plugins.autoprefixer({ browsers: ['last 2 version', 'Firefox < 20', '> 5%'] }))
         .pipe(gulp.dest('target/css/'))
         .pipe(plugins.notify({
-            message: 'CSS compiled',
+            title: 'css:dev',
+            message: 'CSS compiled successfully',
             wait: true
         }));
 

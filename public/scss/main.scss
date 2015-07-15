@@ -3,140 +3,181 @@
 @import "fonts";
 
 * {
-        box-sizing: border-box;
+    box-sizing: border-box;
 }
 
-$border-length: 10px;
+body {
+    margin: 0;
+}
 
-// Bagua dimensions
+$border-width--primary: 10px;
+$border-width--secondary: 4px;
+
 $num-sides: 8;
 $diameter--outer: 600px;
-$diameter--inner: 350px;
+$diameter--inner: 300px;
+$diameter-delta: $diameter--outer - $diameter--inner - $border-width--primary - $border-width--secondary;
 $theta: 360 / $num-sides;
 
-// Trigram dimensions
 $trigram-width: $diameter--outer / 4; // @TODO: Arbitrary
-$icon-width--bagua: $trigram-width / 2;
-$icon-width--featured: $trigram-width / 2;
+$trigram-line-height: 10px;
+$trigram-margin-bottom: 10px;
+$trigram-total-height: (3 * $trigram-line-height) + (4 * $trigram-margin-bottom);
+$gua-height: ($diameter-delta / 2);
+$icon-height: $gua-height - $trigram-total-height - $trigram-margin-bottom;
+$trigram-delta: $diameter--inner - $gua-height;
 
-$trigram-line-height: 1px;
-$trigram-margin-bottom: 10 * $trigram-line-height;
-$trigram-height: 4 * ($trigram-line-height + $trigram-margin-bottom) + $icon-width--bagua;
-$trigram-delta: $diameter--inner - $trigram-height;
+$background-height: 640px;
 
 .trigram {
-        text-align: center;
-
-        &.active .icon {
-                transform: translateY(-130px) scale(3);
-        }
+    text-align: center;
 }
 
 .trigram__line {
+    width: 80%;
+    height: $trigram-line-height;
+    margin: 0 auto;
+    margin-bottom: $trigram-margin-bottom;
+
+    position: relative;
+    z-index: 10;
+
+    &:before,
+    &:after {
+        width: 50%;
         height: $trigram-line-height;
-        margin: 0 auto;
-        margin-bottom: $trigram-margin-bottom;
 
-        position: relative;
-        z-index: 10;
+        position: absolute;
+        z-index: 15;
 
-        @for $i from 1 through 3 {
-                &:nth-of-type(#{$i}) {
-                        width: (30% * $i);
-                }
-        }
+        transition: width 200ms;
+        background-color: #666;
+        content: "";
+    }
 
-        &:before,
-        &:after {
-                width: 50%;
-                height: $trigram-line-height;
+    &:before {
+        left: 0;
+    }
 
-                position: absolute;
-                z-index: 15;
-
-                transition: width 200ms;
-                background-color: black;
-                content: "";
-        }
-
-        &:before {
-                left: 0;
-        }
-
-        &:after {
-                right: 0;
-        }
+    &:after {
+        right: 0;
+    }
 }
 
 .trigram__line--yin {
-        &:before,
-        &:after {
-                width: 40%;
-        }
-}
-
-.baguajing__outer,
-.baguajing__inner {
-        border: $border-length solid black;
-
-        border-radius: 50%;
+    &:before,
+    &:after {
+        width: 40%;
+    }
 }
 
 .baguajing {
-        width: $diameter--outer;
-        height: $diameter--outer;
-        margin: 0 auto;
+    width: $diameter--outer;
+    height: $diameter--outer;
+    margin: 0 auto;
 
-        position: relative;
+    position: relative;
 
-        transition: transform 200ms;
+    transition: transform 200ms;
 
-        .trigram {
-                width: $trigram-width;
-                height: $trigram-height;
-                margin-left: -$trigram-width / 2;
-                margin-top: -$trigram-height / 2;
-
-                position: absolute;
-                left: 50%;
-                top: 50%;
-        }
-
-        @for $i from 1 through $num-sides {
-                $deg: ($i - 1) * $theta;
-
-                &.spun--#{$i} {
-                        transform: rotate(-#{$deg}deg);
-                }
-
-                .trigram:nth-child(#{$i}) {
-                        transform: rotate(#{$deg}deg) translate3d(0, #{$trigram-delta}, 0);
-        	    }
-        }
-
-        .icon {
-                width: $icon-width--bagua;
-                height: $icon-width--bagua;
-
-                font-size: $icon-width--bagua;
-                color: black;
-        }
-}
-
-.baguajing__outer {
-        width: $diameter--outer;
-        height: $diameter--outer;
-
-        position: relative;
-}
-
-.baguajing__inner {
-        width: $diameter--inner;
-        height: $diameter--inner;
-        margin-left: -$diameter--inner / 2;
-        margin-top: -$diameter--inner / 2;
+    .trigram {
+        width: $trigram-width;
+        height: $gua-height;
+        margin-left: -$trigram-width / 2;
+        margin-top: -$gua-height / 2;
 
         position: absolute;
         left: 50%;
         top: 50%;
+    }
+
+    @for $i from 1 through $num-sides {
+        $deg: ($i - 1) * $theta;
+
+        &.spun--#{$i} {
+            transform: rotate(-#{$deg}deg);
+        }
+
+        .trigram:nth-child(#{$i}) {
+            transform: rotate(#{$deg}deg) translate3d(0, #{$trigram-delta}, 0);
+        }
+    }
+
+    .icon {
+        width: $icon-height;
+        height: $icon-height;
+
+        font-size: $icon-height;
+        color: black;
+    }
+}
+
+@keyframes spin-clockwise {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin-counterclockwise {
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+.baguarings {
+    width: $diameter--outer;
+    height: $diameter--outer;
+    margin: 0 auto;
+
+    position: relative;
+    top: ($background-height - $diameter--outer) / 2;
+}
+
+.baguaring {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    border-radius: 50%;
+}
+
+.baguaring__outer {
+    width: $diameter--outer;
+    height: $diameter--outer;
+    border: $border-width--primary inset #888;
+    margin-left: -$diameter--outer / 2;
+    margin-top: -$diameter--outer / 2;
+
+    animation: spin-clockwise 40000ms linear infinite;
+}
+
+.baguaring__inner {
+    width: $diameter--inner;
+    height: $diameter--inner;
+    border: $border-width--secondary outset #666;
+    margin-left: -$diameter--inner / 2;
+    margin-top: -$diameter--inner / 2;
+
+    animation: spin-counterclockwise 20000ms linear infinite;
+}
+
+.tapestry {
+    width: 100%;
+    height: $background-height;
+
+    position: absolute;
+
+    background-image: url('/target/svg/zhuan-ji.svg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    opacity: 0.1;
+}
+
+.division.navigation {
+    height: $background-height;
+}
+
+.division {
+    border-bottom: $border-width--primary solid black;
 }

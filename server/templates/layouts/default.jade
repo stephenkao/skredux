@@ -40,11 +40,6 @@ html
 
   //- HTML BODY
   body
-    .container: #navigation
-
-    .container: #header
-      block header
-
     .main(class="#{section}")
       //- The Intro block appears above flash messages (used for temporary information display)
       block intro
@@ -60,6 +55,6 @@ html
       //-   img.footer__label(src="target/image/gaoyuchen.png")
 
 
-    script(data-main="public/javascripts/main", src="public/javascripts/lib/require.js")
+    script(data-main="public/javascript/main", src="public/javascript/lib/require.js")
 
 block js

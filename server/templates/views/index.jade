@@ -15,17 +15,15 @@ mixin trigram(type)
 mixin trigram-line(yin)
   div(class=yin ? "trigram__line trigram__line--yin" : "trigram__line")
 
-block header
-  .title--page
-    .row
-      .twelve.columns
-        i.icon.icon--shou
-
 block content
-  .baguajing
-    .baguajing__outer
-      .baguajing__inner
-        +trigram("yu").active
+  .division.navigation
+    .tapestry
+
+    .baguarings
+      .baguaring.baguaring__outer
+      .baguaring.baguaring__inner
+      .baguajing
+        +trigram("yu")
         +trigram("shou")
         +trigram("bo")
         +trigram("gong")
@@ -33,3 +31,15 @@ block content
         +trigram("shou")
         +trigram("bo")
         +trigram("gong")
+
+  .division
+    .icon.icon--wu
+    .icon.icon--wu
+    .icon.icon--wu
+    .icon.icon--wu
+
+  .division
+    p
+      | Stephen Kao is an award-winning* insomniac who has constant anxiety attacks about where his cat pees.
+
+  .division

@@ -1,19 +1,20 @@
 extends ../layouts/default
 include ../mixins/separators
 
-mixin trigram(type)
+mixin yao(type)
   - var n = 0
-  div(class=(type == "yu") ? "trigram active" : "trigram")
-    i(class="icon icon--#{type}")
+  div.yao
+    //- i(class="icon icon--#{type}")
+
     while n < 3
       if n == 0 || n == 2
-        +trigram-line(true)
+        +yao-line(true)
       else
-        +trigram-line
+        +yao-line
       - n++
 
-mixin trigram-line(yin)
-  div(class=yin ? "trigram__line trigram__line--yin" : "trigram__line")
+mixin yao-line(yin)
+  div(class=yin ? "yao__line yao__line--yin" : "yao__line")
 
 block content
   .division.navigation
@@ -21,25 +22,34 @@ block content
 
     .baguarings
       .baguaring.baguaring__outer
+
       .baguaring.baguaring__inner
+
       .baguajing
-        +trigram("yu")
-        +trigram("shou")
-        +trigram("bo")
-        +trigram("gong")
-        +trigram("xue")
-        +trigram("shou")
-        +trigram("bo")
-        +trigram("gong")
+        +yao("yu")
+        +yao("shou")
+        +yao("bo")
+        +yao("gong")
+        +yao("xue")
+        +yao("shou")
+        +yao("bo")
+        +yao("gong")
+
+      .mirror
+        .icon.icon--yu
+
+  .division.poop
+    .target.current
+      .icon.icon--yu
+    .target
+      .icon.icon--xue
+    .target
+      .icon.icon--gong
+    .target
+      .icon.icon--bo
 
   .division
-    .icon.icon--wu
-    .icon.icon--wu
-    .icon.icon--wu
-    .icon.icon--wu
-
-  .division
-    p
+    h2(style="text-align: center")
       | Stephen Kao is an award-winning* insomniac who has constant anxiety attacks about where his cat pees.
 
   .division

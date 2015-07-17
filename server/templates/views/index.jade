@@ -1,42 +1,32 @@
 extends ../layouts/default
 include ../mixins/separators
 
-mixin yao(type)
-  - var n = 0
-  div.yao
-    //- i(class="icon icon--#{type}")
-
+mixin gua(index)
+  - var allYao = [ [0, 0, 0], [1, 0, 0], [1, 0, 1], [1, 1, 0], [1, 1, 1], [0, 1, 1], [0, 1, 0], [0, 0, 1] ]
+  .gua
+    - var yaos = allYao[index], n = 0
     while n < 3
-      if n == 0 || n == 2
-        +yao-line(true)
-      else
-        +yao-line
+      div(class=yaos[n] ? "yao yao--yin" : "yao")
       - n++
-
-mixin yao-line(yin)
-  div(class=yin ? "yao__line yao__line--yin" : "yao__line")
 
 block content
   .division.navigation
-    .tapestry
-
     .baguarings
       .baguaring.baguaring__outer
-
       .baguaring.baguaring__inner
-
       .baguajing
-        +yao("yu")
-        +yao("shou")
-        +yao("bo")
-        +yao("gong")
-        +yao("xue")
-        +yao("shou")
-        +yao("bo")
-        +yao("gong")
+        - var i = 0
+        while i < 8
+          +gua(i)
+          - i++
 
-      .mirror
-        .icon.icon--yu
+  .division
+    h1(style="text-align: center; padding: 40px;")
+      | welcome to this thing <br /> make yourself at home <br /> and also— <br /> well, never mind
+
+  .division
+    h2(style="text-align: center")
+      | stephen kao is an award-winning* insomniac who has constant anxiety attacks about where his cat pees.
 
   .division.poop
     .target.current
@@ -48,8 +38,9 @@ block content
     .target
       .icon.icon--bo
 
+  .division.navigation
+    .tapestry
+
   .division
-    h2(style="text-align: center")
-      | Stephen Kao is an award-winning* insomniac who has constant anxiety attacks about where his cat pees.
 
   .division

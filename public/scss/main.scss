@@ -1,10 +1,8 @@
-@import "settings";
-
-@import "fonts";
 @import url('http://fonts.googleapis.com/css?family=Merriweather:400italic,400,300italic,300|Oxygen:400,300');
 
-$font--primary: 'Oxygen', sans-serif;
-$font--secondary: 'Merriweather', serif;
+@import "settings";
+@import "fonts";
+@import "animations";
 
 %font--primary {
     font-family: $font--primary;
@@ -20,88 +18,18 @@ h1, h2, h3, h4, h5, h6 {
     @extend %font--primary;
 }
 
-@keyframes spin-clockwise {
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes spin-counterclockwise {
-    100% {
-        transform: rotate(-360deg);
-    }
-}
-
-@keyframes pop-up {
-    0% {
-        transform: scale(1);
-    }
-
-    20% {
-        transform: scale(0.9);
-    }
-
-    50% {
-        transform: scale(1.5);
-    }
-
-    100% {
-        transform: scale(1);
-    }
-}
-
-@keyframes zoom-out {
-    0% {
-        transform: scale(3);
-    }
-
-    100% {
-        transform: scale(1);
-    }
-}
-
-@keyframes fade-in {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 0.1;
-    }
-}
-
 * {
     box-sizing: border-box;
 }
 
+html,
 body {
     margin: 0;
+
+    overflow-x: hidden;
 }
-
-$border-width--primary: 4px;
-$border-width--secondary: 4px;
-
-$num-sides: 8;
-$diameter--outer: 600px;
-$diameter--inner: 300px;
-$diameter-delta: $diameter--outer - $diameter--inner - $border-width--primary - $border-width--secondary;
-$theta: 360 / $num-sides;
-
-$yao-width: $diameter--outer / 4; // @TODO: Arbitrary
-$yao-line-height: 4px;
-$yao-margin-bottom: 10px;
-$yao-total-height: (3 * $yao-line-height) + (4 * $yao-margin-bottom);
-$gua-height: ($diameter-delta / 2);
-$icon-height: $gua-height - $yao-total-height - $yao-margin-bottom;
-$yao-delta: $diameter--inner - $gua-height;
-
-$background-height: 640px;
 
 .yao {
-    text-align: center;
-}
-
-.yao__line {
     width: 80%;
     height: $yao-line-height;
     margin: 0 auto;
@@ -119,7 +47,7 @@ $background-height: 640px;
         z-index: 15;
 
         transition: width 200ms;
-        background-color: #666;
+        background-color: #bbbbbb;
         content: "";
     }
 
@@ -132,7 +60,7 @@ $background-height: 640px;
     }
 }
 
-.yao__line--yin {
+.yao--yin {
     &:before,
     &:after {
         width: 40%;
@@ -148,8 +76,10 @@ $background-height: 640px;
 
     position: relative;
     top: ($background-height - $diameter--outer) / 2;
+//    top: -$diameter--outer / 2;
 
     animation: pop-up nth($durations, 1) 200ms, spin-counterclockwise nth($durations, 2) nth($durations, 1);
+    //    animation: spin-counterclockwise nth($durations, 2) nth($durations, 1);
 }
 
 .baguaring {
@@ -163,7 +93,7 @@ $background-height: 640px;
 .baguaring__outer {
     width: $diameter--outer;
     height: $diameter--outer;
-    border: $border-width--primary inset #888;
+    border: $border-width inset #888;
     margin-left: -$diameter--outer / 2;
     margin-top: -$diameter--outer / 2;
 
@@ -173,11 +103,9 @@ $background-height: 640px;
 .baguaring__inner {
     width: $diameter--inner;
     height: $diameter--inner;
-    border: $border-width--secondary outset #666;
+    border: $border-width outset #666;
     margin-left: -$diameter--inner / 2;
     margin-top: -$diameter--inner / 2;
-
-    background-color: white;
 
 //    animation: spin-counterclockwise 20000ms linear infinite;
 }
@@ -191,7 +119,7 @@ $background-height: 640px;
 
     transition: transform 200ms;
 
-    .yao {
+    .gua {
         width: $yao-width;
         height: $gua-height;
         margin-left: -$yao-width / 2;
@@ -205,21 +133,9 @@ $background-height: 640px;
     @for $i from 1 through $num-sides {
         $deg: ($i - 1) * $theta;
 
-        &.spun--#{$i} {
-            transform: rotate(-#{$deg}deg);
+        .gua:nth-child(#{$i}) {
+            transform: rotate(#{$deg}deg) translate3d(0, -#{$yao-delta + 100}, 0);
         }
-
-        .yao:nth-child(#{$i}) {
-            transform: rotate(#{$deg}deg) translate3d(0, #{$yao-delta + 120}, 0);
-        }
-    }
-
-    .icon {
-        width: $icon-height;
-        height: $icon-height;
-
-        font-size: $icon-height;
-        color: black;
     }
 }
 
@@ -227,7 +143,7 @@ $background-height: 640px;
     width: 100%;
     height: $background-height;
 
-    position: absolute;
+//    position: absolute;
 
     background-image: url('/target/svg/zhuan-ji.svg');
     background-position: center center;
@@ -235,8 +151,8 @@ $background-height: 640px;
     background-size: 100%;
 
     opacity: 0;
-    animation: fade-in 2000ms 400ms;
-    animation-fill-mode:forwards;
+    animation: fade-in 1000ms 1000ms;
+    animation-fill-mode: forwards;
 }
 
 .mirror {
@@ -253,17 +169,19 @@ $background-height: 640px;
     animation-fill-mode: forwards;
 }
 
-.division.navigation {
-    height: $background-height;
-}
-
 .division {
-    border-bottom: $border-width--primary solid #f0f0f0;
+//    border-bottom: $border-width solid #bbb;
+
+    &.navigation {
+        height: $background-height;
+
+        animation: blackout 400ms 800ms;
+        animation-fill-mode: forwards;
+    }
 }
 
 .poop {
     text-align: center;
-    padding: 40px;
 }
 
 .target {
@@ -289,6 +207,8 @@ $background-height: 640px;
         content: "";
         border-radius: 50%;
         opacity: 0;
+
+        pointer-events: none;
     }
 
     &:before {
@@ -301,7 +221,7 @@ $background-height: 640px;
         margin-left: -($diameter + $border-width) / 2;
         margin-top: -($diameter + $border-width) / 2;
 
-        transform: translateY(-($diameter + $border-width) / 2);
+        transform: translateX(-($diameter + $border-width) / 2);
         background-color: transparent;
     }
 
@@ -315,14 +235,14 @@ $background-height: 640px;
         margin-left: -($diameter + $border-width) / 2;
         margin-top: -($diameter + $border-width) / 2;
 
-        transform: translateY(($diameter + $border-width) / 2);
+        transform: translateX(($diameter + $border-width) / 2);
     }
 
     &:hover {
         &:before,
         &:after {
-            opacity: 0.2;
-            transform: translateY(0);
+            opacity: 1;
+            transform: translateX(0);
             transition: opacity 200ms, transform 200ms;
         }
     }

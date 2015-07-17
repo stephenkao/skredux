@@ -1,0 +1,41 @@
+$font--primary: 'Oxygen', sans-serif;
+$font--secondary: 'Merriweather', serif;
+
+$border-width: 4px;
+
+$num-sides: 8;
+$diameter--outer: 200px;
+$diameter--inner: $diameter--outer / 2;
+$diameter-delta: $diameter--outer - $diameter--inner - $border-width - $border-width;
+$theta: 360 / $num-sides;
+
+$yao-width: $diameter--outer / 4; // @TODO: Arbitrary
+$yao-line-height: 2px;
+$yao-margin-bottom: 10px;
+$yao-total-height: (3 * $yao-line-height) + (4 * $yao-margin-bottom);
+$gua-height: ($diameter-delta / 2);
+$icon-height: $gua-height - $yao-total-height - $yao-margin-bottom;
+$yao-delta: $diameter--inner - $gua-height;
+
+$background-height: 500px;
+
+
+html {
+    font-size: 17px;
+}
+@media (max-width: 900px) {
+    html { font-size: 15px; }
+}
+@media (max-width: 400px) {
+    html { font-size: 13px; }
+}
+
+h1 {
+    font-size: 2rem;
+}
+h2 {
+    font-size: 1.5rem;
+}
+h3 {
+    font-size: 1rem;
+}

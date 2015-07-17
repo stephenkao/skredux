@@ -1,0 +1,59 @@
+@keyframes spin-clockwise {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin-counterclockwise {
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+@keyframes pop-up {
+    0% {
+        transform: scale(1);
+    }
+
+    20% {
+        transform: scale(0.9);
+    }
+
+    50% {
+        transform: scale(1.5);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes zoom-out {
+    0% {
+        transform: scale(3);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0.1;
+    }
+}
+
+@keyframes blackout {
+    0% {
+        background-color: white;
+    }
+
+    100% {
+        background-color: black;
+    }
+}

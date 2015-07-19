@@ -1,0 +1,320 @@
+@import url('http://fonts.googleapis.com/css?family=Merriweather:400italic,400,300italic,300|Oxygen:400,300');
+
+@import "settings";
+@import "fonts";
+@import "animations";
+
+%font--primary {
+    font-family: $font--primary;
+    font-weight: 300;
+}
+
+%font--secondary {
+    font-family: $font--secondary;
+    font-weight: 300;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    @extend %font--primary;
+
+    margin: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+
+    overflow-x: hidden;
+}
+
+.nighttime {
+    background-color: black;
+    color: white;
+}
+
+$yao-line-height: 2px;
+$yao-margin-bottom: 10px;
+$yao-total-height: (3 * $yao-line-height) + (4 * $yao-margin-bottom);
+
+$bagua-dimensions: (
+    daytime: (
+        diameter--outer: 200px,
+        diameter--inner: 100px,
+        diameter-delta: (200px - 100px) - $border-width - $border-width,
+        yao-delta: 100
+	),
+    nighttime: (
+        diameter--outer: 300px,
+        diameter--inner: 100px,
+        diameter-delta: (300px - 100px) - $border-width - $border-width,
+        yao-delta: 60
+    )
+);
+
+.yao {
+    width: 80%;
+    height: $yao-line-height;
+    margin: 0 auto;
+    margin-bottom: $yao-margin-bottom;
+
+    position: relative;
+    z-index: 10;
+
+    &:before,
+    &:after {
+        width: 50%;
+        height: $yao-line-height;
+
+        position: absolute;
+        z-index: 15;
+
+        transition: width 200ms;
+        background-color: #bbbbbb;
+        content: "";
+    }
+
+    &:before {
+        left: 0;
+    }
+
+    &:after {
+        right: 0;
+    }
+}
+
+.yao--yin {
+    &:before,
+    &:after {
+        width: 40%;
+    }
+}
+
+.baguarings {
+    $durations: (800ms, 800ms);
+
+    margin: 0 auto;
+
+    position: relative;
+
+    animation: pop-up nth($durations, 1) 200ms, spin-counterclockwise nth($durations, 2) nth($durations, 1);
+
+    @each $mode, $mode-dimensions in $bagua-dimensions {
+        .#{$mode} & {
+            $diameter--outer: map-get($mode-dimensions, diameter--outer);
+
+            width: $diameter--outer;
+            height: $diameter--outer;
+
+            top: ($background-height - $diameter--outer) / 2;
+        }
+    }
+}
+
+.baguaring {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    border-radius: 50%;
+}
+
+.baguaring__outer {
+    border: $border-width inset #888;
+
+    @each $mode, $mode-dimensions in $bagua-dimensions {
+        .#{$mode} & {
+            $diameter--outer: map-get($mode-dimensions, diameter--outer);
+
+            width: $diameter--outer;
+            height: $diameter--outer;
+            margin-left: -$diameter--outer / 2;
+            margin-top: -$diameter--outer / 2;
+        }
+    }
+}
+
+.baguaring__inner {
+    border: $border-width outset #666;
+
+    @each $mode, $mode-dimensions in $bagua-dimensions {
+        .#{$mode} & {
+            $diameter--inner: map-get($mode-dimensions, diameter--inner);
+
+            width: $diameter--inner;
+            height: $diameter--inner;
+            margin-left: -$diameter--inner / 2;
+            margin-top: -$diameter--inner / 2;
+        }
+    }
+}
+
+.baguajing {
+    margin: 0 auto;
+
+    position: relative;
+
+    transition: transform 200ms;
+
+    @each $mode, $mode-dimensions in $bagua-dimensions {
+        .#{$mode} & {
+            $diameter--outer: map-get($mode-dimensions, diameter--outer);
+
+            width: $diameter--outer;
+            height: $diameter--outer;
+        }
+    }
+}
+
+.gua {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    @each $mode, $mode-dimensions in $bagua-dimensions {
+        .#{$mode} & {
+            $diameter--outer: map-get($mode-dimensions, diameter--outer);
+            $diameter--inner: map-get($mode-dimensions, diameter--inner);
+            $diameter-delta: $diameter--outer - $diameter--inner;
+            $yao-width: $diameter--outer / 4;
+            $gua-height: $diameter-delta / 2;
+            $yao-delta: ($diameter--inner - $gua-height) + (map-get($mode-dimensions, yao-delta));
+
+            width: $yao-width;
+            height: $gua-height;
+
+            margin-left: -$yao-width / 2;
+            margin-top: -$gua-height / 2;
+
+            @for $i from 1 through $num-sides {
+                $deg: ($i - 1) * $theta;
+
+                &:nth-child(#{$i}) {
+                    transform: rotate(#{$deg}deg) translate3d(0, -#{$yao-delta}, 0);
+                }
+            }
+        }
+    }
+}
+
+.division {
+    margin-bottom: 6rem;
+
+    &.navigation {
+        height: $background-height;
+
+        animation: blackout 400ms 800ms;
+        animation-fill-mode: forwards;
+    }
+
+    &.tapestry {
+        $tapestry-border: 4px double black;
+
+        width: 50%;
+        height: 100px;
+        border-top: $tapestry-border;
+        border-left: $tapestry-border;
+        border-right: $tapestry-border;
+        margin: 0 auto;
+
+        position: relative;
+        overflow: hidden;
+
+        transition: height 200ms;
+
+        &:last {
+            border-bottom: $tapestry-border;
+        }
+
+        &:hover {
+            height: 300px;
+        }
+    }
+}
+
+.icon {
+    @extend %font--primary;
+}
+
+.painting {
+    position: relative;
+    top: -50%;
+
+    svg {
+        fill: #222222;
+    }
+}
+
+.target {
+    display: inline-block;
+    position: relative;
+
+    &.current {
+        .icon {
+            color: gray;
+        }
+
+        &:before {
+            background-color: black;
+        }
+    }
+
+    &:before,
+    &:after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        content: "";
+        border-radius: 50%;
+        opacity: 0;
+
+        pointer-events: none;
+    }
+
+    &:before {
+        $diameter: 220px;
+        $border-width: 2px;
+
+        width: $diameter;
+        height: $diameter;
+        border: $border-width dashed black;
+        margin-left: -($diameter + $border-width) / 2;
+        margin-top: -($diameter + $border-width) / 2;
+
+        transform: translateX(-($diameter + $border-width) / 2);
+        background-color: transparent;
+    }
+
+    &:after {
+        $diameter: 250px;
+        $border-width: 4px;
+
+        width: $diameter;
+        height: $diameter;
+        border: $border-width solid black;
+        margin-left: -($diameter + $border-width) / 2;
+        margin-top: -($diameter + $border-width) / 2;
+
+        transform: translateX(($diameter + $border-width) / 2);
+    }
+
+    &:hover {
+        &:before,
+        &:after {
+            opacity: 1;
+            transform: translateX(0);
+            transition: opacity 200ms, transform 200ms;
+        }
+    }
+
+    .icon {
+        margin-bottom: -45px;
+
+        font-size: 200px;
+        color: #bbb;
+    }
+}

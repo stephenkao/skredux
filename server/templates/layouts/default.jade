@@ -26,7 +26,7 @@ html
     link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
 
     //- Customise the stylesheet for your site by editing /public/styles/site.sass
-    link(href="/target/css/main.css", rel="stylesheet")
+    link(href="/target/css/style.css", rel="stylesheet")
 
     //- This file provides the default styling for the KeystoneJS Content Editor
     if user && user.canAccessKeystone
@@ -39,10 +39,14 @@ html
     block head
 
   //- HTML BODY
-  body
+  - var now = new Date(), hours = now.getHours(), minutes = now.getMinutes(), seconds = now.getSeconds()
+ body(class=(hours > 12) ? "nighttime" : "daytime")
     .main(class="#{section}")
       //- The Intro block appears above flash messages (used for temporary information display)
       block intro
+
+      span
+        | #{hours}:#{minutes}:#{seconds}
 
       //- Flash messages allow you to display once-off status messages to users, e.g. form
       //- validation errors, success messages, etc.

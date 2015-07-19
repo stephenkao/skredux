@@ -21,12 +21,8 @@ block content
           - i++
 
   .division
-    h1(style="text-align: center; padding: 40px;")
-      | welcome to this thing <br /> make yourself at home <br /> and also— <br /> well, never mind
-
-  .division
-    h2(style="text-align: center")
-      | stephen kao is an award-winning* insomniac who has constant anxiety attacks about where his cat pees.
+    h1(style="text-align: center")
+      | welcome to this thing <br /> make yourself at home
 
   .division.poop
     .target.current
@@ -38,9 +34,18 @@ block content
     .target
       .icon.icon--bo
 
-  .division.navigation
-    .tapestry
-
   .division
+    h3(style="text-align: center")
+      | stephen kao is an award-winning* insomniac who has constant anxiety attacks about where his cat pees.
 
-  .division
+  .division.tapestry
+    object(class="painting", type="image/svg+xml", data="target/svg/zhuan-ji.svg")
+    .icon.icon--yu(style="position: absolute; top: 0; font-size: 90px; color: #ddd")
+
+  .division.tapestry
+    object(class="painting", type="image/svg+xml", data="target/svg/bo-ke.svg")
+    .icon.icon--bo(style="position: absolute; top: 0; font-size: 90px; color: #ddd")
+
+  .division.tapestry
+    object(class="painting", type="image/svg+xml", data="target/svg/jia-li.svg")
+    .icon.icon--shou(style="position: absolute; top: 0; font-size: 90px; color: #ddd")

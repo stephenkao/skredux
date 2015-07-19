@@ -57,3 +57,13 @@
         background-color: black;
     }
 }
+
+@keyframes whiteout {
+    0% {
+        background-color: black;
+    }
+
+    100% {
+        background-color: white;
+    }
+}

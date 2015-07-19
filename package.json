@@ -38,6 +38,7 @@
     "keystone": "^0.2.41",
     "moment": "^2.10.3",
     "mongodb": "^1.4.30",
-    "mongojs": "^0.18.2"
+    "mongojs": "^0.18.2",
+    "scally": "^2.9.0"
   }
 }

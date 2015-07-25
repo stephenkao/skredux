@@ -81,3 +81,56 @@
         border-color: black;
     }
 }
+
+@keyframes fade-in-slide-down {
+    0% {
+        transform: translateY(-50%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fade-in-slide-up {
+    0% {
+        transform: translateY(50%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+////////////////////////////////////////////////// Hauntings
+
+@keyframes twitch {
+    0% {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+
+    89% {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+
+    90% {
+        transform: translate3d(-50%, -50%, 0) scale(2) skew(180deg);
+    }
+
+    91% {
+        transform: translate3d(25%, 25%, 0) scale(0.4) skew(0);
+    }
+
+    92% {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+}

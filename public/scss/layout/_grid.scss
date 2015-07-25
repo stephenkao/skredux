@@ -1,0 +1,77 @@
+@import "layout/clearfix";
+
+$gutter-width: 20px;
+
+$row-width--max: 1440px;
+$num-columns: 14;
+$column-width: 60px;
+
+@function grid-calc($column-number) {
+    $result: percentage(($column-number / $num-columns));
+
+    @if $result == 0% {
+        $result: 0;
+    }
+
+    @return $result;
+}
+
+////////////////////////////////////////////////// Default structure classes
+.row {
+    @include clearfix();
+
+    max-width: $row-width--max;
+    margin: 0 auto;
+}
+
+.column {
+    padding-left: $gutter-width / 2;
+    padding-right: $gutter-width / 2;
+
+    float: left;
+
+    &:last-child {
+        float: right;
+    }
+
+    &:first-child {
+        float: left;
+    }
+
+    &.centered {
+        margin-left: auto;
+        margin-right: auto;
+
+        float: none;
+    }
+}
+
+////////////////////////////////////////////////// Column widths
+@media #{$small-up} {
+    .column {
+        padding-left: $gutter-width;
+        padding-right: $gutter-width;
+    }
+
+    @for $i from 1 through $num-columns {
+        .small-#{$i} {
+            width: grid-calc($i);
+        }
+    }
+}
+
+@media #{$medium-up} {
+    @for $i from 1 through $num-columns {
+        .medium-#{$i} {
+            width: grid-calc($i);
+        }
+    }
+}
+
+@media #{$large-up} {
+    @for $i from 1 through $num-columns {
+        .large-#{$i} {
+            width: grid-calc($i);
+        }
+    }
+}

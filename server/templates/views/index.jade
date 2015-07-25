@@ -1,81 +1,40 @@
 extends ../layouts/default
 include ../mixins/separators
 
-mixin gua(index)
-  - var allYao = [ [0, 0, 0], [1, 0, 0], [1, 0, 1], [1, 1, 0], [1, 1, 1], [0, 1, 1], [0, 1, 0], [0, 0, 1] ]
-  .gua
-    - var yaos = allYao[index], n = 0
-    while n < 3
-      div(class=yaos[n] ? "yao yao--yin" : "yao")
-      - n++
-
 block content
-  .division.navigation.cozy--bottom
-    .baguarings
-      .baguaring.baguaring__outer
-      .baguaring.baguaring__inner
-      .baguajing
-        - var i = 0
-        while i < 8
-          +gua(i)
-          - i++
+  section.division
+    .row
+      .column.centered.small-14.clock
+        .clock__division.u-text--right
+          time.clock__time MonJune15
+          time.clock__time 09:45:31
+        .clock__division
+          p.clock__message.
+            I don't think we should be here. <br />
+            <a href="/">Stephen</a>'s gone. <br />
+            I don't know where.
 
-  .division.u-centered
-    h1.clock
-      span.js_clock__digits
-        | 00:00:00
-      br
-      span
-        | ~probably at work~
+  section.division
+    .row
+      .column.medium-7
+        h3 He's gone.  Left. Disappeared.  Vanished.
+        p.
+          Where?  Your guess is as good as mine.
+          I’m not generally one for goodbyes, but this one was a little odd.
+          In the sense that there wasn’t one at all.
+        p.
+          It’s not like there would have been a lot to say, honestly; he wasn’t the most talkative person in the world, but he usually spoke up if something was bothering him.
+        p But—<br />
+        p I know he keeps secrets.  Or “kept,” I guess at this point.  He’s been gone for so long at this point that it’s weird to continue talking about him in the present tense.  Fuck.  Time is a trip.
 
-  .division.u-centered
-    .icon.icon--wu
-    .icon.icon--ming
-    .icon.icon--yu
-    .icon.icon--chen
-    br
-    .icon.icon--xue
-    .icon.icon--dian
-    .icon.icon--nao
-    .icon.icon--yi
-    br
-    .icon.icon--gong
-    .icon.icon--yu
-    .icon.icon--niu
-    .icon.icon--yue
-    br
-    .icon.icon--shu
-    .icon.icon--ci
-    .icon.icon--bo
-    .icon.icon--ke
-    br
+      .column.medium-7.u-text--center
+        // img(src="http://placehold.it/300x300")
+        img(src="https://scontent-lga1-1.cdninstagram.com/hphotos-xaf1/t51.2885-15/11374489_1646243385609671_493220254_n.jpg")
 
-  .division.u-centered
-    p.font--primary
-      | Stephen Kao is an award-winning* insomniac who has constant anxiety attacks about where his cat pees.
-
-  //- .division.poop.centered.emphatic
-  //-   .target.current
-  //-     .icon.icon--yu
-  //-   .target
-  //-     .icon.icon--xue
-  //-   .target
-  //-     .icon.icon--gong
-  //-   .target
-  //-     .icon.icon--bo
-
-  //- .division
-  //-   h3.centered
-  //-     | stephen kao is an award-winning* insomniac who has constant anxiety attacks about where his cat pees.
-
-  //- .division.tapestry
-  //-   object(class="painting", type="image/svg+xml", data="target/svg/zhuan-ji.svg")
-  //-   .icon.icon--yu(style="position: absolute; top: 0; font-size: 90px; color: #ddd")
-
-  //- .division.tapestry
-  //-   object(class="painting", type="image/svg+xml", data="target/svg/bo-ke.svg")
-  //-   .icon.icon--bo(style="position: absolute; top: 0; font-size: 90px; color: #ddd")
-
-  //- .division.tapestry
-  //-   object(class="painting", type="image/svg+xml", data="target/svg/jia-li.svg")
-  //-   .icon.icon--shou(style="position: absolute; top: 0; font-size: 90px; color: #ddd")
+  section.division
+    .row
+      .column.medium-7.u-text--center
+        // img(src="http://placehold.it/300x300")
+        img(src="https://scontent-lga1-1.cdninstagram.com/hphotos-xaf1/t51.2885-15/11374489_1646243385609671_493220254_n.jpg")
+      .column.medium-7
+        h3 He left some <a href="/blog">notes</a>—maybe you can make better sense of them than I could.

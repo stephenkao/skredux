@@ -1,0 +1,80 @@
+include ../mixins/separators
+
+mixin gua(index)
+  - var allYao = [ [0, 0, 0], [1, 0, 0], [1, 0, 1], [1, 1, 0], [1, 1, 1], [0, 1, 1], [0, 1, 0], [0, 0, 1] ]
+  .gua
+    - var yaos = allYao[index], n = 0
+    while n < 3
+      div(class=yaos[n] ? "yao yao--yin" : "yao")
+      - n++
+
+block content
+  .division.navigation.cozy--bottom
+    .baguarings
+      .baguaring.baguaring__outer
+      .baguaring.baguaring__inner
+      .baguajing
+        - var i = 0
+        while i < 8
+          +gua(i)
+          - i++
+
+  .division.u-centered
+    h1.clock
+      span.js_clock__digits
+        | 00:00:00
+      br
+      span
+        | ~probably at work~
+
+  .division.u-centered
+    .icon.icon--wu
+    .icon.icon--ming
+    .icon.icon--yu
+    .icon.icon--chen
+    br
+    .icon.icon--xue
+    .icon.icon--dian
+    .icon.icon--nao
+    .icon.icon--yi
+    br
+    .icon.icon--gong
+    .icon.icon--yu
+    .icon.icon--niu
+    .icon.icon--yue
+    br
+    .icon.icon--shu
+    .icon.icon--ci
+    .icon.icon--bo
+    .icon.icon--ke
+    br
+
+  .division.u-centered
+    p.font--primary
+      | Stephen Kao is an award-winning* insomniac who has constant anxiety attacks about where his cat pees.
+
+  //- .division.poop.centered.emphatic
+  //-   .target.current
+  //-     .icon.icon--yu
+  //-   .target
+  //-     .icon.icon--xue
+  //-   .target
+  //-     .icon.icon--gong
+  //-   .target
+  //-     .icon.icon--bo
+
+  //- .division
+  //-   h3.centered
+  //-     | stephen kao is an award-winning* insomniac who has constant anxiety attacks about where his cat pees.
+
+  //- .division.tapestry
+  //-   object(class="painting", type="image/svg+xml", data="target/svg/zhuan-ji.svg")
+  //-   .icon.icon--yu(style="position: absolute; top: 0; font-size: 90px; color: #ddd")
+
+  //- .division.tapestry
+  //-   object(class="painting", type="image/svg+xml", data="target/svg/bo-ke.svg")
+  //-   .icon.icon--bo(style="position: absolute; top: 0; font-size: 90px; color: #ddd")
+
+  //- .division.tapestry
+  //-   object(class="painting", type="image/svg+xml", data="target/svg/jia-li.svg")
+  //-   .icon.icon--shou(style="position: absolute; top: 0; font-size: 90px; color: #ddd")

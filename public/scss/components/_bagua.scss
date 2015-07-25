@@ -1,3 +1,10 @@
+$border-width: 8px;
+
+$num-sides: 8;
+$theta: 360 / $num-sides;
+
+$background-height: 400px;
+
 $yao-line-height: 8px;
 $yao-margin-bottom: 10px;
 $yao-total-height: (3 * $yao-line-height) + (4 * $yao-margin-bottom);

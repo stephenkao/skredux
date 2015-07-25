@@ -1,213 +1,71 @@
-@import url('http://fonts.googleapis.com/css?family=Merriweather:400italic,400,300italic,300|Oxygen:400,300');
+@charset "UTF-8";
 
+@import "reset";
 @import "settings";
-@import "fonts";
 @import "animations";
 
-%font--primary {
-    font-family: $font--primary;
-    font-weight: 300;
+@import "utilities/alignment";
+@import "core/typography";
+@import "components/bagua";
+
+.icon {
+    border: 40px inset;
+    border-left: 0;
+    border-bottom: 0;
+    margin: 0 4px 8px 0;
+
+    outline: 1px solid #f0f0f0;
+    color: white;
+
+    &:hover {
+        border-style: outset;
+    }
 }
 
-%font--secondary {
-    font-family: $font--secondary;
-    font-weight: 300;
-}
+////////////////////////////////////////////////// Mode definitions
+.daytime {
+    color: black;
 
-h1, h2, h3, h4, h5, h6 {
-    @extend %font--primary;
-
-    margin: 0;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-html,
-body {
-    margin: 0;
-
-    overflow-x: hidden;
+//    animation: whiteout 800ms 200ms;
+//    animation-fill-mode: forwards;
 }
 
 .nighttime {
-    background-color: black;
     color: white;
+
+    animation: blackout 800ms 200ms;
+    animation-fill-mode: forwards;
 }
 
-$yao-line-height: 2px;
-$yao-margin-bottom: 10px;
-$yao-total-height: (3 * $yao-line-height) + (4 * $yao-margin-bottom);
-
-$bagua-dimensions: (
-    daytime: (
-        diameter--outer: 200px,
-        diameter--inner: 100px,
-        diameter-delta: (200px - 100px) - $border-width - $border-width,
-        yao-delta: 100
-	),
-    nighttime: (
-        diameter--outer: 300px,
-        diameter--inner: 100px,
-        diameter-delta: (300px - 100px) - $border-width - $border-width,
-        yao-delta: 60
-    )
-);
-
-.yao {
-    width: 80%;
-    height: $yao-line-height;
-    margin: 0 auto;
-    margin-bottom: $yao-margin-bottom;
-
-    position: relative;
-    z-index: 10;
-
-    &:before,
-    &:after {
-        width: 50%;
-        height: $yao-line-height;
-
-        position: absolute;
-        z-index: 15;
-
-        transition: width 200ms;
-        background-color: #bbbbbb;
-        content: "";
-    }
-
-    &:before {
-        left: 0;
-    }
-
-    &:after {
-        right: 0;
-    }
+.clock {
+    font-family: $font--primary;
+    font-size: 1.5em;
+    font-weight: 100;
 }
 
-.yao--yin {
-    &:before,
-    &:after {
-        width: 40%;
-    }
-}
+.division {
+    .icon {
+        display: inline-block;
 
-.baguarings {
-    $durations: (800ms, 800ms);
-
-    margin: 0 auto;
-
-    position: relative;
-
-    animation: pop-up nth($durations, 1) 200ms, spin-counterclockwise nth($durations, 2) nth($durations, 1);
-
-    @each $mode, $mode-dimensions in $bagua-dimensions {
-        .#{$mode} & {
-            $diameter--outer: map-get($mode-dimensions, diameter--outer);
-
-            width: $diameter--outer;
-            height: $diameter--outer;
-
-            top: ($background-height - $diameter--outer) / 2;
-        }
-    }
-}
-
-.baguaring {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-
-    border-radius: 50%;
-}
-
-.baguaring__outer {
-    border: $border-width inset #888;
-
-    @each $mode, $mode-dimensions in $bagua-dimensions {
-        .#{$mode} & {
-            $diameter--outer: map-get($mode-dimensions, diameter--outer);
-
-            width: $diameter--outer;
-            height: $diameter--outer;
-            margin-left: -$diameter--outer / 2;
-            margin-top: -$diameter--outer / 2;
-        }
-    }
-}
-
-.baguaring__inner {
-    border: $border-width outset #666;
-
-    @each $mode, $mode-dimensions in $bagua-dimensions {
-        .#{$mode} & {
-            $diameter--inner: map-get($mode-dimensions, diameter--inner);
-
-            width: $diameter--inner;
-            height: $diameter--inner;
-            margin-left: -$diameter--inner / 2;
-            margin-top: -$diameter--inner / 2;
-        }
-    }
-}
-
-.baguajing {
-    margin: 0 auto;
-
-    position: relative;
-
-    transition: transform 200ms;
-
-    @each $mode, $mode-dimensions in $bagua-dimensions {
-        .#{$mode} & {
-            $diameter--outer: map-get($mode-dimensions, diameter--outer);
-
-            width: $diameter--outer;
-            height: $diameter--outer;
-        }
-    }
-}
-
-.gua {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-
-    @each $mode, $mode-dimensions in $bagua-dimensions {
-        .#{$mode} & {
-            $diameter--outer: map-get($mode-dimensions, diameter--outer);
-            $diameter--inner: map-get($mode-dimensions, diameter--inner);
-            $diameter-delta: $diameter--outer - $diameter--inner;
-            $yao-width: $diameter--outer / 4;
-            $gua-height: $diameter-delta / 2;
-            $yao-delta: ($diameter--inner - $gua-height) + (map-get($mode-dimensions, yao-delta));
-
-            width: $yao-width;
-            height: $gua-height;
-
-            margin-left: -$yao-width / 2;
-            margin-top: -$gua-height / 2;
-
-            @for $i from 1 through $num-sides {
-                $deg: ($i - 1) * $theta;
-
-                &:nth-child(#{$i}) {
-                    transform: rotate(#{$deg}deg) translate3d(0, -#{$yao-delta}, 0);
-                }
-            }
-        }
+        font-size: 4em;
     }
 }
 
 .division {
     margin-bottom: 6rem;
 
+    &.emphatic {
+        transition: background-color 200ms;
+
+        @each $mode, $mode-dimensions in $mode-configuration {
+            .#{$mode} & {
+                background-color: map-get($mode-dimensions, emphatic-background);
+            }
+        }
+    }
+
     &.navigation {
         height: $background-height;
-
-        animation: blackout 400ms 800ms;
-        animation-fill-mode: forwards;
     }
 
     &.tapestry {

@@ -10,7 +10,7 @@ mixin gua(index)
       - n++
 
 block content
-  .division.navigation
+  .division.navigation.cozy--bottom
     .baguarings
       .baguaring.baguaring__outer
       .baguaring.baguaring__inner
@@ -20,32 +20,62 @@ block content
           +gua(i)
           - i++
 
-  .division
-    h1(style="text-align: center")
-      | welcome to this thing <br /> make yourself at home
+  .division.u-centered
+    h1.clock
+      span.js_clock__digits
+        | 00:00:00
+      br
+      span
+        | ~probably at work~
 
-  .division.poop
-    .target.current
-      .icon.icon--yu
-    .target
-      .icon.icon--xue
-    .target
-      .icon.icon--gong
-    .target
-      .icon.icon--bo
+  .division.u-centered
+    .icon.icon--wu
+    .icon.icon--ming
+    .icon.icon--yu
+    .icon.icon--chen
+    br
+    .icon.icon--xue
+    .icon.icon--dian
+    .icon.icon--nao
+    .icon.icon--yi
+    br
+    .icon.icon--gong
+    .icon.icon--yu
+    .icon.icon--niu
+    .icon.icon--yue
+    br
+    .icon.icon--shu
+    .icon.icon--ci
+    .icon.icon--bo
+    .icon.icon--ke
+    br
 
-  .division
-    h3(style="text-align: center")
-      | stephen kao is an award-winning* insomniac who has constant anxiety attacks about where his cat pees.
+  .division.u-centered
+    p.font--primary
+      | Stephen Kao is an award-winning* insomniac who has constant anxiety attacks about where his cat pees.
 
-  .division.tapestry
-    object(class="painting", type="image/svg+xml", data="target/svg/zhuan-ji.svg")
-    .icon.icon--yu(style="position: absolute; top: 0; font-size: 90px; color: #ddd")
+  //- .division.poop.centered.emphatic
+  //-   .target.current
+  //-     .icon.icon--yu
+  //-   .target
+  //-     .icon.icon--xue
+  //-   .target
+  //-     .icon.icon--gong
+  //-   .target
+  //-     .icon.icon--bo
 
-  .division.tapestry
-    object(class="painting", type="image/svg+xml", data="target/svg/bo-ke.svg")
-    .icon.icon--bo(style="position: absolute; top: 0; font-size: 90px; color: #ddd")
+  //- .division
+  //-   h3.centered
+  //-     | stephen kao is an award-winning* insomniac who has constant anxiety attacks about where his cat pees.
 
-  .division.tapestry
-    object(class="painting", type="image/svg+xml", data="target/svg/jia-li.svg")
-    .icon.icon--shou(style="position: absolute; top: 0; font-size: 90px; color: #ddd")
+  //- .division.tapestry
+  //-   object(class="painting", type="image/svg+xml", data="target/svg/zhuan-ji.svg")
+  //-   .icon.icon--yu(style="position: absolute; top: 0; font-size: 90px; color: #ddd")
+
+  //- .division.tapestry
+  //-   object(class="painting", type="image/svg+xml", data="target/svg/bo-ke.svg")
+  //-   .icon.icon--bo(style="position: absolute; top: 0; font-size: 90px; color: #ddd")
+
+  //- .division.tapestry
+  //-   object(class="painting", type="image/svg+xml", data="target/svg/jia-li.svg")
+  //-   .icon.icon--shou(style="position: absolute; top: 0; font-size: 90px; color: #ddd")

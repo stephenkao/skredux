@@ -50,20 +50,34 @@
 
 @keyframes blackout {
     0% {
-        background-color: white;
+        background-color: #f0f0f0;
+        color: black;
     }
 
     100% {
         background-color: black;
+        color: white;
     }
 }
 
 @keyframes whiteout {
     0% {
         background-color: black;
+        color: white;
     }
 
     100% {
-        background-color: white;
+        background-color: #f0f0f0;
+        color: black;
+    }
+}
+
+@keyframes outline {
+    0% {
+        border-color: transparent;
+    }
+
+    100% {
+        border-color: black;
     }
 }

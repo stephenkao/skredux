@@ -1,0 +1,185 @@
+$yao-line-height: 8px;
+$yao-margin-bottom: 10px;
+$yao-total-height: (3 * $yao-line-height) + (4 * $yao-margin-bottom);
+
+$mode-configuration: (
+    daytime: (
+        diameter--outer: 200px,
+        diameter--inner: 100px,
+        diameter-delta: (200px - 100px) - $border-width - $border-width,
+        border--halved: false,
+        yao-delta: 100,
+        emphatic-background: black
+	),
+    nighttime: (
+        diameter--outer: 300px,
+        diameter--inner: 100px,
+        diameter-delta: (300px - 100px) - $border-width - $border-width,
+        border--halved: true,
+        yao-delta: 60,
+        emphatic-background: white
+    )
+);
+
+.yao {
+    width: 80%;
+    height: $yao-line-height;
+    margin: 0 auto;
+    margin-bottom: $yao-margin-bottom;
+
+    position: relative;
+    z-index: 10;
+
+    &:before,
+    &:after {
+        width: 50%;
+        height: $yao-line-height;
+
+        position: absolute;
+        z-index: 15;
+
+        transition: width 200ms;
+        background-color: #bbbbbb;
+        content: "";
+    }
+
+    &:before {
+        left: 0;
+    }
+
+    &:after {
+        right: 0;
+    }
+}
+
+.yao--yin {
+    &:before,
+    &:after {
+        width: 40%;
+    }
+}
+
+.baguarings {
+    $durations: (800ms, 800ms);
+
+    margin: 0 auto;
+
+    position: relative;
+
+    cursor: pointer;
+    animation: pop-up nth($durations, 1) 200ms, spin-counterclockwise nth($durations, 2) nth($durations, 1);
+
+    @each $mode, $mode-dimensions in $mode-configuration {
+        .#{$mode} & {
+            $diameter--outer: map-get($mode-dimensions, diameter--outer);
+
+            width: $diameter--outer;
+            height: $diameter--outer;
+
+            top: ($background-height - $diameter--outer) / 2;
+        }
+    }
+}
+
+.baguaring {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    border-radius: 50%;
+}
+
+.baguaring__outer {
+    border: $border-width inset #888;
+
+    transition: all 200ms;
+
+    @each $mode, $mode-dimensions in $mode-configuration {
+        .#{$mode} & {
+            $diameter--outer: map-get($mode-dimensions, diameter--outer);
+
+            width: $diameter--outer;
+            height: $diameter--outer;
+            margin-left: -$diameter--outer / 2;
+            margin-top: -$diameter--outer / 2;
+
+            @if map-get($mode-dimensions, border--halved) == true {
+                border-top: 0;
+                border-left: 0;
+            }
+        }
+    }
+}
+
+.baguaring__inner {
+    border: $border-width outset #666;
+
+    transition: all 200ms;
+
+    @each $mode, $mode-dimensions in $mode-configuration {
+        .#{$mode} & {
+            $diameter--inner: map-get($mode-dimensions, diameter--inner);
+
+            width: $diameter--inner;
+            height: $diameter--inner;
+            margin-left: -$diameter--inner / 2;
+            margin-top: -$diameter--inner / 2;
+
+            @if map-get($mode-dimensions, border--halved) == true {
+                border-style: inset;
+                border-top: 0;
+                border-left: 0;
+            }
+        }
+    }
+}
+
+.baguajing {
+    margin: 0 auto;
+
+    position: relative;
+
+    transition: transform 200ms;
+
+    @each $mode, $mode-dimensions in $mode-configuration {
+        .#{$mode} & {
+            $diameter--outer: map-get($mode-dimensions, diameter--outer);
+
+            width: $diameter--outer;
+            height: $diameter--outer;
+        }
+    }
+}
+
+.gua {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    @each $mode, $mode-dimensions in $mode-configuration {
+        .#{$mode} & {
+            $diameter--outer: map-get($mode-dimensions, diameter--outer);
+            $diameter--inner: map-get($mode-dimensions, diameter--inner);
+            $diameter-delta: $diameter--outer - $diameter--inner;
+            $yao-width: $diameter--outer / 4;
+            $gua-height: $diameter-delta / 2;
+            $yao-delta: ($diameter--inner - $gua-height) + (map-get($mode-dimensions, yao-delta));
+
+            width: $yao-width;
+            height: $gua-height;
+
+            margin-left: -$yao-width / 2;
+            margin-top: -$gua-height / 2;
+
+            transition: transform 200ms;
+
+            @for $i from 1 through $num-sides {
+                $deg: ($i - 1) * $theta;
+
+                &:nth-child(#{$i}) {
+                    transform: rotate(#{$deg}deg) translate3d(0, -#{$yao-delta}, 0);
+                }
+            }
+        }
+    }
+}

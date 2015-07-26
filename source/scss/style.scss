@@ -52,7 +52,17 @@ span {
 
     font-family: $font--content;
     line-height: 1.5;
+    word-break: break-word;
 }
+
+.main {
+    opacity: 0;
+
+    animation: fade-in 1000ms 2000ms;
+    animation-fill-mode: forwards;
+}
+
+////////////////////////////////////////////////// Corruptions/hauntings
 
 .photo {
     width: 300px;
@@ -117,7 +127,6 @@ span {
         display: block;
 
         font-family: $font--header;
-        text-align: right;
         font-size: 3em;
 
         animation: fade-in-slide-down ease-out 1200ms;

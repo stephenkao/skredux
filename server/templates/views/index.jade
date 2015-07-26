@@ -1,5 +1,4 @@
 extends ../layouts/default
-include ../mixins/separators
 
 mixin post(post)
   article.post
@@ -18,7 +17,6 @@ mixin post(post)
       !{post.content.brief}
 
 block content
-
   section.division
     .row
       .column.medium-7

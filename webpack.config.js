@@ -1,5 +1,4 @@
-/*global module */
-
+/*global module, require */
 module.exports = {
     entry: './source/javascript/index.js',
     output: {

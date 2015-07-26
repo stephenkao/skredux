@@ -37,33 +37,32 @@ html
     block head
 
   //- HTML BODY
-  - var now = new Date(), hours = now.getHours(), minutes = now.getMinutes(), seconds = now.getSeconds()
-  body(class=(hours > 12) ? "nighttime" : "daytime")
+  body
     header.header.division
       .row
         .column.small-14
-          .inventory-trigger
+          .inventory-trigger.js_inventory-trigger
             .ring.ring--outer
             .ring.ring--middle
             .ring.ring--inner
 
-    block clock
-      section.division
-        .row
-          .column.centered.small-14.clock
-            .clock__division.u-text--right
-              time.clock__time MonJune15
-              time.clock__time 09:45:31
-            .clock__division
-              p.clock__message.
-                I don't think we should be here. <br />
-                <a href="/">Stephen</a>'s gone. <br />
-                I don't know where.
+   section.division
+     .row
+       .column.centered.small-14.clock
+         .clock__division.u-text--right
+           block clock-message
+             p.clock__message.
+               I don't think we should be here. <br />
+               <a href="/">Stephen</a>'s gone. <br />
+               I don't know where.
+         .clock__division
+           time.clock__time MonJune15
+           time.clock__time.js_clock__digits 09:45:31
 
-   .main(class="#{section}")
+   .main.js_main(class="#{section}")
      block content
 
-   footer.inventory
+   footer.inventory.js_inventory
      hr
      .row
        .column.small-14

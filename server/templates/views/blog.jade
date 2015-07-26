@@ -1,18 +1,11 @@
 extends ../layouts/default
 include ../mixins/separators
 
-block clock
-  section.division
-    .row
-      .column.centered.small-14.clock
-        .clock__division.u-text--right
-          time.clock__time MonJune15
-          time.clock__time 09:45:31
-        .clock__division
-          p.clock__message.
-            Look through these notes if you can. <br />
-            <a href="/">Stephen</a>'s gone. <br />
-            Maybe he left a clue here.
+block clock-message
+  p.clock__message.
+    Look through some of these notes. <br />
+    <a href="/">Stephen</a>'s gone. <br />
+    Maybe he left a clue here.
 
 mixin post(post)
   article.post

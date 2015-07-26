@@ -38,6 +38,16 @@
     }
 }
 
+@keyframes zoom-in {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
 @keyframes fade-in {
     0% {
         opacity: 0;
@@ -107,6 +117,7 @@
 }
 
 
+
 ////////////////////////////////////////////////// Hauntings
 
 @keyframes twitch {
@@ -114,23 +125,33 @@
         transform: translate3d(0, 0, 0) scale(1);
     }
 
-    89% {
+    90.1% {
         transform: translate3d(0, 0, 0) scale(1);
     }
 
-    90% {
-        transform: translate3d(-50%, -50%, 0) scale(2) skew(180deg);
+    90.3% {
+        transform: translate3d(50%, 50%, 0) scale(2) skew(180deg);
     }
 
-    91% {
-        transform: translate3d(25%, 25%, 0) scale(0.4) skew(0);
+    90.5% {
+        transform: translate3d(-25%, -25%, 0) scale(0.4) skew(0);
     }
 
-    92% {
+    90.7% {
         transform: translate3d(0, 0, 0) scale(1);
     }
 
     100% {
         transform: translate3d(0, 0, 0) scale(1);
+    }
+}
+
+@keyframes bleed {
+    0% {
+        background-color: transparent;
+    }
+
+    100% {
+        background-color: $red;
     }
 }

@@ -16,7 +16,7 @@
 	    view.on('init', function (next) {
             http.get({
                 host: 'api.giphy.com',
-                path: '/v1/gifs/search?q=cat&api_key=dc6zaTOxFJmzC'
+                path: '/v1/gifs/search?q=static&api_key=dc6zaTOxFJmzC'
             }, function (response, err) {
                 // Continuously update stream with data
                 var body = '';

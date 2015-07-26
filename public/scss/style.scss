@@ -8,8 +8,10 @@ $font--content: 'IM Fell English', serif;
 @import 'settings';
 @import 'animations';
 
-@import 'utilities/alignment';
 @import 'core/typography';
+
+@import 'utilities/alignment';
+@import 'utilities/hauntings';
 
 @import 'layout/clearfix';
 @import 'layout/grid';
@@ -52,13 +54,30 @@ span {
     line-height: 1.5;
 }
 
-img {
-    width: 200px;
-    height: 200px;
+.photo {
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
 
-    &:hover {
-        animation: twitch 2000ms infinite;
+    background-size: contain;
+
+    @media #{$medium-only} {
+        width: 200px;
+        heigth: 200px;
     }
+
+    &.corrupted {
+//        background-color: $red;
+        background-blend-mode: multiply;
+//        opacity: 0.8;
+        animation: bleed 5000ms 1, twitch 10000ms infinite;
+        animation-fill-mode: forwards;
+        cursor: pointer;
+    }
+}
+
+.corrupted {
+    animation: twitch 8000ms infinite;
 }
 
 ////////////////////////////////////////////////// Clock
@@ -101,7 +120,7 @@ img {
         text-align: right;
         font-size: 3em;
 
-        animation: fade-in-slide-down 1200ms;
+        animation: fade-in-slide-down ease-out 1200ms;
         animation-fill-mode: forwards;
     }
 
@@ -110,15 +129,19 @@ img {
 
         font-family: $font--content;
 
-        animation: fade-in-slide-up 1200ms;
+        animation: fade-in-slide-up ease-out 1200ms;
         animation-fill-mode: forwards;
     }
 }
 
 ////////////////////////////////////////////////// Inventory
+.header {
+    padding-top: $gutter-width;
+}
+
 .inventory-trigger {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
 
     position: relative;
 
@@ -137,6 +160,11 @@ img {
 
         width: $diameter;
         height: $diameter;
+        border-top: 0;
+        border-bottom: 0;
+
+        animation: zoom-in 1000ms;
+        animation-fill-mode: forwards;
     }
 
     .ring--middle {
@@ -145,8 +173,14 @@ img {
 
         width: $diameter;
         height: $diameter;
+        border-left: 0;
+        border-right: 0;
+
         left: $offset;
         top: $offset;
+
+        animation: zoom-in 2000ms;
+        animation-fill-mode: forwards;
     }
 
     .ring--inner {
@@ -155,8 +189,14 @@ img {
 
         width: $diameter;
         height: $diameter;
+        border-top: 0;
+        border-bottom: 0;
+
         left: $offset;
         top: $offset;
+
+        animation: zoom-in 3000ms;
+        animation-fill-mode: forwards;
     }
 }
 
@@ -176,4 +216,20 @@ img {
     &.shown {
         transform: translateY(0);
     }
+}
+
+////////////////////////////////////////////////// Posts
+.post {
+}
+
+.post__metadata {
+    .post__pubdate,
+    .taglist {
+        font-family: $font--header
+    }
+}
+
+.taglist,
+.tag {
+    display: inline;
 }

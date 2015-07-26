@@ -38,8 +38,8 @@ html
 
   //- HTML BODY
   - var now = new Date(), hours = now.getHours(), minutes = now.getMinutes(), seconds = now.getSeconds()
- body(class=(hours > 12) ? "nighttime" : "daytime")
-    header.division
+  body(class=(hours > 12) ? "nighttime" : "daytime")
+    header.header.division
       .row
         .column.small-14
           .inventory-trigger
@@ -47,14 +47,27 @@ html
             .ring.ring--middle
             .ring.ring--inner
 
-    .main(class="#{section}")
-      block content
+    block clock
+      section.division
+        .row
+          .column.centered.small-14.clock
+            .clock__division.u-text--right
+              time.clock__time MonJune15
+              time.clock__time 09:45:31
+            .clock__division
+              p.clock__message.
+                I don't think we should be here. <br />
+                <a href="/">Stephen</a>'s gone. <br />
+                I don't know where.
 
-    footer.inventory
-      hr
-      .row
-        .column.small-14
-          h2 Inventory
+   .main(class="#{section}")
+     block content
+
+   footer.inventory
+     hr
+     .row
+       .column.small-14
+         h2 Inventory
 
     script(data-main="public/javascript/main", src="public/javascript/lib/require.js")
 

@@ -1,8 +1,4 @@
-@import url('http://fonts.googleapis.com/css?family=Merriweather:400italic,400,300italic,300|Oxygen:400,300|Inconsolata:400|Lato:100,300,400,300italic,400italic');
 @import 'fonts';
-
-$font--primary: 'Lato', sans-serif;
-$font--secondary: 'Merriweather', serif;
 
 html {
     font-size: 62.5%;
@@ -10,20 +6,6 @@ html {
 
 body {
     font-size: 1.4rem;
-}
-
-h1,
-h2 {
-    font-family: $font--primary;
-}
-
-h3,
-h4,
-h5,
-h6 {
-    font-family: $font--secondary;
-
-    margin: 0;
 }
 
 h1 {
@@ -35,7 +17,7 @@ h2 {
 }
 
 h3 {
-    font-size: 2.2rem;
+    font-size: 3rem;
 }
 
 h4 {

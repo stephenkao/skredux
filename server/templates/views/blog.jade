@@ -1,53 +1,48 @@
 extends ../layouts/default
 include ../mixins/separators
 
-block header
-  .title--page
+block clock
+  section.division
     .row
-      .twelve.columns
-        i.icon.icon--bo
+      .column.centered.small-14.clock
+        .clock__division.u-text--right
+          time.clock__time MonJune15
+          time.clock__time 09:45:31
+        .clock__division
+          p.clock__message.
+            Look through these notes if you can. <br />
+            <a href="/">Stephen</a>'s gone. <br />
+            Maybe he left a clue here.
 
 mixin post(post)
-  article.row.post
-    .twelve.columns
-      .scroll
-        .post__content
-          h2.post__title
-            | #{post.title}
-
-          div.post__metadata
-            span
-              | Published #{moment(post.publishedDate).format('DD MMMM YYYY')}
-
-            if post.categories.length
-              span
-                | - covering topics like
-              ul
-                each tag, index in post.categories
-                  li
-                    if index == post.categories.length - 1
-                      |##{tag.name}
-                    else
-                      |##{tag.name},
-
-          if post.image.exists
-            .emblem.full-bleed
-              img(style="width: 30vw; height: 30vw; border-radius: 50%; background-image: url('#{post._.image.fit(1200,1200)}')").image.image--main
-
-          p
-            !{post.content.extended}
+  article.post
+    h4.post__title #{post.title}
+    .post__metadata
+      span.post__pubdate #{moment(post.publishedDate).format('dddMMMDDYY')}
+      if post.categories.length
+        &nbsp;-&nbsp;
+        ul.taglist
+          each tag, index in post.categories
+            if index == post.categories.length - 1
+              li.tag #{tag.name}
+            else
+              li.tag #{tag.name},&nbsp;
+    if post.image.exists
+      img.photo(style="width: 200px; height: 200px; background-image: url('#{post._.image.fit(1200,1200)}')").image.image--main
+    p
+      !{post.content.brief}
 
 block content
   if filters.category && !data.category
       h3.text-muted Invalid Category.
   else
       if data.posts.results.length
-
           .blog
-            +separator(true)
-            each post in data.posts.results
-              +post(post)
-              +separator(true)
+            .row
+              .column.small-8.centered
+                each post in data.posts.results
+                  +post(post)
+
 
             //- if data.posts.totalPages > 1
             //-     h4.text-weight-normal Showing

@@ -37,7 +37,7 @@ html
     block head
 
   //- HTML BODY
-  body(class="corruption-#{data.corruption}")
+  body(class="corruption-#{corruption}")
     header.header.division
       .row
         .column.small-14
@@ -50,17 +50,26 @@ html
      .row
        .column.centered.small-14.clock
          .clock__division.u-text--right
-           block clock-message
+           if corruption == 4
              p.clock__message.
-               I don't know if we should be here. <br />
-               <a href="/">Stephen</a>'s gone. <br />
-               I don't know where.
+               You've been here too long.<br />
+               's gone. <br />
+               It didn't hurt.
+           else
+             block clock-message
+               p.clock__message.
+                 I don't know if we should be here. <br />
+                 <a href="/">Stephen</a>'s gone. <br />
+                 I don't know where.
          .clock__division
            time.clock__time #{moment(new Date()).format('MMMDD/YY')}
            time.clock__time.js_clock__digits 09:45:31
 
    .main.js_main(class="#{section}")
-     block content
+     if corruption == 4
+       h1.u-text--center Ph'nglui <br /> mglw'nafh <br /> Cthulhu <br /> R'lyeh <br /> wgah'nagl <br /> fhtagn <br />
+     else
+       block content
 
    footer.inventory.js_inventory
      hr

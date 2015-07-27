@@ -74,9 +74,8 @@ exports.increaseCorruption = function (req, res, next) {
         maxAge: 900000,
         httpOnly: false
     });
-    console.log('cool: ' + corruption);
 
-    locals.data.corruption = corruption;
+    locals.corruption = corruption;
 
     next();
 };

@@ -66,6 +66,15 @@ span {
 
 ////////////////////////////////////////////////// Corruptions/hauntings
 
+.corruption-3 {
+    transform: rotateY(180deg);
+}
+
+.corruption-4 {
+    background-color: $red;
+    color: white;
+}
+
 .photo {
     width: 300px;
     height: 300px;

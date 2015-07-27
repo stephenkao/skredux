@@ -11,6 +11,7 @@ exports = module.exports = function(req, res) {
         posts: []
     };
 
+    locals.moment = require('moment');
     locals.section = 'index';
 
     if (req.cookies.hasOwnProperty('skcorrupt')) {
@@ -29,7 +30,6 @@ exports = module.exports = function(req, res) {
         q.exec(function(err, results) {
             var posts = _.pluck(results, '_doc');
 
-            locals.moment = require('moment');
             locals.data.posts = posts;
 
             next(err);

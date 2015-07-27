@@ -5,13 +5,13 @@ block clock-message
   p.clock__message.
     Look through some of these notes. <br />
     <a href="/">Stephen</a>'s gone. <br />
-    Maybe he left a clue here.
+    But maybe he left a clue here.
 
 mixin post(post)
   article.post
     h4.post__title #{post.title}
     .post__metadata
-      span.post__pubdate #{moment(post.publishedDate).format('dddMMMDDYY')}
+      span.post__pubdate #{moment(post.publishedDate).format('MMMDD/YY')}
       if post.categories.length
         &nbsp;-&nbsp;
         ul.taglist

@@ -17,6 +17,8 @@ $font--content: 'IM Fell English', serif;
 @import 'layout/grid';
 @import 'layout/divider';
 
+$slide-cubic: cubic-bezier(0.165, 0.84, 0.44, 1);
+
 ////////////////////////////////////////////////// Default styles
 html,
 body {
@@ -58,7 +60,7 @@ span {
 .main {
     opacity: 0;
 
-    animation: fade-in 1000ms 2000ms;
+    animation: fade-in 800ms 1000ms;
     animation-fill-mode: forwards;
 }
 
@@ -129,7 +131,7 @@ span {
         font-family: $font--header;
         font-size: 3em;
 
-        animation: fade-in-slide-down ease-out 1200ms;
+        animation: fade-in-slide-down $slide-cubic 1000ms;
         animation-fill-mode: forwards;
     }
 
@@ -138,7 +140,7 @@ span {
 
         font-family: $font--content;
 
-        animation: fade-in-slide-up ease-out 1200ms;
+        animation: fade-in-slide-up $slide-cubic 1000ms;
         animation-fill-mode: forwards;
     }
 }
@@ -155,6 +157,12 @@ span {
     position: relative;
 
     cursor: pointer;
+
+    &.active {
+        .ring--inner {
+            background-color: $red;
+        }
+    }
 
     .ring {
         border: 1px solid $red;
@@ -204,6 +212,7 @@ span {
         left: $offset;
         top: $offset;
 
+        transition: background-color 200ms;
         animation: zoom-in 3000ms;
         animation-fill-mode: forwards;
     }
@@ -221,6 +230,7 @@ span {
 
     background-color: white;
     transform: translateY($height);
+    transition: transform 400ms $slide-cubic;
 
     &.shown {
         transform: translateY(0);
@@ -228,9 +238,6 @@ span {
 }
 
 ////////////////////////////////////////////////// Posts
-.post {
-}
-
 .post__metadata {
     .post__pubdate,
     .taglist {

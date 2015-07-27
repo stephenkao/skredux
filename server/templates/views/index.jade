@@ -4,7 +4,7 @@ mixin post(post)
   article.post
     h4.post__title #{post.title}
     .post__metadata
-      span.post__pubdate #{moment(post.publishedDate).format('dddMMMDDYY')}
+      span.post__pubdate #{moment(post.publishedDate).format('MMMDD/YY')}
       if post.categories.length
         &nbsp;-&nbsp;
         ul.taglist
@@ -41,9 +41,26 @@ block content
     .row
       .column.medium-7.u-text--center
         // img(src="http://placehold.it/300x300")
-        .photo.corrupted(style="background-image: url('https://scontent-lga1-1.cdninstagram.com/hphotos-xaf1/t51.2885-15/11374489_1646243385609671_493220254_n.jpg')")
+        .photo(style="background-image: url('https://scontent-lga1-1.cdninstagram.com/hphotos-xaf1/t51.2885-15/11374489_1646243385609671_493220254_n.jpg')")
+
+      .column.medium-7
+        h3 This is what I've pieced together so far.
+        p.
+          <a href="/">Stephen</a> was born on [redacted], a habitually taciturn son of [redacted] and [redacted].
+        p.
+          After graduating from [redacted] High School in 2007, he attended the University of [redacted], majoring in computer science and Chinese.
+          He always showed a perverse interest in linguistics and morphology, but any hopes he had of pursuing a career in it were dashed by callous pragmatism.
+        p.
+          From 2007 through 2013, he worked full-stack engineer at <a href="http://flashgroup.com">Flashgroup Inc</a>.
+          Before his disappearance, he was last seen working at <a href="http://gawker.com">Gawker Media</a> as a front-end engineer.
+
+  section.division
+    .row
       .column.medium-7
         h3 He left some <a href="/blog">notes</a>—maybe you can make better sense of them.
-
         each post in data.posts
           +post(post)
+
+      .column.medium-7.u-text--center
+        // img(src="http://placehold.it/300x300")
+        .photo.corrupted(style="background-image: url('https://scontent-lga1-1.cdninstagram.com/hphotos-xaf1/t51.2885-15/11374489_1646243385609671_493220254_n.jpg')")

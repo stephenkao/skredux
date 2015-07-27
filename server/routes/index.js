@@ -54,6 +54,7 @@
         app.get(/^\/(blog)?$/, views.blog);
         app.get(/^\/(jobs)?$/, views.jobs);
         app.get(/^\/(sexyvideos)?$/, views.sexyvideos);
+        app.get(/^\/(about)?$/, views.about);
 
         // AJAX
         app.get('/posts/latest', function (request, response) {

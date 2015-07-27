@@ -52,11 +52,11 @@ html
          .clock__division.u-text--right
            block clock-message
              p.clock__message.
-               I don't think we should be here. <br />
+               I don't know if we should be here. <br />
                <a href="/">Stephen</a>'s gone. <br />
                I don't know where.
          .clock__division
-           time.clock__time MonJune15
+           time.clock__time #{moment(new Date()).format('MMMDD/YY')}
            time.clock__time.js_clock__digits 09:45:31
 
    .main.js_main(class="#{section}")

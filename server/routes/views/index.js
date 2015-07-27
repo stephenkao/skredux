@@ -7,16 +7,8 @@ exports = module.exports = function(req, res) {
     var view = new keystone.View(req, res),
         locals = res.locals;
 
-    locals.data = {
-        posts: []
-    };
-
-    locals.moment = require('moment');
+    locals.data.posts = [];
     locals.section = 'index';
-
-    if (req.cookies.hasOwnProperty('skcorrupt')) {
-        debugger;
-    }
 
     // Load the posts
     view.on('init', function(next) {

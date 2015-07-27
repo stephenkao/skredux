@@ -1,0 +1,29 @@
+extends ../layouts/default
+
+block clock-message
+  p.clock__message.
+    Don't look at this.  <br />
+    <a href="/">Stephen</a>'s gone. <br />
+    But I'll cut your eyes out for him.
+
+block content
+  - var post = data.post
+  section.division
+    .row
+      .column.small-14.medium-7.centered
+        article.post
+          h4.post__title #{post.title}
+          .post__metadata
+            span.post__pubdate #{moment(post.publishedDate).format('MMMDD/YY')}
+            if post.categories.length
+              span &nbsp;-&nbsp;
+              ul.taglist
+                each tag, index in post.categories
+                  if index == post.categories.length - 1
+                    li.tag #{tag.name}
+                  else
+                    li.tag #{tag.name},&nbsp;
+          if post.image.exists
+            .photo(style="width: 200px; height: 200px; background-image: url('#{post._.image.fit(1200,1200)}')").image.image--main
+
+          .post__content !{post.content.extended}

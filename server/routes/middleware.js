@@ -1,3 +1,5 @@
+/*global require, exports */
+
 var _ = require('underscore'),
     keystone = require('keystone');
 
@@ -6,15 +8,13 @@ var _ = require('underscore'),
  Include anything that should be initialised before route controllers are executed.
  */
 exports.initLocals = function(req, res, next) {
-
     var locals = res.locals;
 
     locals.user = req.user;
-
-    // Add your own local variables here
+    locals.moment = require('moment');
+    locals.data = locals.data || {};
 
     next();
-
 };
 
 /**
@@ -56,5 +56,27 @@ exports.flashMessages = function(req, res, next) {
     res.locals.messages = _.any(flashMessages, function(msgs) { return msgs.length }) ? flashMessages : false;
 
     next();
+};
 
+/**
+ * Queries current corruption level and increments it
+ */
+exports.increaseCorruption = function (req, res, next) {
+    var locals = res.locals,
+        corruption = parseInt(req.cookies.skcorrupt, 10) || 0;
+
+    locals.data = locals.data || {};
+
+    // Increment corruption level
+    // @TODO: Remove this when there's interactivity on the site!
+    corruption = (corruption + 1) % 5;
+    res.cookie('skcorrupt', corruption, {
+        maxAge: 900000,
+        httpOnly: false
+    });
+    console.log('cool: ' + corruption);
+
+    locals.data.corruption = corruption;
+
+    next();
 };

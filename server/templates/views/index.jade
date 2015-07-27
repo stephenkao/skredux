@@ -1,20 +1,20 @@
 extends ../layouts/default
 
 mixin post(post)
-  article.post
-    h4.post__title #{post.title}
-    .post__metadata
-      span.post__pubdate #{moment(post.publishedDate).format('MMMDD/YY')}
-      if post.categories.length
-        &nbsp;-&nbsp;
-        ul.taglist
-          each tag, index in post.categories
-            if index == post.categories.length - 1
-              li.tag #{tag.name}
-            else
-              li.tag #{tag.name},&nbsp;
-    .post__content
-      !{post.content.brief}
+  a(href="/post/#{post.slug}")
+    article.post
+      h4.post__title #{post.title}
+      .post__metadata
+        span.post__pubdate #{moment(post.publishedDate).format('MMMDD/YY')}
+        if post.categories.length
+          span &nbsp;-&nbsp;
+          ul.taglist
+            each tag, index in post.categories
+              if index == post.categories.length - 1
+                li.tag #{tag.name}
+              else
+                li.tag #{tag.name},&nbsp;
+      .post__content !{post.content.brief}
 
 block content
   section.division

@@ -4,11 +4,10 @@ $vertical-rhythm: 40px;
 $breakpoints: (small, medium, large);
 
 $breakpoint--small: (
-    minimum: 0px,
     maximum: 479px
 );
 $small-only: 'only screen and (max-width: #{map-get($breakpoint--small, maximum)})';
-$small-up: 'only screen and (min-width: #{map-get($breakpoint--small, minimum)})';
+$small-up: 'only screen';
 
 $breakpoint--medium: (
     minimum: 480px,
@@ -25,4 +24,6 @@ $large-down: 'only screen and (max-width: #{map-get($breakpoint--large, minimum)
 $large-up: 'only screen and (min-width: #{map-get($breakpoint--large, minimum)})';
 
 ////////////////////////////////////////////////// Colors
+$white: #ffffff;
+$black: #000000;
 $red: #b90000;

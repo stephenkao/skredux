@@ -4,10 +4,13 @@ $num-sides: 8;
 $theta: 360 / $num-sides;
 
 $background-height: 400px;
+$bagua-color--outer: #888888;
+$bagua-color--inner: #666666;
 
 $yao-line-height: 8px;
 $yao-margin-bottom: 10px;
 $yao-total-height: (3 * $yao-line-height) + (4 * $yao-margin-bottom);
+$yao-color: #bbbbbb;
 
 $mode-configuration: (
     daytime: (
@@ -46,8 +49,8 @@ $mode-configuration: (
         z-index: 15;
 
         transition: width 200ms;
-        background-color: #bbbbbb;
-        content: "";
+        background-color: $yao-color;
+        content: '';
     }
 
     &:before {
@@ -97,7 +100,7 @@ $mode-configuration: (
 }
 
 .baguaring__outer {
-    border: $border-width inset #888;
+    border: $border-width inset $bagua-color--outer;
 
     transition: all 200ms;
 
@@ -119,7 +122,7 @@ $mode-configuration: (
 }
 
 .baguaring__inner {
-    border: $border-width outset #666;
+    border: $border-width outset $bagua-color--inner;
 
     transition: all 200ms;
 

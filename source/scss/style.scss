@@ -65,16 +65,6 @@ span {
 }
 
 ////////////////////////////////////////////////// Corruptions/hauntings
-
-.corruption-3 {
-    transform: rotateY(180deg);
-}
-
-.corruption-4 {
-    background-color: $red;
-    color: white;
-}
-
 .photo {
     width: 300px;
     height: 300px;
@@ -85,21 +75,8 @@ span {
 
     @media #{$medium-only} {
         width: 200px;
-        heigth: 200px;
+        height: 200px;
     }
-
-    &.corrupted {
-//        background-color: $red;
-        background-blend-mode: multiply;
-//        opacity: 0.8;
-        animation: bleed 5000ms 1, twitch 10000ms infinite;
-        animation-fill-mode: forwards;
-        cursor: pointer;
-    }
-}
-
-.corrupted {
-    animation: twitch 8000ms infinite;
 }
 
 ////////////////////////////////////////////////// Clock
@@ -118,7 +95,7 @@ span {
         position: absolute;
         left: 50%;
 
-        background-color: black;
+        background-color: $black;
         content: '';
     }
 
@@ -161,8 +138,9 @@ span {
 }
 
 .inventory-trigger {
-    width: 40px;
-    height: 40px;
+    $diameter--outer: 40xp;
+    width: $diameter--outer;
+    height: $diameter--outer;
 
     position: relative;
 
@@ -174,7 +152,7 @@ span {
         }
 
         .ring--inner {
-            border-color: white;
+            border-color: $white;
         }
     }
 
@@ -242,7 +220,7 @@ span {
     bottom: 0;
     left: 0;
 
-    background-color: white;
+    background-color: $white;
     transform: translateY($height);
     transition: transform 400ms $slide-cubic;
 
@@ -255,7 +233,7 @@ span {
 .post__metadata {
     .post__pubdate,
     .taglist {
-        font-family: $font--header
+        font-family: $font--header;
     }
 }
 

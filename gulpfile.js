@@ -11,7 +11,11 @@ var gulp = require('gulp'),
 
 ////////// Development tasks
 gulp.task('css:dev', function () {
-    gulp.src('source/scss/**/*.scss')
+    var sourceFiles,
+        lintSourceFiles;
+
+    sourceFiles = 'source/scss/**/*.scss';
+    gulp.src(sourceFiles)
         .pipe(plugins.sass())
         .pipe(plugins.autoprefixer({ browsers: ['last 2 version', 'Firefox < 20', '> 5%'] }))
         .pipe(gulp.dest('target/css/'))
@@ -21,7 +25,12 @@ gulp.task('css:dev', function () {
             wait: true
         }));
 
-    gulp.src('source/scss/**/*.scss')
+    lintSourceFiles = [
+        'source/scss/**/*.scss',
+        '!source/scss/**/_reset.scss',
+        '!source/scss/**/_fonts.scss'
+    ];
+    gulp.src(lintSourceFiles)
         .pipe(plugins.scssLint({
             config: '.scss-lint.yml',
             filePipeOutput: 'scssReport.json',

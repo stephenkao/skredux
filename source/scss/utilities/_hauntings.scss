@@ -1,8 +1,25 @@
-html.corrupted--mirror {
+////////////////////////////////////////////////// body modifiers
+
+.corruption-3 {
     transform: rotateY(180deg);
 }
 
-html.corrupted--blood {
+.corruption-4 {
     background-color: $red;
-    color: white;
+    color: $white;
+
+    .clock:after {
+        background-color: $white;
+    }
+}
+
+.corrupted {
+    animation: twitch 8000ms infinite;
+
+    .photo {
+        background-blend-mode: multiply;
+        animation: bleed 5000ms 1, twitch 10000ms infinite;
+        animation-fill-mode: forwards;
+        cursor: pointer;
+    }
 }

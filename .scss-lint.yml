@@ -1,10 +1,17 @@
-# Check this out: https://github.com/causes/scss-lint/blob/master/lib/scss_lint/linter/README.md
+scss_files: "source/scss/**/*.scss"
+
 linters:
-  BorderZero:
+  BangFormat:
     enabled: true
 
-  CapitalizationInSelector:
-    enabled: false
+  # .block__element__element has depth of two
+  BemDepth:
+    enabled: true
+    max_elements: 1
+
+  BorderZero:
+    enabled: true
+    convention: zero
 
   ColorKeyword:
     enabled: true
@@ -50,15 +57,17 @@ linters:
   HexValidation:
     enabled: true
 
-  # Well, modifier classes on id selectors...?
-  # BUT let's try to avoid id selectors in the first place!
   IdWithExtraneousSelector:
+    enabled: true
+
+  ImportantRule:
     enabled: true
 
   Indentation:
     enabled: true
-    character: space
-    width: 4
+    allow_non_nested_indentation: false
+    character: tab
+    width: 1
 
   LeadingZero:
     enabled: true
@@ -70,33 +79,75 @@ linters:
     force_nesting: true
 
   # Maybe revisit this if we decide on BEM or another nomenclature
-  SelectorFormat:
+  NameFormat:
     enabled: true
-    convention: hyphenated_BEM
+    convention: hyphenated_lowercase # or 'BEM', or a regex pattern
+
+  # NOTE: This is NOT depth of applicability -- that's SelectorDepth!
+  # This is simply the depth of rules
+  NestingDepth:
+    enabled: true
+    max_depth: 5
+    ignore_parent_selectors: false
 
   # YES!  No more extending straight rules
   PlaceholderInExtend:
     enabled: true
 
+  PropertyCount:
+    enabled: false
+    #include_nested: false
+    #max_properties: 10
+
   # @TODO: Revisit this when we all talk about thangs
   PropertySortOrder:
     enabled: false
+    #ignore_unspecified: false
+    #min_properties: 2
+    #separate_groups: false
 
   PropertySpelling:
     enabled: true
+    extra_properties: [] # We can add experimental properties here!
 
-  # Subjective as well, but we should really limit selector depth
-  # to make our rules more extensible and/or modular
+  # @TODO: Revisit this to ensure proper spacings/rhythms?
+  PropertyUnits:
+    enabled: true
+    global: [
+      'ch', 'em', 'ex', 'rem',
+      'cm', 'in', 'mm', 'pc', 'pt', 'px', 'q',
+      'vh', 'vw', 'vmin', 'vmax',
+      'deg', 'grad', 'rad', 'turn',
+      'ms', 's',
+      'Hz', 'kHz',
+      'dpi', 'dpcm', 'dppx',
+      '%']
+    properties: {}
+
+  # To avoid overqualifying selectors (prefer `.sidebar` over `div.sidebar`)
+  # @TODO: Tighten/relax the following allowances
+  QualifyingElement:
+    enabled: true
+    allow_element_with_attribute: true
+    allow_element_with_class: true
+    allow_element_with_id: false
+
+  # This is depth of applicability (https://smacss.com/book/applicability)
   SelectorDepth:
     enabled: true
-    max_depth: 3
+    max_depth: 5
+
+  SelectorFormat:
+    enabled: true
+    convention: '^(([a-z]*[-]?[a-z0-9\-]*)([a-z0-9\-]*)?(__[a-z0-9]*[-]?[a-z0-9\-]*)?(--[a-z0-9]*[-]?[a-z0-9\-]*)?)$|(f_[a-zA-Z0-9\-_]*_on)$'
 
   Shorthand:
     enabled: true
+    #allowed_shorthands: [1, 2, 3]
 
   SingleLinePerProperty:
     enabled: true
-    allow_single_line_rule_sets: true
+    allow_single_line_rule_sets: false
 
   SingleLinePerSelector:
     enabled: true
@@ -111,9 +162,13 @@ linters:
   SpaceAfterPropertyName:
     enabled: true
 
+  SpaceAfterVariableName:
+    enabled: true
+
   SpaceBeforeBrace:
     enabled: true
     allow_single_line_padding: false
+    style: space
 
   SpaceBetweenParens:
     enabled: true
@@ -140,6 +195,19 @@ linters:
 
   UrlQuotes:
     enabled: true
+
+  # @TODO: Revisit this!  It could help to ensure consistency
+  VariableForProperty:
+    enabled: false
+    #properties:
+      #- color
+      #- font
+
+  VendorPrefix:
+    enabled: true
+    identifier_list: base
+    additional_identifiers: []
+    excluded_identifiers: []
 
   ZeroUnit:
     enabled: true

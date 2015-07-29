@@ -24,19 +24,25 @@ gulp.task('css:dev', function () {
             message: 'CSS compiled successfully',
             wait: true
         }));
+});
 
-    lintSourceFiles = [
+gulp.task('scsslint', function () {
+    var lintSourceFiles = [
         'source/scss/**/*.scss',
         '!source/scss/**/_reset.scss',
         '!source/scss/**/_fonts.scss'
     ];
-    gulp.src(lintSourceFiles)
+
+    return gulp.src(lintSourceFiles)
         .pipe(plugins.scssLint({
             config: '.scss-lint.yml',
             filePipeOutput: 'scssReport.json',
             maxBuffer: Infinity,
             verbose: true
-        }));
+        }))
+        .on('error', function (err, what) {
+            console.log(err);
+        });
 });
 
 gulp.task('javascript:dev', function () {
@@ -66,19 +72,6 @@ gulp.task('jshint:dev', function() {
 
 gulp.task('webpack:dev', function (callback) {
     var myConfig = Object.create(require('./webpack.config.js'));
-
-    /*
-    myConfig.plugins = myConfig.plugins.concat(
-        new webpack.DefinePlugin({
-            'process.env': {
-                // This has effect on the react lib size
-                'NODE_ENV': JSON.stringify('production')
-            }
-        }),
-        new webpack.optimize.DedupePlugin(),
-        new webpack.optimize.UglifyJsPlugin()
-    );
-*/
 
     webpack(myConfig, function (err, stats) {
         if (err) throw new gulpUtil.PluginError("webpack:build-dev", err);
@@ -131,7 +124,8 @@ gulp.task('dev', function () {
     // Initial SCSS compilation
     gulp.run('css:dev');
     gulp.watch(['source/scss/**/*.scss'], [
-        'css:dev'
+        'css:dev',
+        'scsslint'
     ]);
 });
 

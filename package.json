@@ -25,7 +25,8 @@
     "gulp-util": "^3.0.6",
     "gulp-watch": "^4.2.4",
     "requirejs": "~2.1.11",
-    "underscore": "^1.7.0"
+    "underscore": "^1.7.0",
+    "webpack": "^1.10.5"
   },
   "dependencies": {
     "async": "^1.2.1",

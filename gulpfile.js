@@ -45,12 +45,7 @@ gulp.task('scsslint', function () {
         });
 });
 
-gulp.task('javascript:dev', function () {
-    gulp.start('jshint:dev');
-    gulp.start('webpack:dev');
-});
-
-gulp.task('jshint:dev', function() {
+gulp.task('jshint', function() {
     var sourceFiles = [
         'source/javascript/**/*.js',
         '!source/javascript/lib/**/*.js'
@@ -78,6 +73,12 @@ gulp.task('webpack:dev', function (callback) {
         gulpUtil.log("[webpack:build-dev]", stats.toString({
             colors: true
         }));
+
+        plugins.notify({
+            title: 'webpack:dev',
+            message: 'webpack processing completed',
+            wait: true
+        });
     });
 });
 
@@ -90,8 +91,6 @@ gulp.task('css:deploy', function () {
         .pipe(plugins.autoprefixer({ browsers: ['last 2 version', 'Firefox < 20', '> 5%'] }))
         .pipe(gulp.dest('target/css/'));
 });
-
-gulp.task('javascript:deploy', function () {});
 
 gulp.task('webpack:deploy', function () {
     var myConfig = Object.create(require('./webpack.config.js'));
@@ -117,7 +116,7 @@ gulp.task('webpack:deploy', function () {
 
 gulp.task('dev', function () {
     gulp.watch(['source/javascript/**/*.js'], [
-        'javascript:dev',
+        'jshint',
         'webpack:dev'
     ]);
 
@@ -131,5 +130,5 @@ gulp.task('dev', function () {
 
 gulp.task('deploy', function () {
     gulp.start('css:deploy');
-    gulp.start('javascript:deploy');
+    gulp.start('webpack:deploy');
 });

@@ -131,3 +131,21 @@
         background-color: $red;
     }
 }
+
+@keyframes ping {
+    20% {
+        background-color: $red;
+    }
+
+    40% {
+        background-color: $white;
+    }
+
+    60% {
+        background-color: $red;
+    }
+
+    80% {
+        background-color: $white;
+    }
+}

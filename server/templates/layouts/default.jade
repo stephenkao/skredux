@@ -50,24 +50,50 @@ html
      .row
        .column.centered.small-14.clock
          .clock__division.u-text--right
-           if corruption == 4
-             p.clock__message.
-               You've been here too long.<br />
-               's gone. <br />
-               It didn't hurt.
-           else
-             block clock-message
+           case corruption
+             when 1
                p.clock__message.
-                 I don't know if we should be here. <br />
+                 You've come again.<br />
                  <a href="/">Stephen</a>'s gone. <br />
-                 I don't know where.
+                 Still.
+             when 2
+               p.clock__message.
+                 Have you found anything?<br />
+                 <a href="/">Stephen</a>'s gone. <br />
+                 You're starting testing my patience.
+             when 3
+               p.clock__message.
+                 Get out.<br />
+                 <a href="/">Stephen</a>'s gone. <br />
+                 But I'm here.
+             when 4
+               p.clock__message.
+                 You've been here too long.<br />
+                 's gone. <br />
+                 It didn't hurt.
+             default
+               block clock-message
+                 p.clock__message.
+                   I don't know if we should be here. <br />
+                   <a href="/">Stephen</a>'s gone. <br />
+                   I don't know where.
          .clock__division
-           time.clock__time #{moment(new Date()).format('MMMDD/YY')}
-           time.clock__time.js_clock__digits 09:45:31
+           if corruption == 4
+             time.clock__time #{moment('02/24/1989').format('MMMDD/YY')} - #{moment(new Date()).format('MMMDD/YY')}
+             time.clock__time.js_clock__digits ĮばËそoい丫
+           else
+             time.clock__time #{moment(new Date()).format('MMMDD/YY')}
+             time.clock__time.js_clock__digits 09:45:31
 
    .main.js_main(class="#{section}")
      if corruption == 4
-       h1.u-text--center Ph'nglui <br /> mglw'nafh <br /> Cthulhu <br /> R'lyeh <br /> wgah'nagl <br /> fhtagn <br />
+       h1.u-text--center phngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagn
+       h1.u-text--center phngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagn
+       h1.u-text--center phngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagn
+       h1.u-text--center phngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagn
+       h1.u-text--center phngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagn
+       h1.u-text--center phngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagnphngluimglwnafhcthulhurlyehwgahnaglfhtagn
+
      else
        block content
 

@@ -63,19 +63,22 @@ exports.flashMessages = function(req, res, next) {
  */
 exports.increaseCorruption = function (req, res, next) {
     var locals = res.locals,
-        corruption = parseInt(req.cookies.skcorrupt, 10) || 0;
+        corruption = 0;
 
-    locals.data = locals.data || {};
+    if (req.query.corruption) {
+        corruption = parseInt(req.query.corruption, 10);
+    } else {
+        corruption = parseInt(req.cookies.skcorrupt, 10);
 
-    // Increment corruption level
-    // @TODO: Remove this when there's interactivity on the site!
-    corruption = (corruption + 1) % 5;
-    res.cookie('skcorrupt', corruption, {
-        maxAge: 900000,
-        httpOnly: false
-    });
+        // Increment corruption level
+        // @TODO: Remove this when there's interactivity on the site!
+        corruption = (corruption + 1) % 5;
+        res.cookie('skcorrupt', corruption, {
+            maxAge: 900000,
+            httpOnly: false
+        });
+    }
 
     locals.corruption = corruption;
-
     next();
 };

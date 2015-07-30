@@ -16,9 +16,9 @@
 .corrupted {
     animation: twitch 8000ms infinite;
 
-    .photo {
+    &.photo {
         background-blend-mode: multiply;
-        animation: bleed 5000ms 1, twitch 10000ms infinite;
+        animation: bleed 5000ms 1, twitch 10000ms 2;
         animation-fill-mode: forwards;
         cursor: pointer;
     }

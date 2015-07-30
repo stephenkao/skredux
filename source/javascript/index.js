@@ -7,6 +7,9 @@ require('js/view/haunting/shouting.haunting');
 var $ = require('js/lib/jquery');
 
 $('document').ready(function () {
+    var $window = $(window);
+    $window.scrollTop(0);
+
     ////////// Update the clock -- if not completely corrupted
     if (!$('body').hasClass('corruption-4')) {
         var $clock = $('.js_clock__digits');
@@ -36,4 +39,8 @@ $('document').ready(function () {
         $inventoryTrigger.toggleClass('active');
         $inventory.toggleClass('shown');
     });
+
+    window.setTimeout(function () {
+        $inventoryTrigger.addClass('ping');
+    }, 5000);
 });

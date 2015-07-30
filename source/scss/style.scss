@@ -1,3 +1,4 @@
+
 @charset 'UTF-8';
 
 @import url(http://fonts.googleapis.com/css?family=IM+Fell+English+SC|IM+Fell+English);
@@ -36,6 +37,17 @@ a {
 }
 
 h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+    word-break: break-word;
+}
+
+h1,
 h2 {
     font-family: $font--header;
 }
@@ -64,10 +76,17 @@ span {
     animation-fill-mode: forwards;
 }
 
+////////////////////////////////////////////////// Text styles (textiles ~~~)
+
+.redacted {
+    background-color: $black;
+    color: $black;
+}
+
 ////////////////////////////////////////////////// Corruptions/hauntings
 .photo {
-    width: 300px;
-    height: 300px;
+    width: 150px;
+    height: 150px;
     margin: 0 auto;
 
     background-size: contain;
@@ -145,15 +164,26 @@ span {
     position: relative;
 
     cursor: pointer;
+    transition: transform 200ms;
+
+    &:hover,
+    &.active {
+        transform: rotate(90deg);
+    }
 
     &.active {
         .ring--outer {
             background-color: $red;
         }
 
+        .ring--middle,
         .ring--inner {
             border-color: $white;
         }
+    }
+
+    &.ping .ring--inner {
+        animation: ping 500ms;
     }
 
     .ring {
@@ -227,9 +257,32 @@ span {
     &.shown {
         transform: translateY(0);
     }
+
+    hr {
+        height: 1px;
+
+        background-color: $black;
+    }
 }
 
 ////////////////////////////////////////////////// Posts
+.post {
+    margin-bottom: $vertical-rhythm;
+
+    &:hover a {
+        color: $red;
+        transition: color 1000ms;
+    }
+
+    a {
+        color: $black;
+    }
+}
+
+.post__title {
+    margin-bottom: 0.4em;
+}
+
 .post__metadata {
     .post__pubdate,
     .taglist {

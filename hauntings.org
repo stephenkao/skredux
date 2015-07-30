@@ -1,0 +1,21 @@
+- [ ] Hauntings list [0/3]
+  - [ ] Cthulhu
+    - [ ] Invocation cards: Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn
+      - [ ] ph' (ph'nglui)
+      - [ ] mglw' (mglw'nafh)
+      - [ ] Cthulhu
+      - [ ] R' (R'lyeh)
+      - [ ] wgah (wgah'nagl)
+      - [ ] fhtagn
+  - [ ] Murderer
+    - [ ] Newspaper clippings
+    - [ ] Body parts
+      - [ ] Tooth
+      - [ ] Nail
+      - [ ] Finger
+      - [ ] Ear
+      - [ ] Lips
+    - [ ] Aphasia
+
+  - [ ] Pitch-black
+    - [ ] Use candle fade in --> background image of corpse

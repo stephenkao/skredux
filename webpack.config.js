@@ -14,5 +14,6 @@ module.exports = {
             js: 'javascript'
         },
         extensions: ['', '.js', '.json']
-    }
+    },
+    plugins: []
 };

@@ -1,3 +1,7 @@
 .division {
-    margin-bottom: 2 * $vertical-rhythm;
+    margin-bottom: $vertical-rhythm;
+
+    &.push-top {
+        margin-top: $vertical-rhythm;
+    }
 }

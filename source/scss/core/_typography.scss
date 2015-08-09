@@ -1,4 +1,8 @@
 @import 'fonts';
+@import url(http://fonts.googleapis.com/css?family=IM+Fell+English+SC|IM+Fell+English);
+
+$font--header: 'IM Fell English SC', serif;
+$font--content: 'IM Fell English', serif;
 
 html {
     font-size: 62.5%;
@@ -30,4 +34,38 @@ h5 {
 
 h6 {
     font-size: 1.4rem;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+    word-break: break-word;
+}
+
+h1,
+h2 {
+    font-family: $font--header;
+}
+
+h3,
+h4,
+h5,
+h6 {
+    font-family: $font--content;
+    margin-bottom: 0.8em;
+}
+
+p,
+span {
+    margin-bottom: 1.4em;
+
+    font-family: $font--content;
+    line-height: 1.5;
+    word-break: break-word;
 }

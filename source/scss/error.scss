@@ -1,0 +1,35 @@
+@charset 'UTF-8';
+
+$white: #ffffff !global;
+$black: #000000 !global;
+$red: #b90000 !global;
+
+@import url(http://fonts.googleapis.com/css?family=IM+Fell+English+SC|IM+Fell+English);
+$font--header: 'IM Fell English SC', serif;
+$font--content: 'IM Fell English', serif;
+
+@import 'reset';
+@import 'settings';
+@import 'animations';
+
+@import 'core/typography';
+
+@import 'utilities/alignment';
+@import 'utilities/hauntings';
+
+@import 'layout/clearfix';
+@import 'layout/grid';
+@import 'layout/divider';
+
+@import 'components/clock';
+
+////////////////////////////////////////////////// Default site styles
+@import 'default';
+
+html,
+body {
+    height: 100%;
+
+    background-color: $black;
+    color: $white;
+}

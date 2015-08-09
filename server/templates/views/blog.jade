@@ -31,10 +31,8 @@ block content
   else
       if data.posts.results.length
           .blog
-            .row
-              .column.small-8.centered
-                each post in data.posts.results
-                  +post(post)
+            each post in data.posts.results
+              +post(post)
 
 
             //- if data.posts.totalPages > 1
@@ -63,11 +61,12 @@ block content
             //-         else
             //-             li.disabled: a(href='?page=' + data.posts.totalPages): span.entypo.glyphicon.glyphicon-chevron-right
 
+
+      else
+        if data.category
+            h3.text-muted There are no posts in the category #{data.category.name}.
         else
-            if data.category
-                h3.text-muted There are no posts in the category #{data.category.name}.
-            else
-                h3.text-muted There are no posts yet.
+            h3.text-muted There are no posts yet.
 
 //- if data.categories.length
 //-     .col-sm-4.col-md-3

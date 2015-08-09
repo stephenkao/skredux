@@ -1,0 +1,38 @@
+include ../mixins/flash-messages
+
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    meta(name="ROBOTS", content="INDEX, FOLLOW")
+
+    link(rel="canonical", href="http://stephenkao.com")
+    meta(property="og:title", content="Stephen Kao")
+    meta(property="og:type", content="blog")
+    meta(name="twitter:card", content="summary_large_image")
+    meta(name="twitter:site", content="@_stephenkao")
+    meta(name="twitter:title", content="Stephen Kao")
+    meta(name="twitter:description", content="La la la")
+    meta(property="og:description", content="How About You Get The Hell Out of Here?")
+    meta(name="description", content="La la la")
+    meta(property="og:locale", content="en_US")
+    meta(property="og:site_name", content="Stephen Kao")
+    title= title || 'You Shouldn\'t Be Here'
+    link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
+    link(href="/target/css/error.css", rel="stylesheet")
+
+    block css
+    block head
+
+  //- HTML BODY
+  body
+    section.division.push-top
+      .row
+        .column.small-4.small-push-5.u-text--left
+          h3 You shouldn't have come here.
+          h3 There's nothing for you.
+
+    script(src="target/javascript/index.js")
+    block js

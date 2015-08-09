@@ -18,49 +18,16 @@ mixin post(post)
 
 block content
   section.division
-    .row
-      .column.medium-7
-        h3 <a href="/">Stephen</a>'s gone.  Left. Disappeared.  Vanished.
-        p.
-          I'm not sure where he is.  Or if he's even alive at this point.
-          He could be lying in pieces, getting scraped off the subway tracks for all I know.
-          Or he could be in the Bahamas, laughing his ass off at me for thinking this.
-        p.
-          In any case, he left a lot of his things here.
-          Considering the nearly opaque layers of dust, it doesn't look like it's been touched in a while.
-          If you have some time, take a look around and see if you can find something.
-        p.
-          Just be careful.  I have a bad feeling about this place.
-
-      .column.medium-7.u-text--center
-        // img(src="http://placehold.it/300x300")
-        .photo(style="background-image: url('https://scontent-lga1-1.cdninstagram.com/hphotos-xaf1/t51.2885-15/11374489_1646243385609671_493220254_n.jpg')")
+    h3 <a href="/">Stephen</a>'s gone.  Left. Disappeared.  Vanished.
+    each paragraph in data.paragraphs.introduction
+      p!= paragraph
 
   section.division
-    .row
-      .column.medium-7.u-text--center
-        // img(src="http://placehold.it/300x300")
-        .photo(style="background-image: url('https://scontent-lga1-1.cdninstagram.com/hphotos-xaf1/t51.2885-15/11374489_1646243385609671_493220254_n.jpg')")
-
-      .column.medium-7
-        h3 I've been piecing together a dossier.
-        p.
-          <a href="/">Stephen</a> was born on <span class="redacted">some date of some year</span>, a habitually taciturn son of <span class="redacted">Ming-Lai</span> and <span class="redacted">Grace Kao</span>.
-          As a semi-dyssemic child, he found solace in various forms of escapism, ranging from literature and writing to video games and television.
-        p.
-          After graduating from <span class="redacted">Emmaus High School</span> in 2007, he attended the <span class="redacted">University of Pittsburgh</span>, majoring in computer science and Chinese.
-          He always showed a perverse interest in linguistics and morphology, but any hopes he had of pursuing a career in it were dashed by callous pragmatism.
-        p.
-          From 2007 through 2013, he worked full-stack engineer at the <span class="redacted">Pittsburgh</span>-based startup <a href="http://flashgroup.com">Flashgroup Inc</a>.
-          Before his disappearance, he was last seen working at <a href="http://gawker.com">Gawker Media</a> in <span class="redacted">New York</span> as a front-end engineer.
+    h3 I've been piecing together fragments of his story.
+    each paragraph in data.paragraphs.biography
+      p!= paragraph
 
   section.division
-    .row
-      .column.medium-7
-        h3 He also left some <a href="/blog">notes</a>—maybe you can make better sense of them.
-        each post in data.posts
-          +post(post)
-
-      .column.medium-7.u-text--center
-        // img(src="http://placehold.it/300x300")
-        .photo.corrupted(style="background-image: url('https://scontent-lga1-1.cdninstagram.com/hphotos-xaf1/t51.2885-15/11374489_1646243385609671_493220254_n.jpg')")
+    h3 He also left some <a href="/blog">notes</a>—maybe you can make better sense of them.
+    each post in data.posts
+      +post(post)

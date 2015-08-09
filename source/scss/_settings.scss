@@ -24,6 +24,6 @@ $large-down: 'only screen and (max-width: #{map-get($breakpoint--large, minimum)
 $large-up: 'only screen and (min-width: #{map-get($breakpoint--large, minimum)})';
 
 ////////////////////////////////////////////////// Colors
-$white: #ffffff;
-$black: #000000;
-$red: #b90000;
+$white: #ffffff !global;
+$black: #000000 !global;
+$red: #b90000 !global;

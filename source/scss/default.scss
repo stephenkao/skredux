@@ -1,0 +1,49 @@
+$white: #ffffff !global;
+$black: #000000 !global;
+$red: #b90000 !global;
+
+////////////////////////////////////////////////// Default styles
+html,
+body {
+    overflow-x: hidden;
+}
+
+html {
+    background: white url('/target/image/splat.png') no-repeat;
+    background-position: right top;
+}
+
+a {
+    position: relative;
+
+    color: $red;
+    text-decoration: none;
+
+    &:hover,
+    &:active {
+        text-decoration: none;
+
+        &:after {
+            width: 100%;
+        }
+    }
+
+    &:after {
+        width: 0%;
+        height: 100%;
+
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        content: '';
+        background-color: $red;
+    }
+}
+
+.main {
+    opacity: 0;
+
+    animation: fade-in 800ms 1000ms;
+    animation-fill-mode: forwards;
+}

@@ -20,138 +20,83 @@
 
 ////////////////////////////////////////////////// Text styles (textiles ~~~)
 
-.redacted {
-    background-color: $black;
+html {
+    width: 100%;
+    height: 100%;
+
+    overflow-x: hidden;
+}
+
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+.framed {
+    padding: 1em;
+
+    background-size: 100% 100%;
+
+    &.framed--square {
+        background-image: url('../svg/square.min.svg');
+    }
+
+    &.framed--circle {
+        background-image: url('../svg/circle.min.svg');
+        border-radius: 50%;
+    }
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0.4;
+
+    &:hover {
+        opacity: 0.6;
+    }
+}
+
+.menu__trigger {
+    width: 60px;
+    height: 60px;
+    margin-right: 1em;
+
+    transition: background-color 200ms, opacity 200ms;
+    cursor: pointer;
+
+    &.active {
+        background-color: black;
+        opacity: 1;
+    }
+}
+
+.menu__title span {
+    margin-bottom: 0;
+
+    display: block;
+
+    font-family: $font--header;
     color: $black;
 }
 
-////////////////////////////////////////////////// Corruptions/hauntings
-.photo {
-    width: 150px;
-    height: 150px;
-    margin: 0 auto;
+.navigation {
+    display: flex;
+    justify-content: center;
 
-    background-size: contain;
-    background-repeat: no-repeat;
-
-    @media #{$medium-only} {
-        width: 200px;
-        height: 200px;
-    }
+    text-align: center;
+    font-family: $font--content;
 }
 
-////////////////////////////////////////////////// Inventory
-.header {
-    padding-top: $gutter-width;
+.navigation__item {
+    margin: 0 1em;
 }
 
-.inventory-trigger {
-    $diameter--outer: 40px;
-    width: $diameter--outer;
-    height: $diameter--outer;
-
-    position: relative;
-
-    cursor: pointer;
-    transition: transform 200ms;
-
-    &:hover,
-    &.active {
-        transform: rotate(90deg);
-    }
-
-    &.active {
-        .ring--outer {
-            background-color: $red;
-        }
-
-        .ring--middle,
-        .ring--inner {
-            border-color: $white;
-        }
-    }
-
-    &.ping .ring--inner {
-        animation: ping 500ms;
-    }
-
-    .ring {
-        border: 1px solid $red;
-
-        position: absolute;
-
-        transition: background-color 200ms, border-color 200ms;
-        border-radius: 50%;
-    }
-
-    .ring--outer {
-        $diameter: 100%;
-
-        width: $diameter;
-        height: $diameter;
-        border-top: 0;
-        border-bottom: 0;
-
-        animation: zoom-in 1000ms;
-        animation-fill-mode: forwards;
-    }
-
-    .ring--middle {
-        $diameter: 75%;
-        $offset: (100% - $diameter) / 2;
-
-        width: $diameter;
-        height: $diameter;
-        border-left: 0;
-        border-right: 0;
-
-        left: $offset;
-        top: $offset;
-
-        animation: zoom-in 2000ms;
-        animation-fill-mode: forwards;
-    }
-
-    .ring--inner {
-        $diameter: 50%;
-        $offset: (100% - $diameter) / 2;
-
-        width: $diameter;
-        height: $diameter;
-        border-top: 0;
-        border-bottom: 0;
-
-        left: $offset;
-        top: $offset;
-
-        animation: zoom-in 3000ms;
-        animation-fill-mode: forwards;
-    }
-}
-
-.inventory {
-    $height: 200px;
-
-    width: 100%;
-    height: $height;
-
-    position: fixed;
-    bottom: 0;
-    left: 0;
-
-    background-color: $white;
-    transform: translateY($height);
-    transition: transform 400ms $slide-cubic;
-
-    &.shown {
-        transform: translateY(0);
-    }
-
-    hr {
-        height: 1px;
-
-        background-color: $black;
-    }
+.redacted {
+    background-color: $black;
+    color: $black;
 }
 
 ////////////////////////////////////////////////// Posts

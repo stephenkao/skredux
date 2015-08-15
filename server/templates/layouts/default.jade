@@ -30,78 +30,39 @@ html
     if user && user.canAccessKeystone
       link(href="/keystone/styles/content/editor.min.css", rel="stylesheet")
 
-    //- Include template-specific stylesheets by extending the css block
     block css
 
-    //- Add any other template-specific HEAD tags by extending the head block
     block head
 
-  //- HTML BODY
-  body(class="corruption-#{corruption}")
-    //- header.header.division
-    //-   .row
-    //-     .column.medium-2.centered
-    //-       .inventory-trigger.js_inventory-trigger
-    //-         .ring.ring--outer
-    //-         .ring.ring--middle
-    //-         .ring.ring--inner
+  body(class="corruption-#{corruption} framed framed--square")
+    div(style="display:none;")
 
-   section.division.push-top
-     .row
-       .column.medium-7.medium-push-1
-         .main.js_main(class="#{section}")
-           if corruption == 4
-             h1.u-text--center ourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagn
-             h1.u-text--center ourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagn
-             h1.u-text--center ourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagn
-             h1.u-text--center ourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagn
-             h1.u-text--center ourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagn
-             h1.u-text--center ourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagnourlordandsaviorphngluimglwnafhcthulhurlyehwgahnaglfhtagn
-           else
-             block content
-       .column.medium-5.medium-pull-1.clock
-         .clock__division.u-text--right
-           case corruption
-             when 1
-               p.clock__message.
-                 You've come again.<br />
-                 <a href="/">Stephen</a>'s gone. <br />
-                 Still.
-             when 2
-               p.clock__message.
-                 Have you found anything?<br />
-                 <a href="/">Stephen</a>'s gone. <br />
-                 You're starting testing my patience.
-             when 3
-               p.clock__message.
-                 Get out.<br />
-                 <a href="/">Stephen</a>'s gone. <br />
-                 But I'm here.
-             when 4
-               p.clock__message.
-                 You've been here too long.<br />
-                 's gone. <br />
-                 It didn't hurt.
-             default
-               block clock-message
-                 p.clock__message.
-                   I don't know if we should be here. <br />
-                   <a href="/">Stephen</a>'s gone. <br />
-                   I don't know where.
-         .clock__division
-           if corruption == 4
-             time.clock__time #{moment('02/24/1989').format('MMMDD/YY')} - #{moment(new Date()).format('MMMDD/YY')}
-             time.clock__time.js_clock__digits ĮばËそoい丫
-           else
-             time.clock__time #{moment(new Date()).format('MMMDD/YY')}
-             time.clock__time.js_clock__digits 09:45:31
+    .menu.division.push--top
+      .menu__trigger.framed.framed--circle
+      .menu__title
+        span [Antechamber]
+        span Aug14/15 09:58:32
 
-   footer.inventory.js_inventory
-     hr
-     .row
-       .column.small-14
-         h2 Inventory
-
-    script(src="target/javascript/index.js")
+    nav.navigation.row.push--top
+      .navigation__item.framed.framed--square.medium-2
+        .navigation__setaform
+          img(src="/target/svg/mirror.min.svg")
+        a.navigation__link life
+      .navigation__item.framed.framed--square.medium-2
+        .navigation__setaform
+          img(src="/target/svg/bristle.min.svg")
+        a.navigation__link ears
+      .navigation__item.framed.framed--square.medium-2
+        .navigation__setaform
+          img(src="/target/svg/bristle.min.svg")
+        a.navigation__link eyes
+      .navigation__item.framed.framed--square.medium-2
+        .navigation__setaform
+          img(src="/target/svg/scylla.min.svg")
+        a.navigation__link heart
+      .navigation__item.framed.framed--square.medium-2
+        .navigation__setaform
+          img(src="/target/svg/galley.min.svg")
+        a.navigation__link hands
 
 block js

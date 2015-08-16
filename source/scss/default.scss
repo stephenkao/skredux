@@ -14,30 +14,11 @@ html {
 }
 
 a {
-    position: relative;
-
     color: $red;
-    text-decoration: none;
+    cursor: pointer;
 
-    &:hover,
-    &:active {
-        text-decoration: none;
-
-        &:after {
-            width: 100%;
-        }
-    }
-
-    &:after {
-        width: 0%;
-        height: 100%;
-
-        position: absolute;
-        left: 0;
-        top: 0;
-
-        content: '';
-        background-color: $red;
+    &:hover {
+        text-decoration: line-through;
     }
 }
 

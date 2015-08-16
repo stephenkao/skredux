@@ -4,7 +4,6 @@ $gutter-width: 20px;
 
 $row-width--max: 1440px;
 $num-columns: 14;
-$column-width: 60px;
 
 @function grid-calc($column-number) {
     $result: percentage(($column-number / $num-columns));
@@ -49,74 +48,61 @@ $column-width: 60px;
 }
 
 ////////////////////////////////////////////////// Column widths
-@media #{$small-up} {
-    .column {
-        padding-left: $gutter-width;
-        padding-right: $gutter-width;
-    }
+.column {
+    padding-left: $gutter-width;
+    padding-right: $gutter-width;
 
-    @for $i from 1 through $num-columns {
-        .small-#{$i} {
-            width: grid-calc($i);
+    @media #{$small-up} {
+        @for $i from 1 through $num-columns {
+            &.small-#{$i} {
+                width: grid-calc($i);
+            }
+
+            &.small-push-#{$i} {
+                left: grid-calc($i);
+                right: auto;
+            }
+
+            &.small-pull-#{$i} {
+                left: auto;
+                right: grid-calc($i);
+            }
         }
     }
-}
 
-@media #{$medium-up} {
-    @for $i from 1 through $num-columns {
-        .medium-#{$i} {
-            width: grid-calc($i);
+    @media #{$medium-up} {
+        @for $i from 1 through $num-columns {
+            &.medium-#{$i} {
+                width: grid-calc($i);
+            }
+
+            &.medium-push-#{$i} {
+                left: grid-calc($i);
+                right: auto;
+            }
+
+            &.medium-pull-#{$i} {
+                left: auto;
+                right: grid-calc($i);
+            }
         }
     }
-}
 
-@media #{$large-up} {
-    @for $i from 1 through $num-columns {
-        .large-#{$i} {
-            width: grid-calc($i);
-        }
-    }
-}
+    @media #{$large-up} {
+        @for $i from 1 through $num-columns {
+            &.large-#{$i} {
+                width: grid-calc($i);
+            }
 
-////////////////////////////////////////////////// Push/pull
-@media #{$small-up} {
-    @for $i from 1 through $num-columns {
-        .small-push-#{$i} {
-            left: $i * $column-width;
-            right: auto;
-    }
+            &.large-push-#{$i} {
+                left: grid-calc($i);
+                right: auto;
+            }
 
-        .small-pull-#{$i} {
-            left: auto;
-            right: $i * $column-width;
-        }
-    }
-}
-
-@media #{$medium-up} {
-    @for $i from 1 through $num-columns {
-        .medium-push-#{$i} {
-            left: $i * $column-width;
-            right: auto;
-    }
-
-        .medium-pull-#{$i} {
-            left: auto;
-            right: $i * $column-width;
-        }
-    }
-}
-
-@media #{$large-up} {
-    @for $i from 1 through $num-columns {
-        .large-push-#{$i} {
-            left: $i * $column-width;
-            right: auto;
-    }
-
-        .large-pull-#{$i} {
-            left: auto;
-            right: $i * $column-width;
+            &.large-pull-#{$i} {
+                left: auto;
+                right: grid-calc($i);
+            }
         }
     }
 }

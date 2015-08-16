@@ -1,0 +1,7 @@
+$vertical-rhythm: 40px;
+
+@for $i from 1 through 10 {
+    .vr-#{$i} {
+        margin-top: $i * $vertical-rhythm;
+    }
+}

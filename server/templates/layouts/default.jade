@@ -1,7 +1,7 @@
 include ../mixins/flash-messages
 
 doctype html
-html
+html.framed.framed--square
 
   //- HTML HEADER
   head
@@ -34,35 +34,36 @@ html
 
     block head
 
-  body(class="corruption-#{corruption} framed framed--square")
+  body(class="corruption-#{corruption}")
     div(style="display:none;")
 
-    .menu.division.push--top
+    .menu.vr-1
       .menu__trigger.framed.framed--circle
       .menu__title
         span [Antechamber]
         span Aug14/15 09:58:32
 
-    nav.navigation.row.push--top
-      .navigation__item.framed.framed--square.medium-2
-        .navigation__setaform
-          img(src="/target/svg/mirror.min.svg")
-        a.navigation__link life
-      .navigation__item.framed.framed--square.medium-2
-        .navigation__setaform
-          img(src="/target/svg/bristle.min.svg")
-        a.navigation__link ears
-      .navigation__item.framed.framed--square.medium-2
-        .navigation__setaform
-          img(src="/target/svg/bristle.min.svg")
-        a.navigation__link eyes
-      .navigation__item.framed.framed--square.medium-2
-        .navigation__setaform
-          img(src="/target/svg/scylla.min.svg")
-        a.navigation__link heart
-      .navigation__item.framed.framed--square.medium-2
-        .navigation__setaform
-          img(src="/target/svg/galley.min.svg")
-        a.navigation__link hands
+    nav.navigation.row.vr-3
+      .navigation__item.column.small-7.medium-3
+        a
+          .navigation__setaform
+            img(src="/target/svg/mirror.min.svg")
+          span.navigation__link life
+      .navigation__item.column.small-7.medium-3
+        a
+          .navigation__setaform
+            img(src="/target/svg/bristle.min.svg")
+          span.navigation__link eyes
+      .navigation__item.column.small-7.medium-3
+        a
+          .navigation__setaform
+            img(src="/target/svg/scylla.min.svg")
+          span.navigation__link ears
+      .navigation__item.column.small-7.medium-3
+        a
+          .navigation__setaform
+            img(src="/target/svg/galley.min.svg")
+          span.navigation__link hands
 
+  script(type="text/javascript", src="/target/javascript/index.js")
 block js

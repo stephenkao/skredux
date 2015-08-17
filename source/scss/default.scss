@@ -5,6 +5,9 @@ $red: #b90000 !global;
 ////////////////////////////////////////////////// Default styles
 html,
 body {
+    height: 100%;
+    min-height: 100%;
+
     overflow-x: hidden;
 }
 

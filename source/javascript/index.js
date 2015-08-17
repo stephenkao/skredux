@@ -1,46 +1,28 @@
-/*global require */
+/*global window, require */
 
 'use strict';
 
-require('js/view/haunting/shouting.haunting');
-
-var $ = require('js/lib/jquery');
+import $ from 'jquery';
+import React from 'react';
 
 $('document').ready(function () {
+    // We create a function that will lazy load modules based on the current hash
+    var resolveRoute = function () {
+
+        // If no hash or hash is '#' we lazy load the Home component
+        if (!window.location.hash || window.location.hash.length === 1) {
+            require.ensure([], function () {
+                var NavigationList = require('./page/home');
+                React.render(<NavigationList />, document.getElementById('js_main'));
+            });
+        }
+    };
+
+    // Resolve route on hash change
+    window.onhashchange = resolveRoute;
+
+    // Resolve current route
+    resolveRoute();
     var $window = $(window);
     $window.scrollTop(0);
-
-    ////////// Update the clock -- if not completely corrupted
-    if (!$('body').hasClass('corruption-4')) {
-        var $clock = $('.js_clock__digits');
-
-        var updateClock = function () {
-            var now = new Date(),
-                hours = now.getHours(),
-                minutes = now.getMinutes(),
-                seconds = now.getSeconds();
-
-            hours = (hours < 10) ? '0' + hours : hours;
-            minutes = (minutes < 10) ? '0' + minutes : minutes;
-            seconds = (seconds < 10) ? '0' + seconds : seconds;
-
-            $clock.text(hours + ':' + minutes + ':' + seconds);
-        };
-
-        updateClock();
-        window.setInterval(updateClock, 100);
-    }
-
-    ////////// Toggle inventory
-    var $inventory = $('.js_inventory'),
-        $inventoryTrigger = $('.js_inventory-trigger');
-
-    $inventoryTrigger.on('click', function () {
-        $inventoryTrigger.toggleClass('active');
-        $inventory.toggleClass('shown');
-    });
-
-    window.setTimeout(function () {
-        $inventoryTrigger.addClass('ping');
-    }, 5000);
 });

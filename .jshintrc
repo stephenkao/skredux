@@ -2,6 +2,7 @@
 	"curly": true,
 	"eqeqeq": true,
 	"es3": true,
+    "esnext": true,
 	"forin": true,
 	"immed": true,
 	"indent": 1,

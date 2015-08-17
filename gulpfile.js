@@ -1,3 +1,4 @@
+
 /*global require */
 
 'use strict';
@@ -47,8 +48,7 @@ gulp.task('scsslint', function () {
 
 gulp.task('jshint', function() {
     var sourceFiles = [
-        'source/javascript/**/*.js',
-        '!source/javascript/lib/**/*.js'
+        'source/javascript/**/*.js'
     ];
 
     return gulp.src(sourceFiles)
@@ -69,15 +69,15 @@ gulp.task('webpack:dev', function (callback) {
     var myConfig = Object.create(require('./webpack.config.js'));
 
     webpack(myConfig, function (err, stats) {
-        if (err) throw new gulpUtil.PluginError("webpack:build-dev", err);
-        gulpUtil.log("[webpack:build-dev]", stats.toString({
+        if (err) throw new gulpUtil.PluginError('webpack:build-dev', err);
+        gulpUtil.log('[webpack:build-dev]', stats.toString({
             colors: true
         }));
 
         plugins.notify({
             title: 'webpack:dev',
-            message: 'webpack processing completed',
-            wait: true
+            message: 'webpack processing completed'//,
+//            wait: true
         });
     });
 });
@@ -107,8 +107,8 @@ gulp.task('webpack:deploy', function () {
     );
 
     webpack(myConfig, function (err, stats) {
-        if (err) throw new gulpUtil.PluginError("webpack:build-dev", err);
-        gulpUtil.log("[webpack:build-dev]", stats.toString({
+        if (err) throw new gulpUtil.PluginError('webpack:build-dev', err);
+        gulpUtil.log('[webpack:build-dev]', stats.toString({
             colors: true
         }));
     });

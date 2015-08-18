@@ -46,7 +46,7 @@ gulp.task('scsslint', function () {
         });
 });
 
-gulp.task('jshint', function() {
+gulp.task('jshint', function () {
     var sourceFiles = [
         'source/javascript/**/*.js'
     ];
@@ -63,6 +63,24 @@ gulp.task('jshint', function() {
             }
         }))
         .pipe(plugins.jshint.reporter('jshint-stylish'));
+});
+
+gulp.task('eslint', function () {
+    var sourceFiles = ['server/**/*.js'];
+
+    return gulp.src(sourceFiles)
+        .pipe(plugins.eslint())
+        .pipe(plugins.eslint.format())
+        .pipe(plugins.eslint.failOnError());
+
+    // sourceFiles = ['source/javascript/**/*.js'];
+
+    // gulp.src(sourceFiles)
+    //     .pipe(plugins.eslint({
+    //         env: 'browser'
+    //     }))
+    //     .pipe(plugins.eslint.format())
+    //     .pipe(plugins.eslint.failOnError());
 });
 
 gulp.task('webpack:dev', function (callback) {
@@ -117,6 +135,7 @@ gulp.task('webpack:deploy', function () {
 gulp.task('dev', function () {
     gulp.watch(['source/javascript/**/*.js'], [
         'jshint',
+        'eslint',
         'webpack:dev'
     ]);
 

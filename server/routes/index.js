@@ -20,14 +20,13 @@ keystone.set('404', function (req, res, next) {
 });
 
 // Handle other errors
-keystone.set('500', function(err, req, res, next) {
+keystone.set('500', function (err, req, res, next) {
     var title, message;
     if (err instanceof Error) {
         message = err.message;
         err = err.stack;
     }
-    //        res.err(err, title, message);
-    res.send(500);
+    res.err(err, title, message);
 });
 
 // Retrievals

@@ -22,23 +22,23 @@ exports.initLocals = function(req, res, next) {
  */
 exports.initErrorHandlers = function(req, res, next) {
 
-    res.err = function(err, title, message) {
-        res.status(500).render('errors/500', {
-            err: err,
-            errorTitle: title,
-            errorMsg: message
-        });
-    }
-
     res.notfound = function(title, message) {
         res.status(404).render('errors/404', {
             errorTitle: title,
             errorMsg: message
         });
-    }
+    };
+
+    res.err = function(err, title, message) {
+        console.log('wrkejalrke');
+        res.status(500).render('errors/500', {
+            err: err,
+            errorTitle: title,
+            errorMsg: message
+        });
+    };
 
     next();
-
 };
 
 /**
@@ -53,7 +53,9 @@ exports.flashMessages = function(req, res, next) {
         error: req.flash('error')
     };
 
-    res.locals.messages = _.any(flashMessages, function(msgs) { return msgs.length }) ? flashMessages : false;
+    res.locals.messages = _.any(flashMessages, function(msgs) {
+        return msgs.length;
+    }) ? flashMessages : false;
 
     next();
 };

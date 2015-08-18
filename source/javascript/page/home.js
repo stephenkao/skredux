@@ -1,8 +1,10 @@
+/*global module */
+
 import React from 'react';
 
-var NavigationList, NavigationItem;
+var NavigationLayout, NavigationItemView;
 
-NavigationList = React.createClass({
+NavigationLayout = React.createClass({
     render: function () {
         return (
             <nav className='navigation row vr-3'>
@@ -15,7 +17,7 @@ NavigationList = React.createClass({
     }
 });
 
-NavigationItem = React.createClass({
+NavigationItemView = React.createClass({
     render: function () {
         return (
             <div className='navigation__item column small-7 medium-3'>
@@ -27,8 +29,8 @@ NavigationItem = React.createClass({
                     </div>
                 </a>
             </div>
-        )
+        );
     }
 });
 
-module.exports = NavigationList;
+module.exports = NavigationLayout;

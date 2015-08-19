@@ -28,11 +28,12 @@
     "gulp-ignore": "^1.2.1",
     "gulp-jshint": "^1.11.2",
     "gulp-load-plugins": "^1.0.0-rc.1",
-    "gulp-notify": "^2.2.0",
     "gulp-sass": "^2.0.3",
     "gulp-scss-lint": "^0.2.1",
     "gulp-util": "^3.0.6",
     "gulp-watch": "^4.2.4",
+    "node-notifier": "^4.2.3",
+    "react-router": "^0.13.3",
     "requirejs": "~2.1.11",
     "underscore": "^1.7.0",
     "webpack": "^1.10.5"

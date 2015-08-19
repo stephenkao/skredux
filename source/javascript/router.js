@@ -1,18 +1,13 @@
 import React from 'react';
 import { Router, Route, Link } from 'react-router';
+import NavigationLayout from 'home';
 
-// Declarative route configuration (could also load this config lazily
-// instead, all you really need is a single root route, you don't need to
-// colocate the entire config).
-React.render((
-    <Router history={history}>
+var routes = (
+    <Route name='app' path='/' handler={App}>
+        <DefaultRoute handler={NavigationLayout} />
+    </Route>
+);
 
-    <Route path="/" component={Home}>
-        <Route path="about" component={About}/>
-        <Route path="users" component={Users}>
-            <Route path="/user/:userId" component={User}/>
-        </Route>
-        <Route path="*" component={NoMatch}/>
-        </Route>
-    </Router>
-), document.body);
+Router.run(routes, function (Handler) {
+    React.render(<Handler />, document.body);
+});

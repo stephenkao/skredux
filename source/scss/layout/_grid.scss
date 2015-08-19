@@ -23,6 +23,8 @@ $num-columns: 14;
     margin: 0 auto;
 }
 
+////////////////////////////////////////////////// Columns based on Foundation's grid
+
 .column {
     padding-left: $gutter-width / 2;
     padding-right: $gutter-width / 2;

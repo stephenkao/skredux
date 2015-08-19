@@ -6,9 +6,10 @@
 var gulp = require('gulp'),
     gulpUtil = require('gulp-util'),
     webpack = require('webpack'),
+    notifier = require('node-notifier'),
     plugins = require('gulp-load-plugins')({
         lazy: false
-  });
+    });
 
 ////////// Development tasks
 gulp.task('css:dev', function () {
@@ -19,18 +20,19 @@ gulp.task('css:dev', function () {
     gulp.src(sourceFiles)
         .pipe(plugins.sass())
         .on('error', function (err) {
-            plugins.notify({
-                title: 'css:dev',
-                message: 'CSS FAILED'
+            notifier.notify({
+                title: '[css:dev] ERROR',
+                message: 'CSS processing failed'
             });
         })
         .pipe(plugins.autoprefixer({ browsers: ['last 2 version', 'Firefox < 20', '> 5%'] }))
-        .pipe(gulp.dest('target/css/'))
-        .pipe(plugins.notify({
-            title: 'css:dev',
-            message: 'CSS compiled successfully',
-            wait: true
-        }));
+        .pipe(gulp.dest('target/css/'));
+
+    notifier.notify({
+        title: 'css:dev',
+        message: 'CSS processed successfully',
+        wait: true
+    });
 });
 
 gulp.task('scsslint', function () {
@@ -71,37 +73,64 @@ gulp.task('jshint', function () {
         .pipe(plugins.jshint.reporter('jshint-stylish'));
 });
 
-gulp.task('eslint', function () {
+gulp.task('eslint:server', function () {
     var sourceFiles = ['server/**/*.js'];
 
     return gulp.src(sourceFiles)
         .pipe(plugins.eslint())
+        .on('error', function () {
+            notifier.notify({
+                title: '[eslint:server] WARNING',
+                message: 'ESLint server warnings',
+                wait: true
+            });
+        })
         .pipe(plugins.eslint.format())
         .pipe(plugins.eslint.failOnError());
+});
 
-    // sourceFiles = ['source/javascript/**/*.js'];
+gulp.task('eslint:client', function () {
+    var sourceFiles = ['source/javascript/**/*.js'];
 
-    // gulp.src(sourceFiles)
-    //     .pipe(plugins.eslint({
-    //         env: 'browser'
-    //     }))
-    //     .pipe(plugins.eslint.format())
-    //     .pipe(plugins.eslint.failOnError());
+    return gulp.src(sourceFiles)
+        .pipe(plugins.eslint())
+        .on('error', function () {
+            notifier.notify({
+                title: '[eslint:client] WARNING',
+                message: 'ESLint client warnings',
+                wait: true
+            });
+        })
+        .pipe(plugins.eslint.format())
+        .pipe(plugins.eslint.failOnError());
 });
 
 gulp.task('webpack:dev', function (callback) {
     var myConfig = Object.create(require('./webpack.config.js'));
 
     webpack(myConfig, function (err, stats) {
-        if (err) throw new gulpUtil.PluginError('webpack:build-dev', err);
-        gulpUtil.log('[webpack:build-dev]', stats.toString({
+        if (err) {
+            notifier.notify({
+                title: 'webpack:dev',
+                message: err,
+                wait: true
+            });
+
+            throw new gulpUtil.PluginError('webpack:build-dev', err);
+        }
+
+        gulpUtil.log('[webpack:dev]: SUCCESS');
+
+        /*
+        gulpUtil.log('[webpack:dev]', stats.toString({
             colors: true
         }));
+         */
 
-        plugins.notify({
-            title: 'webpack:dev',
-            message: 'webpack processing completed'//,
-//            wait: true
+        notifier.notify({
+            title: '[webpack:dev] SUCCESS',
+            message: 'webpacking completed successfully',
+            wait: true
         });
     });
 });
@@ -139,9 +168,12 @@ gulp.task('webpack:deploy', function () {
 });
 
 gulp.task('dev', function () {
+    gulp.watch(['server/**/*.js'], [
+        'eslint:server'
+    ]);
+
     gulp.watch(['source/javascript/**/*.js'], [
-        'jshint',
-        'eslint',
+        'eslint:client',
         'webpack:dev'
     ]);
 

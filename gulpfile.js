@@ -18,6 +18,12 @@ gulp.task('css:dev', function () {
     sourceFiles = 'source/scss/**/*.scss';
     gulp.src(sourceFiles)
         .pipe(plugins.sass())
+        .on('error', function (err) {
+            plugins.notify({
+                title: 'css:dev',
+                message: 'CSS FAILED'
+            });
+        })
         .pipe(plugins.autoprefixer({ browsers: ['last 2 version', 'Firefox < 20', '> 5%'] }))
         .pipe(gulp.dest('target/css/'))
         .pipe(plugins.notify({
@@ -41,7 +47,7 @@ gulp.task('scsslint', function () {
             maxBuffer: Infinity,
             verbose: true
         }))
-        .on('error', function (err, what) {
+        .on('error', function (err) {
             console.log(err);
         });
 });

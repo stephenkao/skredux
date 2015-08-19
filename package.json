@@ -40,6 +40,7 @@
     "gulp-scss-lint": "^0.2.1",
     "gulp-util": "^3.0.6",
     "gulp-watch": "^4.2.4",
+    "jquery": "^2.1.4",
     "jshint-stylish": "^1.0.0",
     "keystone": "^0.2.41",
     "moment": "^2.10.3",

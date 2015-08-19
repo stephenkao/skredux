@@ -1,7 +1,6 @@
 /*global module */
 
 import React from 'react';
-import classNames from 'classNames';
 import { RouteHandler, Link} from 'react-router';
 
 var NavigationLayout, NavigationItem;
@@ -23,13 +22,13 @@ NavigationItem = React.createClass({
     render: function () {
         return (
             <div className='navigation__item column small-6 medium-3'>
-                <a Link to='app'>
+                <Link to={this.props.link}>
                     <div className='navigation__setaform'>
-                        <img src={'./target/svg/' + this.props.svgName + '.min.svg'} />
+                        <img src={'./assets/svg/' + this.props.svgName + '.min.svg'} />
 
                         <span className='navigation__link'>{this.props.subtitle}</span>
                     </div>
-                </a>
+                </Link>
 
                 <RouteHandler />
             </div>

@@ -177,12 +177,13 @@ gulp.task('dev', function () {
         'webpack:dev'
     ]);
 
-    // Initial SCSS compilation
+    // Initial compilation/packing
     gulp.run('css:dev');
     gulp.watch(['source/scss/**/*.scss'], [
         'css:dev',
         'scsslint'
     ]);
+    gulp.run('webpack:dev');
 
     plugins.nodemon({
         script: './server/app.js',

@@ -2,4 +2,4 @@
 
 import React from 'react';
 
-var BlogLayout, PostView;jkdlfjadl
+var BlogLayout, PostView;

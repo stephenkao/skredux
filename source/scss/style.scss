@@ -27,18 +27,20 @@ body {
     padding: 40px;
 
     background-color: $white;
-    background-image: url('../svg/square.min.svg'), url('../images/flecks.png');
+    background-image: url('../../assets/svg/square.min.svg'), url('../../assets/images/flecks.png');
+    background-repeat: no-repeat, repeat;
+    background-size: 100% 100%, auto;
 }
 
 .framed {
     background-size: 100% 100%;
 
     &.framed--square {
-        background-image: url('../svg/square.min.svg');
+        background-image: url('../../assets/svg/square.min.svg');
     }
 
     &.framed--circle {
-        background-image: url('../svg/circle.min.svg');
+        background-image: url('../../assets/svg/circle.min.svg');
         border-radius: 50%;
     }
 }

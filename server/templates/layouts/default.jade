@@ -34,14 +34,17 @@ html
 
     block head
 
-  body(class="corruption-#{corruption} framed framed--square")
-    div(style="display:none;")
-
-    .menu.vr-1
+  body(class="corruption-#{corruption}")
+    .menu
       .menu__trigger.framed.framed--circle
       .menu__title
         span [Antechamber]
         span Aug14/15 09:58:32
+
+    section.vr-1
+      .row
+        .column.column--center.small-12.medium-8.text--center
+          h1 this is the forest primeval
 
     #js_main
       block content

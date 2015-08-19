@@ -1,7 +1,25 @@
 $vertical-rhythm: 40px;
 
-@for $i from 1 through 10 {
-    .vr-#{$i} {
-        margin-top: $i * $vertical-rhythm;
+@media #{$small-up} {
+    @for $i from 1 through 10 {
+        .vr-#{$i} {
+            margin-top: $i * $vertical-rhythm;
+        }
+    }
+}
+
+@media #{$medium-up} {
+    @for $i from 1 through 10 {
+        .vr-#{$i} {
+            margin-top: $i * (2 * $vertical-rhythm);
+        }
+    }
+}
+
+@media #{$large-up} {
+    @for $i from 1 through 10 {
+        .vr-#{$i} {
+            margin-top: $i * (3 * $vertical-rhythm);
+        }
     }
 }

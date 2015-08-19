@@ -70,7 +70,7 @@
 
 @keyframes fade-in-slide-down {
     0% {
-        transform: translateY(-100%);
+        transform: translateY(-50%);
         opacity: 0;
     }
 
@@ -92,7 +92,15 @@
     }
 }
 
+@keyframes whiteout {
+    0% {
+        background-color: $black;
+    }
 
+    100% {
+        background-color: $white;
+    }
+}
 
 ////////////////////////////////////////////////// Hauntings
 

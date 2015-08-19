@@ -38,20 +38,6 @@ $num-columns: 14;
         float: left;
     }
 
-    &.centered {
-        margin-left: auto;
-        margin-right: auto;
-
-        float: none;
-        clear: both;
-    }
-}
-
-////////////////////////////////////////////////// Column widths
-.column {
-    padding-left: $gutter-width;
-    padding-right: $gutter-width;
-
     @media #{$small-up} {
         @for $i from 1 through $num-columns {
             &.small-#{$i} {
@@ -104,5 +90,14 @@ $num-columns: 14;
                 right: grid-calc($i);
             }
         }
+    }
+
+    // Kept at the bottom for specificity
+    &.column--center {
+        margin-left: auto;
+        margin-right: auto;
+
+        float: none;
+        clear: both;
     }
 }

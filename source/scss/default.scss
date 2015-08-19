@@ -3,6 +3,10 @@ $black: #000000 !global;
 $red: #b90000 !global;
 
 ////////////////////////////////////////////////// Default styles
+* {
+    box-sizing: border-box;
+}
+
 html,
 body {
     height: 100%;
@@ -11,23 +15,10 @@ body {
     overflow-x: hidden;
 }
 
-html {
-    background: white url('/target/image/splat.png') no-repeat;
-    background-position: right top;
-}
-
 a {
-    color: $red;
     cursor: pointer;
 
     &:hover {
         text-decoration: line-through;
     }
-}
-
-.main {
-    opacity: 0;
-
-    animation: fade-in 800ms 1000ms;
-    animation-fill-mode: forwards;
 }

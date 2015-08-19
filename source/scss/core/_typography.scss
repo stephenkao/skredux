@@ -66,3 +66,23 @@ span {
     line-height: 1.5;
     word-break: break-word;
 }
+
+.text--header {
+    font-family: $font--header;
+}
+
+.text--content {
+    font-family: $font--content;
+}
+
+.text--left {
+    text-align: left;
+}
+
+.text--center {
+    text-align: center;
+}
+
+.text--right {
+    text-align: right;
+}

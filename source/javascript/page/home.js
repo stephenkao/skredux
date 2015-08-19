@@ -1,13 +1,14 @@
 /*global module */
 
 import React from 'react';
+import classNames from 'classNames';
 
-var NavigationLayout, NavigationItemView;
+var NavigationLayout, NavigationItem;
 
 NavigationLayout = React.createClass({
     render: function () {
         return (
-            <nav className='navigation row vr-3'>
+            <nav className='navigation row vr-1'>
                 <NavigationItem svgName='mirror' subtitle='life' />
                 <NavigationItem svgName='bristle' subtitle='eyes' />
                 <NavigationItem svgName='scylla' subtitle='ears' />
@@ -17,10 +18,10 @@ NavigationLayout = React.createClass({
     }
 });
 
-NavigationItemView = React.createClass({
+NavigationItem = React.createClass({
     render: function () {
         return (
-            <div className='navigation__item column small-7 medium-3'>
+            <div className='navigation__item column small-6 medium-3'>
                 <a>
                     <div className='navigation__setaform'>
                         <img src={'./target/svg/' + this.props.svgName + '.min.svg'} />

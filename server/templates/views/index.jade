@@ -1,33 +1,3 @@
 extends ../layouts/default
 
-mixin post(post)
-  article.post
-    a(href="/post/#{post.slug}")
-      h4.post__title #{post.title}
-      .post__metadata
-        span.post__pubdate #{moment(post.publishedDate).format('MMMDD/YY')}
-        if post.categories.length
-          span &nbsp;-&nbsp;
-          ul.taglist
-            each tag, index in post.categories
-              if index == post.categories.length - 1
-                li.tag #{tag.name}
-              else
-                li.tag #{tag.name},&nbsp;
-      .post__content !{post.content.brief}
-
 block content
-  section.division
-    h3 <a href="/">Stephen</a>'s gone.  Left. Disappeared.  Vanished.
-    each paragraph in data.paragraphs.introduction
-      p!= paragraph
-
-  section.division
-    h3 I've been piecing together fragments of his story.
-    each paragraph in data.paragraphs.biography
-      p!= paragraph
-
-  section.division
-    h3 He also left some <a href="/blog">notes</a>—maybe you can make better sense of them.
-    each post in data.posts
-      +post(post)

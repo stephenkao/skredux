@@ -183,6 +183,19 @@ gulp.task('dev', function () {
         'css:dev',
         'scsslint'
     ]);
+
+    plugins.nodemon({
+        script: './server/app.js',
+        watch: './server/**/*.js',
+        env: {
+            NODE_ENV: 'development'
+        }
+    })
+        .on('error', function () {
+            console.log('what');
+        });
+
+    gulpUtil.log('READY');
 });
 
 gulp.task('deploy', function () {

@@ -7,6 +7,6 @@ import React from 'react';
 
 var routes = require('./router');
 
-Router.run(routes, function (Handler) {
+Router.run(routes, Router.HistoryLocation, function (Handler) {
     React.render(<Handler />, document.getElementById('js_main'));
 });

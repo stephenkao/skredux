@@ -32,7 +32,7 @@ keystone.set('500', function (err, req, res, next) {
 // Retrievals
 exports = module.exports = function (app) {
     // Views
-    app.get(/^\/(index|blog|work|recreation|biography)?$/, views.index);
+    app.get(/^\/(index|scripts|mirth|life|toil)?$/, views.index);
     app.get(/^\/(blog)?$/, views.blog);
     app.get('/post/:slug', views.post);
     app.get(/^\/(jobs)?$/, views.jobs);

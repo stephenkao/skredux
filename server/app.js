@@ -7,7 +7,7 @@ keystone.init({
     'favicon': 'public/favicon.ico',
     'less': 'public',
     'static': ['public'],
-    'views': 'templates/views',
+    'views': '../templates/views',
     'view engine': 'jade',
     'auto update': true,
     'mongo': 'mongodb://localhost/stephenkao',

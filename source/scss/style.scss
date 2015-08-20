@@ -89,9 +89,11 @@ body {
 }
 
 .navigation__item {
-    @for $index from 1 through 4 {
+    $num-items: 4;
+
+    @for $index from 1 through $num-items {
         &:nth-child(#{$index}) {
-            animation: fade-in-slide-down ($index * 300ms) forwards;
+            animation: fade-in-slide-down (random($num-items) * 300ms) forwards;
         }
     }
 }

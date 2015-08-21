@@ -41,6 +41,6 @@ exports = module.exports = function (app) {
     ////////// Static files
     app.get(/^(.+[css|svg|js|ttf|woff])$/, function(req, res) {
         var filename = process.cwd() + req.params[0];
-        res.sendfile(filename);
+        res.sendFile(filename);
     });
 };

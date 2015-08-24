@@ -1,19 +1,30 @@
-/*global module */
+/*global module, require */
 
-import React from 'react';
-import { RouteHandler, Link} from 'react-router';
 
-var NavigationLayout, NavigationItem;
+var React = require('react'),
+    Router = require('react-router'),
+    RouteHandler = Router.RouteHandler,
+    Link = Router.Link;
 
-NavigationLayout = React.createClass({
+var HomeLayout, NavigationItem;
+
+HomeLayout = React.createClass({
     render: function () {
         return (
-            <nav className='navigation row vr-1'>
-                <NavigationItem svgName='mirror' subtitle='life' link='sanguine' />
-                <NavigationItem svgName='bristle' subtitle='eyes' link='melancholic' />
-                <NavigationItem svgName='scylla' subtitle='ears' link='phlegmatic' />
-                <NavigationItem svgName='galley' subtitle='hands' link='choleric' />
-            </nav>
+            <section className="vr-1">
+                <div className="row">
+                    <div className="column column--center small-12 medium-8 text--center">
+                        <h1>this is the forest primeval</h1>
+                    </div>
+                </div>
+
+                <nav className="navigation row vr-1">
+                    <NavigationItem svgName="mirror" subtitle="body" link="sanguine" />
+                    <NavigationItem svgName="bristle" subtitle="eyes" link="melancholic" />
+                    <NavigationItem svgName="scylla" subtitle="mind" link="phlegmatic" />
+                    <NavigationItem svgName="galley" subtitle="hands" link="choleric" />
+                </nav>
+            </section>
         );
     }
 });
@@ -29,11 +40,9 @@ NavigationItem = React.createClass({
                         <span className='navigation__link'>{this.props.subtitle}</span>
                     </div>
                 </Link>
-
-                <RouteHandler />
             </div>
         );
     }
 });
 
-module.exports = NavigationLayout;
+module.exports = HomeLayout;

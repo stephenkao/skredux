@@ -1,12 +1,13 @@
-/*global module */
+/*global module, require */
 
-import React from 'react';
-import { RouteHandler, Link} from 'react-router';
+var React = require('react');
 
 var BlogLayout, BlogPost;
 
 BlogLayout = React.createClass({
     render: function () {
+        debugger;
+
         return (
             <ul>
                 <BlogPost />

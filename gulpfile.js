@@ -128,7 +128,7 @@ gulp.task('webpack:dev', function (callback) {
          */
 
         notifier.notify({
-            title: '[webpack:dev] SUCCESS',
+            title: 'webpack:dev',
             message: 'webpacking completed successfully',
             wait: true
         });

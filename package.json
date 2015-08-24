@@ -48,6 +48,7 @@
     "mongodb": "^1.4.30",
     "mongojs": "^0.18.2",
     "node-notifier": "^4.2.3",
+    "react": "^0.13.3",
     "react-router": "^0.13.3",
     "requirejs": "~2.1.11",
     "style-loader": "^0.12.3",

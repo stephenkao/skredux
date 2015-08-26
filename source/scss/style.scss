@@ -69,13 +69,19 @@ body {
     }
 }
 
-.menu__title span {
-    margin-bottom: 0;
+.menu__title {
 
-    display: block;
+    span,
+    time {
+        margin-bottom: 0;
 
-    font-family: $font--header;
-    color: $black;
+        font-family: $font--header;
+        color: $black;
+    }
+
+    time {
+        display: block;
+    }
 }
 
 .navigation {
@@ -91,9 +97,11 @@ body {
 .navigation__item {
     $num-items: 4;
 
+    opacity: 0;
+
     @for $index from 1 through $num-items {
         &:nth-child(#{$index}) {
-            animation: fade-in-slide-down (random($num-items) * 300ms) forwards;
+            animation: fade-in-slide-down ($index * 350ms) 200ms forwards;
         }
     }
 }

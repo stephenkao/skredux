@@ -1,6 +1,5 @@
 /*global module, require */
 
-
 var React = require('react'),
     Router = require('react-router'),
     RouteHandler = Router.RouteHandler,
@@ -15,14 +14,15 @@ HomeLayout = React.createClass({
                 <div className="row">
                     <div className="column column--center small-12 medium-8 text--center">
                         <h1>this is the forest primeval</h1>
+                        <p>here walls are e'er moving</p>
+                        <p>watch your step</p>
                     </div>
                 </div>
 
                 <nav className="navigation row vr-1">
-                    <NavigationItem svgName="mirror" subtitle="body" link="sanguine" />
-                    <NavigationItem svgName="bristle" subtitle="eyes" link="melancholic" />
-                    <NavigationItem svgName="scylla" subtitle="mind" link="phlegmatic" />
-                    <NavigationItem svgName="galley" subtitle="hands" link="choleric" />
+                    <NavigationItem svgName="scylla" subtitle="mind" link="experience" />
+                    <NavigationItem svgName="galley" subtitle="body" link="biography" />
+                    <NavigationItem svgName="mirror" subtitle="spirit" link="recreation" />
                 </nav>
             </section>
         );

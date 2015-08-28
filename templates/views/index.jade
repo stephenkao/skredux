@@ -1,3 +1,10 @@
 extends ../layouts/default
 
-block content
+block map
+  .map__content
+    each row in data.map
+      .map__row
+        each room in row
+          .map__room.framed.framed--square(class=(room != 0) ? "" : "room--empty")
+            if room
+              | #{room}

@@ -35,6 +35,11 @@ html
     block head
 
   body(class="corruption-#{corruption}")
+    #js_main.main
+      #js_map.map.invisible
+        block map
+
+      #js_page.page.invisible
 
   script(type="text/javascript", src="/target/javascript/vendor.bundle.js")
   script(type="text/javascript", src="/target/javascript/index.js")

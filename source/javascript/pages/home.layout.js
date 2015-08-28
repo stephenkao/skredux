@@ -14,8 +14,6 @@ HomeLayout = React.createClass({
                 <div className="row">
                     <div className="column column--center small-12 medium-8 text--center">
                         <h1>this is the forest primeval</h1>
-                        <p>here walls are e'er moving</p>
-                        <p>watch your step</p>
                     </div>
                 </div>
 

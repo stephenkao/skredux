@@ -61,6 +61,7 @@ exports = module.exports = function (req, res) {
             });
         });
     });
+
     // Load the posts
     view.on('init', function(next) {
 
@@ -79,6 +80,18 @@ exports = module.exports = function (req, res) {
         });
 
     });
+
+
+    // antechamber
+    // workshop
+    // library
+    // gallery
+    locals.data.map = [
+        [0, 0, 0, 0],
+        [0, 'g', 0, 0],
+        [0, 'w', 'l', 0],
+        [0, 'a', 0, 0]
+    ];
 
     view.render('index');
 };

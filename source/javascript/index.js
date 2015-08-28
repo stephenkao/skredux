@@ -3,7 +3,8 @@
 'use strict';
 
 ////////// Dependencies
-var React = require('react'),
+var $ = require('jquery'),
+	React = require('react'),
     Router = require('react-router'),
     Route = Router.Route,
     RouteHandler = Router.RouteHandler,
@@ -26,6 +27,7 @@ var AppLayout = React.createClass({
     }
 });
 
+// @TODO: Date-/content-hash the routes so they can't be predictably navigated to by URL
 var routes = (
     <Route handler={AppLayout}>
         <Route name="biography" path="biography" handler={HomeLayout} />
@@ -36,7 +38,23 @@ var routes = (
 );
 
 window.onload = function () {
+    var body = document.body,
+        $page = $('#js_page'),
+        $map = $('#js_map');
+
     Router.run(routes, Router.HistoryLocation, function (Handler, state) {
-        React.render(<Handler />, document.body);
+        $page.addClass('invisible');
+
+        // Show map
+        $map.removeClass('invisible');
+
+        React.render(<Handler />, $page.get(0));
+
+        window.setTimeout(function () {
+            // Hide map
+            $map.addClass('invisible');
+
+            $page.removeClass('invisible');
+        }, 2000);
     });
 };

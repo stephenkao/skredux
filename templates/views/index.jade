@@ -5,6 +5,9 @@ block map
     each row in data.map
       .map__row
         each room in row
-          .map__room.framed.framed--square(class=(room != 0) ? "" : "room--empty")
+          - var modifier = ''
+          - if (!room) modifier += 'room--empty'
+          - if (room === 'a') modifier += ' room--current'
+          .map__room.framed.framed--square(class="#{modifier}")
             if room
               | #{room}

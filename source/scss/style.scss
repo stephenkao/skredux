@@ -46,6 +46,8 @@ body {
 }
 
 .main {
+    min-height: 100%;
+
     position: relative;
 }
 
@@ -62,7 +64,7 @@ body {
 .page {
     min-height: 100%;
 
-    transition: opacity 1000ms ease-in;
+    transition: opacity 1000ms ease-out;
 }
 
 .map {
@@ -96,6 +98,11 @@ body {
 
         &.room--empty {
             opacity: 0.1;
+        }
+
+        &.room--current {
+            background-color: $red;
+            color: $white;
         }
     }
 }

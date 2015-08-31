@@ -14,6 +14,7 @@
 @import 'layout/rhythm';
 
 @import 'components/clock';
+@import 'components/sidebar';
 
 ////////////////////////////////////////////////// Default site styles
 @import 'default';
@@ -24,7 +25,8 @@ body {
     width: 100%;
     height: 100%;
     min-height: 100%;
-    padding: 40px;
+    padding-top: $vertical-rhythm;
+    padding-bottom: $vertical-rhythm;
 
     background-color: $white;
     background-image: url('../../assets/svg/square.min.svg'), url('../../assets/images/flecks.png');
@@ -97,7 +99,7 @@ body {
         text-transform: uppercase;
 
         &.room--empty {
-            opacity: 0.1;
+            opacity: 0.2;
         }
 
         &.room--current {

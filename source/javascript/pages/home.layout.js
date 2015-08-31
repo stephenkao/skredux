@@ -7,6 +7,7 @@ var React = require('react'),
 
 var HomeLayout, NavigationItem;
 
+/*
 HomeLayout = React.createClass({
     render: function () {
         return (
@@ -22,6 +23,22 @@ HomeLayout = React.createClass({
                     <NavigationItem svgName="galley" subtitle="body" link="biography" />
                     <NavigationItem svgName="mirror" subtitle="spirit" link="recreation" />
                 </nav>
+            </section>
+        );
+    }
+});
+*/
+
+HomeLayout = React.createClass({
+    render: function () {
+        return (
+            <section className="vr-1">
+                <div className="row">
+                    <div className="column column--center small-12 medium-8 text--center">
+                        <h1>this is the forest primeval</h1>
+                        <h2 className="vr-1">10/10/15</h2>
+                    </div>
+                </div>
             </section>
         );
     }

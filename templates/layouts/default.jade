@@ -16,9 +16,9 @@ html
     meta(name="twitter:card", content="summary_large_image")
     meta(name="twitter:site", content="@_stephenkao")
     meta(name="twitter:title", content="Stephen Kao")
-    meta(name="twitter:description", content="La la la")
-    meta(property="og:description", content="How About You Get The Hell Out of Here?")
-    meta(name="description", content="La la la")
+    meta(name="twitter:description", content="Get out")
+    meta(property="og:description", content="Get out")
+    meta(name="description", content="Get out")
     meta(property="og:locale", content="en_US")
     meta(property="og:site_name", content="Stephen Kao")
     title= title || 'Stephen Kao'
@@ -34,12 +34,14 @@ html
 
     block head
 
-  body(class="corruption-#{corruption}")
-    #js_main.main
-      #js_map.map.invisible
-        block map
+  body
+    .row
+      #js_main.main
+        #js_page.page
 
-      #js_page.page.invisible
+      //- aside#js_sidebar.sidebar.column.small-12.medium-4
+      //-   #js_map.map
+      //-     block map
 
   script(type="text/javascript", src="/target/javascript/vendor.bundle.js")
   script(type="text/javascript", src="/target/javascript/index.js")

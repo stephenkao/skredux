@@ -24,6 +24,8 @@ gulp.task('css:dev', function () {
                 title: '[css:dev] ERROR',
                 message: 'CSS processing failed'
             });
+
+            console.log(err);
         })
         .pipe(plugins.autoprefixer({ browsers: ['last 2 version', 'Firefox < 20', '> 5%'] }))
         .pipe(gulp.dest('target/css/'));
@@ -85,8 +87,8 @@ gulp.task('eslint:server', function () {
                 wait: true
             });
         })
-        .pipe(plugins.eslint.format())
-        .pipe(plugins.eslint.failOnError());
+        .pipe(plugins.eslint.format());
+//        .pipe(plugins.eslint.failOnError());
 });
 
 gulp.task('eslint:client', function () {
@@ -101,8 +103,8 @@ gulp.task('eslint:client', function () {
                 wait: true
             });
         })
-        .pipe(plugins.eslint.format())
-        .pipe(plugins.eslint.failOnError());
+        .pipe(plugins.eslint.format());
+//        .pipe(plugins.eslint.failOnError());
 });
 
 gulp.task('webpack:dev', function (callback) {
@@ -169,11 +171,11 @@ gulp.task('webpack:deploy', function () {
 
 gulp.task('dev', function () {
     gulp.watch(['server/**/*.js'], [
-        'eslint:server'
+//        'eslint:server'
     ]);
 
     gulp.watch(['source/javascript/**/*.js'], [
-        'eslint:client',
+//        'eslint:client',
         'webpack:dev'
     ]);
 
@@ -187,7 +189,9 @@ gulp.task('dev', function () {
 
     plugins.nodemon({
         script: './server/app.js',
-        watch: './server/**/*.js',
+        watch: [
+            './server/**/*.js',
+        ],
         env: {
             NODE_ENV: 'development'
         }

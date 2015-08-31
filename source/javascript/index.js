@@ -20,7 +20,6 @@ var AppLayout = React.createClass({
         return (
             <div>
                 <ClockView />
-
                 <RouteHandler/>
             </div>
         );
@@ -38,23 +37,9 @@ var routes = (
 );
 
 window.onload = function () {
-    var body = document.body,
-        $page = $('#js_page'),
-        $map = $('#js_map');
+    var body = document.body;
 
     Router.run(routes, Router.HistoryLocation, function (Handler, state) {
-        $page.addClass('invisible');
-
-        // Show map
-        $map.removeClass('invisible');
-
-        React.render(<Handler />, $page.get(0));
-
-        window.setTimeout(function () {
-            // Hide map
-            $map.addClass('invisible');
-
-            $page.removeClass('invisible');
-        }, 2000);
+        React.render(<Handler />, document.getElementById('js_page'));
     });
 };

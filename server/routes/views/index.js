@@ -81,16 +81,15 @@ exports = module.exports = function (req, res) {
 
     });
 
-
-    // antechamber
-    // workshop
-    // library
-    // gallery
+    // scythe - antechamber
+    // galley - workshop
+    // bristle - library
+    // scylla - gallery
     locals.data.map = [
         [0, 0, 0, 0],
-        [0, 'g', 0, 0],
-        [0, 'w', 'l', 0],
-        [0, 'a', 0, 0]
+        ['demon', 'scylla', 0, 0],
+        [0, 'galley', 'bristle', 0],
+        [0, 'scythe', 0, 0]
     ];
 
     view.render('index');

@@ -22,7 +22,7 @@ var ClockView = React.createClass({
             <div className="menu">
                 <div className="menu__trigger framed framed--circle"></div>
                 <div className="menu__title">
-                    <span>[Antechamber]</span>
+                    <span>[Nowhere]</span>
                     <time>
                         {this.state.hours < 10 ? '0' + this.state.hours : this.state.hours}:
                         {this.state.minutes < 10 ? '0' + this.state.minutes : this.state.minutes}:

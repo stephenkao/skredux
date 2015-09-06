@@ -28,8 +28,8 @@ body {
     padding: $vertical-rhythm * 2;
     padding-top: $vertical-rhythm * 4;
     padding-bottom: $vertical-rhythm * 4;
-    border-right: 14px solid $black;
-    border-left: 14px solid $black;
+    border-right: $gutter-width solid $black;
+    border-left: $gutter-width solid $black;
 
     background-color: $white;
     background-image: url('../../assets/images/flecks.png');
@@ -94,13 +94,11 @@ body {
         text-transform: uppercase;
 
         &.room--empty {
-//            opacity: 0.2;
-            background-color: $black;
+            opacity: 0.2;
         }
 
         &.room--current {
-            background-color: $red;
-            color: $white;
+            animation: ping 1000ms 5 forwards;
         }
     }
 }
@@ -207,4 +205,12 @@ body {
 
 a:hover {
     text-decoration: line-through;
+}
+
+
+.embed {
+    width: 100%;
+    padding: 20px;
+
+    filter: grayscale(100%);
 }

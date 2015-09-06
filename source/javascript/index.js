@@ -11,7 +11,8 @@ var $ = require('jquery'),
     DefaultRoute = Router.DefaultRoute;
 
 ////////// Rooms
-var Antechamber = require('./rooms/antechamber');
+var Antechamber = require('./rooms/antechamber'),
+    Gallery = require('./rooms/gallery');
 
 ////////// Tools
 var Clock = require('./tools/clock');
@@ -30,7 +31,7 @@ var AppLayout = React.createClass({
 // @TODO: Date-/content-hash the routes so they can't be predictably navigated to by URL
 var routes = (
     <Route handler={AppLayout}>
-        <DefaultRoute handler={Antechamber} />
+        <DefaultRoute handler={Gallery} />
     </Route>
 );
 

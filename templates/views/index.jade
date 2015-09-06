@@ -7,7 +7,10 @@ block map
         each room in row
           - var modifier = ''
           - if (!room) modifier += 'room--empty'
-          - if (room === 'scythe') modifier += ' room--current'
+          - if (room === 'a') modifier += ' room--current'
           .map__room.framed.framed--square(class="#{modifier}")
             if room
-              img(src="./assets/svg/#{room}.min.svg", style="width: 100%; height: 100%")
+              if room === 'a'
+                | #{room}
+              else
+                | ?

@@ -14,12 +14,10 @@ var HomeLayout = require('./pages/home.layout'),
     ClockView = require('./components/clock.view');
 
 ////////// Entry point
-
 var AppLayout = React.createClass({
     render: function () {
         return (
             <div>
-                <ClockView />
                 <RouteHandler/>
             </div>
         );
@@ -39,7 +37,10 @@ var routes = (
 window.onload = function () {
     var body = document.body;
 
+    // Bind the pre-rendered clock
+    React.render(<ClockView />, document.getElementById('js_menu'));
+
     Router.run(routes, Router.HistoryLocation, function (Handler, state) {
-        React.render(<Handler />, document.getElementById('js_page'));
+        React.render(<Handler />, document.getElementById('js_main'));
     });
 };

@@ -20,9 +20,11 @@ var ClockView = React.createClass({
     render: function () {
         return (
             <div className="menu">
-                <div className="menu__trigger framed framed--circle"></div>
+                <div className="menu__trigger framed framed--circle">
+                    <img className="splat" src="/target/images/splat.png" />
+                </div>
                 <div className="menu__title">
-                    <span>[Nowhere]</span>
+                    <span>[Antechamber]</span>
                     <time>
                         {this.state.hours < 10 ? '0' + this.state.hours : this.state.hours}:
                         {this.state.minutes < 10 ? '0' + this.state.minutes : this.state.minutes}:

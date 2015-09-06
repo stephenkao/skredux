@@ -87,9 +87,9 @@ exports = module.exports = function (req, res) {
     // scylla - gallery
     locals.data.map = [
         [0, 0, 0, 0],
-        ['demon', 'scylla', 0, 0],
-        [0, 'galley', 'bristle', 0],
-        [0, 'scythe', 0, 0]
+        ['b', 'g', 0, 0],
+        [0, 'w', 'l', 0],
+        [0, 'a', 0, 0]
     ];
 
     view.render('index');

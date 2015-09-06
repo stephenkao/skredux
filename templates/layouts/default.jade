@@ -36,12 +36,22 @@ html
 
   body
     .row
-      #js_main.main
-        #js_page.page
+      aside#js_sidebar.sidebar.column.small-14.medium-5
+        .row
+          .column.small-14
+            #js_menu.menu
+              .menu__trigger.framed.framed--circle
+                img.splat(src="/target/images/splat.png")
+              .menu__title
+                span [Antechamber]
+                time xx:xx:xx
 
-      //- aside#js_sidebar.sidebar.column.small-12.medium-4
-      //-   #js_map.map
-      //-     block map
+         .row
+           .column.small-14
+              #js_map.map.rhythm-2
+                block map
+
+      section#js_main.column.small-14.medium-9
 
   script(type="text/javascript", src="/target/javascript/vendor.bundle.js")
   script(type="text/javascript", src="/target/javascript/index.js")

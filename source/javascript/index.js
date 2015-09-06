@@ -10,8 +10,11 @@ var $ = require('jquery'),
     RouteHandler = Router.RouteHandler,
     DefaultRoute = Router.DefaultRoute;
 
-var HomeLayout = require('./pages/home.layout'),
-    ClockView = require('./components/clock.view');
+////////// Rooms
+var Antechamber = require('./rooms/antechamber');
+
+////////// Tools
+var Clock = require('./tools/clock');
 
 ////////// Entry point
 var AppLayout = React.createClass({
@@ -27,10 +30,7 @@ var AppLayout = React.createClass({
 // @TODO: Date-/content-hash the routes so they can't be predictably navigated to by URL
 var routes = (
     <Route handler={AppLayout}>
-        <Route name="biography" path="biography" handler={HomeLayout} />
-        <Route name="experience" path="experience" handler={HomeLayout} />
-        <Route name="recreation" path="recreation" handler={HomeLayout} />
-        <DefaultRoute handler={HomeLayout} />
+        <DefaultRoute handler={Antechamber} />
     </Route>
 );
 
@@ -38,7 +38,7 @@ window.onload = function () {
     var body = document.body;
 
     // Bind the pre-rendered clock
-    React.render(<ClockView />, document.getElementById('js_menu'));
+    React.render(<Clock />, document.getElementById('js_menu'));
 
     Router.run(routes, Router.HistoryLocation, function (Handler, state) {
         React.render(<Handler />, document.getElementById('js_main'));

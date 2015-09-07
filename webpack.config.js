@@ -16,6 +16,7 @@ module.exports = {
             }
         }]
     },
+
     plugins: [
         new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js')
     ],
@@ -32,9 +33,11 @@ module.exports = {
         index: path.resolve('source/javascript/index.js'),
         vendor: [
             'react',
-            'jquery'
+            'jquery',
+            './source/javascript/lib/basil.min.js'
         ]
     },
+
     output: {
         filename: 'index.js',
         path: './target/javascript/',

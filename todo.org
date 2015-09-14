@@ -6,24 +6,11 @@
   - [ ] Mail server (https://help.ubuntu.com/community/MailServer)
   - [ ] Error handling
 
-- [-] Server
-  - [ ] Clustering/recommendations
-  - [-] Views
-    - [X] Index
-    - [X] Blog
-    - [ ] Work
-  - [ ] Status script (daily emails?)
-  - [ ] Crawler
-  - [ ] API
-    - [ ] PostCategory
-      - [ ] Similarity/clustering
-
-- [ ] Client
-  - [ ] SVG
-    - [ ] 404 (迷路)
-    - [ ] Error page (禁)
-    - [ ] Social icons (Facebook, Twitter, Instagram, GitHub)
-  - [ ] Navigation bar (http://aquatilis.tv/)
-
-- [ ] Ideas
-  - [ ] Crawl a website and use Vibrant.js (https://github.com/jariz/vibrant.js/blob/master/src/Vibrant.coffee) to cluster dominant image colors
+- [ ] Pages [0/3]
+  - [ ] Gallery [0/3]
+    - [ ] Soundcloud
+    - [ ] Twitter
+    - [ ] Facebook
+  - [ ] Antechamber [0/0]
+  - [ ] Study [0/0]
+  - [ ] Undercroft [/]

@@ -92,13 +92,18 @@ body {
         line-height: 28px;
         text-align: center;
         text-transform: uppercase;
+        background-color: $white;
+        color: $black;
+
+        transition: background-color 1000ms, color 1000ms;
 
         &.room--empty {
             opacity: 0.2;
         }
 
         &.room--current {
-            animation: ping 1000ms 5 forwards;
+            background-color: $red;
+            color: $white;
         }
     }
 }

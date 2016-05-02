@@ -19,9 +19,9 @@ const bsInstance = browserSync.create();
 ////////// CSS tasks
 gulp.task('css:lint', () => {
   var src = [
-    './source/scss/**/*.scss',
-    '!./source/scss/**/_reset.scss',
-    '!./source/scss/**/_fonts.scss'
+    './src/scss/**/*.scss',
+    '!./src/scss/**/_reset.scss',
+    '!./src/scss/**/_fonts.scss'
   ];
 
   return gulp.src(src)
@@ -34,7 +34,7 @@ gulp.task('css:lint', () => {
 });
 
 gulp.task('css:dev', () => {
-  const src = './source/scss/**/*.scss';
+  const src = './src/scss/**/*.scss';
   const dest = './dist/css';
 
   return gulp.src(src)
@@ -48,8 +48,8 @@ gulp.task('css:dev', () => {
 
 gulp.task('webpack:dev', (cb) => {
   const src = [
-    './source/javascript/**/*.js',
-    './source/javascript/**/*.jsx'
+    './src/javascript/**/*.js',
+    './src/javascript/**/*.jsx'
   ];
 
   return gulp.src(src)
@@ -61,7 +61,7 @@ gulp.task('webpack:dev', (cb) => {
 
 ////////// JavaScript
 gulp.task('js:lint', () => {
-  var src = ['./source/javascript/**/*.js'];
+  var src = ['./src/javascript/**/*.js'];
 
   return gulp.src(src)
     .pipe(eslint())
@@ -71,13 +71,13 @@ gulp.task('js:lint', () => {
 ////////// Development tasks
 gulp.task('watch', () => {
   gulp.run('css:lint');
-  gulp.watch(['./source/scss/**/*.js'], [
+  gulp.watch(['./src/scss/**/*.js'], [
     'css:lint',
     'css:dev'
   ]);
 
   //gulp.watch(['./server/**/*.js'], ['js:lint']);
-  gulp.watch(['./source/**/*.js'], [
+  gulp.watch(['./src/**/*.js'], [
     'js:lint',
     'webpack:dev'
   ]);

@@ -1,25 +1,25 @@
 ////////////////////////////////////////////////// body modifiers
 
 .corruption-3 {
-//    transform: rotateX(180deg);
+  //    transform: rotateX(180deg);
 }
 
 .corruption-4 {
-    background-color: $red;
-    color: $white;
+  background-color: $red;
+  color: $white;
 
-    .clock:after {
-        background-color: $white;
-    }
+  .clock:after {
+    background-color: $white;
+  }
 }
 
 .corrupted {
-    animation: twitch 8000ms infinite;
+  animation: twitch 8000ms infinite;
 
-    &.photo {
-        background-blend-mode: multiply;
-        animation: bleed 5000ms 1, twitch 10000ms 2;
-        animation-fill-mode: forwards;
-        cursor: pointer;
-    }
+  &.photo {
+    background-blend-mode: multiply;
+    animation: bleed 5000ms 1, twitch 10000ms 2;
+    animation-fill-mode: forwards;
+    cursor: pointer;
+  }
 }

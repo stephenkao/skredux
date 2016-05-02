@@ -71,7 +71,7 @@ gulp.task('js:lint', () => {
 ////////// Development tasks
 gulp.task('watch', () => {
   gulp.run('css:lint');
-  gulp.watch(['./src/scss/**/*.js'], [
+  gulp.watch(['./src/scss/**/*.scss'], [
     'css:lint',
     'css:dev'
   ]);

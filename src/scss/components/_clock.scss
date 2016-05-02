@@ -2,53 +2,53 @@ $slide-cubic: cubic-bezier(0.165, 0.84, 0.44, 1);
 
 ////////////////////////////////////////////////// Clock
 .clock {
-    height: 200px;
+  height: 200px;
 
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
 
-    &:after {
-        width: 1px;
-        height: 100%;
+  &:after {
+    width: 1px;
+    height: 100%;
 
-        position: absolute;
-        left: 50%;
+    position: absolute;
+    left: 50%;
 
-        background-color: $black;
-        content: '';
+    background-color: $black;
+    content: '';
+  }
+
+  .clock__division {
+    flex-grow: 1;
+    flex-basis: 0;
+
+    &:first-child {
+      margin-right: $gutter-width / 2;
     }
 
-    .clock__division {
-        flex-grow: 1;
-        flex-basis: 0;
-
-        &:first-child {
-            margin-right: $gutter-width / 2;
-        }
-
-        &:last-child {
-            margin-left: $gutter-width / 2;
-        }
+    &:last-child {
+      margin-left: $gutter-width / 2;
     }
+  }
 
-    .clock__time {
-        display: block;
+  .clock__time {
+    display: block;
 
-        font-family: $font--header;
-        font-size: 3em;
+    font-family: $font--header;
+    font-size: 3em;
 
-        animation: fade-in-slide-down $slide-cubic 1000ms;
-        animation-fill-mode: forwards;
-    }
+    animation: fade-in-slide-down $slide-cubic 1000ms;
+    animation-fill-mode: forwards;
+  }
 
-    .clock__message {
-        margin-bottom: 0;
+  .clock__message {
+    margin-bottom: 0;
 
-        font-family: $font--content;
+    font-family: $font--content;
 
-        animation: fade-in-slide-up $slide-cubic 1000ms;
-        animation-fill-mode: forwards;
-    }
+    animation: fade-in-slide-up $slide-cubic 1000ms;
+    animation-fill-mode: forwards;
+  }
 }

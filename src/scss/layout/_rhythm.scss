@@ -3,25 +3,25 @@ $vertical-rhythm: 40px !default;
 ////////////////////////////////////////////////// Adjust vertical rhythms based on viewport widths
 
 @media #{$small-up} {
-    @for $i from 1 through 10 {
-        .vr-#{$i} {
-            margin-top: $i * $vertical-rhythm;
-        }
+  @for $i from 1 through 10 {
+    .vr-#{$i} {
+      margin-top: $i * $vertical-rhythm;
     }
+  }
 }
 
 @media #{$medium-up} {
-    @for $i from 1 through 10 {
-        .vr-#{$i} {
-            margin-top: $i * (2 * $vertical-rhythm);
-        }
+  @for $i from 1 through 10 {
+    .vr-#{$i} {
+      margin-top: $i * (2 * $vertical-rhythm);
     }
+  }
 }
 
 @media #{$large-up} {
-    @for $i from 1 through 10 {
-        .vr-#{$i} {
-            margin-top: $i * (2.5 * $vertical-rhythm);
-        }
+  @for $i from 1 through 10 {
+    .vr-#{$i} {
+      margin-top: $i * (2.5 * $vertical-rhythm);
     }
+  }
 }

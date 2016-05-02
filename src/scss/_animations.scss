@@ -1,159 +1,159 @@
 @keyframes spin-clockwise {
-    100% {
-        transform: rotate(360deg);
-    }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes spin-counterclockwise {
-    100% {
-        transform: rotate(-360deg);
-    }
+  100% {
+    transform: rotate(-360deg);
+  }
 }
 
 @keyframes pop-up {
-    0% {
-        transform: scale(1);
-    }
+  0% {
+    transform: scale(1);
+  }
 
-    20% {
-        transform: scale(0.9);
-    }
+  20% {
+    transform: scale(0.9);
+  }
 
-    50% {
-        transform: scale(1.5);
-    }
+  50% {
+    transform: scale(1.5);
+  }
 
-    100% {
-        transform: scale(1);
-    }
+  100% {
+    transform: scale(1);
+  }
 }
 
 @keyframes zoom-out {
-    0% {
-        transform: scale(3);
-    }
+  0% {
+    transform: scale(3);
+  }
 
-    100% {
-        transform: scale(1);
-    }
+  100% {
+    transform: scale(1);
+  }
 }
 
 @keyframes zoom-in {
-    0% {
-        transform: scale(0);
-    }
+  0% {
+    transform: scale(0);
+  }
 
-    100% {
-        transform: scale(1);
-    }
+  100% {
+    transform: scale(1);
+  }
 }
 
 @keyframes fade-in {
-    0% {
-        opacity: 0;
-    }
+  0% {
+    opacity: 0;
+  }
 
-    100% {
-        opacity: 1;
-    }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes outline {
-    0% {
-        border-color: transparent;
-    }
+  0% {
+    border-color: transparent;
+  }
 
-    100% {
-        border-color: $black;
-    }
+  100% {
+    border-color: $black;
+  }
 }
 
 @keyframes fade-in-slide-down {
-    0% {
-        transform: translate3d(0, -50%, 0);
-        opacity: 0;
-    }
+  0% {
+    transform: translate3d(0, -50%, 0);
+    opacity: 0;
+  }
 
-    100% {
-        transform: translate3d(0, 0, 0);
-        opacity: 1;
-    }
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
 }
 
 @keyframes fade-in-slide-up {
-    0% {
-        transform: translate3d(0, 100%, 0);
-        opacity: 0;
-    }
+  0% {
+    transform: translate3d(0, 100%, 0);
+    opacity: 0;
+  }
 
-    100% {
-        transform: translate3d(0, 0, 0);
-        opacity: 1;
-    }
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
 }
 
 @keyframes whiteout {
-    0% {
-        background-color: $black;
-    }
+  0% {
+    background-color: $black;
+  }
 
-    100% {
-        background-color: $white;
-    }
+  100% {
+    background-color: $white;
+  }
 }
 
 ////////////////////////////////////////////////// Hauntings
 
 @keyframes twitch {
-    0% {
-        transform: translate3d(0, 0, 0) scale(1);
-    }
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
 
-    90.1% {
-        transform: translate3d(0, 0, 0) scale(1);
-    }
+  90.1% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
 
-    90.3% {
-        transform: translate3d(50%, 50%, 0) scale(2) skew(180deg);
-    }
+  90.3% {
+    transform: translate3d(50%, 50%, 0) scale(2) skew(180deg);
+  }
 
-    90.5% {
-        transform: translate3d(-25%, -25%, 0) scale(0.4) skew(0);
-    }
+  90.5% {
+    transform: translate3d(-25%, -25%, 0) scale(0.4) skew(0);
+  }
 
-    90.7% {
-        transform: translate3d(0, 0, 0) scale(1);
-    }
+  90.7% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
 
-    100% {
-        transform: translate3d(0, 0, 0) scale(1);
-    }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
 }
 
 @keyframes bleed {
-    0% {
-        background-color: transparent;
-    }
+  0% {
+    background-color: transparent;
+  }
 
-    100% {
-        background-color: $red;
-    }
+  100% {
+    background-color: $red;
+  }
 }
 
 @keyframes ping {
-    20% {
-        background-color: $red;
-    }
+  20% {
+    background-color: $red;
+  }
 
-    40% {
-        background-color: $white;
-    }
+  40% {
+    background-color: $white;
+  }
 
-    60% {
-        background-color: $red;
-    }
+  60% {
+    background-color: $red;
+  }
 
-    80% {
-        background-color: $white;
-    }
+  80% {
+    background-color: $white;
+  }
 }

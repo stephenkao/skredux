@@ -5,35 +5,35 @@ $font--header: 'IM Fell English SC', serif;
 $font--content: 'IM Fell English', serif;
 
 html {
-    font-size: 62.5%;
+  font-size: 62.5%;
 }
 
 body {
-    font-size: 1.4rem;
+  font-size: 1.4rem;
 }
 
 h1 {
-    font-size: 5rem;
+  font-size: 5rem;
 }
 
 h2 {
-    font-size: 4rem;
+  font-size: 4rem;
 }
 
 h3 {
-    font-size: 3rem;
+  font-size: 3rem;
 }
 
 h4 {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 
 h5 {
-    font-size: 1.8rem;
+  font-size: 1.8rem;
 }
 
 h6 {
-    font-size: 1.4rem;
+  font-size: 1.4rem;
 }
 
 
@@ -45,44 +45,44 @@ h5,
 h6,
 p,
 span {
-    word-break: break-word;
+  word-break: break-word;
 }
 
 h1,
 h2 {
-    font-family: $font--header;
+  font-family: $font--header;
 }
 
 h3,
 h4,
 h5,
 h6 {
-    font-family: $font--content;
+  font-family: $font--content;
 }
 
 p,
 span {
-    font-family: $font--content;
-    line-height: 1.5;
-    word-break: break-word;
+  font-family: $font--content;
+  line-height: 1.5;
+  word-break: break-word;
 }
 
 .text--header {
-    font-family: $font--header;
+  font-family: $font--header;
 }
 
 .text--content {
-    font-family: $font--content;
+  font-family: $font--content;
 }
 
 .text--left {
-    text-align: left;
+  text-align: left;
 }
 
 .text--center {
-    text-align: center;
+  text-align: center;
 }
 
 .text--right {
-    text-align: right;
+  text-align: right;
 }

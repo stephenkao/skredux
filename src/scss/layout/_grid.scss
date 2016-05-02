@@ -6,100 +6,100 @@ $row-width--max: 1440px;
 $num-columns: 14;
 
 @function grid-calc($column-number) {
-    $result: percentage(($column-number / $num-columns));
+  $result: percentage(($column-number / $num-columns));
 
-    @if $result == 0% {
-        $result: 0;
-    }
+  @if $result == 0% {
+    $result: 0;
+  }
 
-    @return $result;
+  @return $result;
 }
 
 ////////////////////////////////////////////////// Default structure classes
 .row {
-    @include clearfix();
+  @include clearfix();
 
-    max-width: $row-width--max;
-    margin: 0 auto;
+  max-width: $row-width--max;
+  margin: 0 auto;
 }
 
 ////////////////////////////////////////////////// Columns based on Foundation's grid
 
 .column {
-    padding-left: $gutter-width / 2;
-    padding-right: $gutter-width / 2;
+  padding-left: $gutter-width / 2;
+  padding-right: $gutter-width / 2;
 
-    position: relative;
+  position: relative;
+  float: left;
+
+  &:last-child {
+    float: right;
+  }
+
+  &:first-child {
     float: left;
+  }
 
-    &:last-child {
-        float: right;
+  @media #{$small-up} {
+    @for $i from 1 through $num-columns {
+      &.small-#{$i} {
+        width: grid-calc($i);
+      }
+
+      &.small-push-#{$i} {
+        left: grid-calc($i);
+        right: auto;
+      }
+
+      &.small-pull-#{$i} {
+        left: auto;
+        right: grid-calc($i);
+      }
     }
+  }
 
-    &:first-child {
-        float: left;
+  @media #{$medium-up} {
+    @for $i from 1 through $num-columns {
+      &.medium-#{$i} {
+        width: grid-calc($i);
+      }
+
+      &.medium-push-#{$i} {
+        left: grid-calc($i);
+        right: auto;
+      }
+
+      &.medium-pull-#{$i} {
+        left: auto;
+        right: grid-calc($i);
+      }
     }
+  }
 
-    @media #{$small-up} {
-        @for $i from 1 through $num-columns {
-            &.small-#{$i} {
-                width: grid-calc($i);
-            }
+  @media #{$large-up} {
+    @for $i from 1 through $num-columns {
+      &.large-#{$i} {
+        width: grid-calc($i);
+      }
 
-            &.small-push-#{$i} {
-                left: grid-calc($i);
-                right: auto;
-            }
+      &.large-push-#{$i} {
+        left: grid-calc($i);
+        right: auto;
+      }
 
-            &.small-pull-#{$i} {
-                left: auto;
-                right: grid-calc($i);
-            }
-        }
+      &.large-pull-#{$i} {
+        left: auto;
+        right: grid-calc($i);
+      }
     }
+  }
 
-    @media #{$medium-up} {
-        @for $i from 1 through $num-columns {
-            &.medium-#{$i} {
-                width: grid-calc($i);
-            }
+  // Kept at the bottom for specificity
+  &.column--center {
+    margin-left: auto;
+    margin-right: auto;
 
-            &.medium-push-#{$i} {
-                left: grid-calc($i);
-                right: auto;
-            }
-
-            &.medium-pull-#{$i} {
-                left: auto;
-                right: grid-calc($i);
-            }
-        }
-    }
-
-    @media #{$large-up} {
-        @for $i from 1 through $num-columns {
-            &.large-#{$i} {
-                width: grid-calc($i);
-            }
-
-            &.large-push-#{$i} {
-                left: grid-calc($i);
-                right: auto;
-            }
-
-            &.large-pull-#{$i} {
-                left: auto;
-                right: grid-calc($i);
-            }
-        }
-    }
-
-    // Kept at the bottom for specificity
-    &.column--center {
-        margin-left: auto;
-        margin-right: auto;
-
-        float: none;
-        clear: both;
-    }
+    float: none;
+    clear: both;
+  }
 }

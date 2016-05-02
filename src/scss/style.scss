@@ -22,187 +22,187 @@
 ////////////////////////////////////////////////// Text styles (textiles ~~~)
 
 body {
-    width: 100%;
-    height: 100%;
-    min-height: 100%;
-    padding-top: $vertical-rhythm;
-    padding-bottom: $vertical-rhythm;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  padding-top: $vertical-rhythm;
+  padding-bottom: $vertical-rhythm;
 
-    background-color: $white;
-    background-image: url('../../assets/svg/square.min.svg'), url('../../assets/images/flecks.png');
-    background-repeat: no-repeat, repeat;
-    background-size: 100% 100%, auto;
+  background-color: $white;
+  background-image: url('../../assets/svg/square.min.svg'), url('../../assets/images/flecks.png');
+  background-repeat: no-repeat, repeat;
+  background-size: 100% 100%, auto;
 }
 
 .framed {
-    background-size: 100% 100%;
+  background-size: 100% 100%;
 
-    &.framed--square {
-        background-image: url('../../assets/svg/square.min.svg');
-    }
+  &.framed--square {
+    background-image: url('../../assets/svg/square.min.svg');
+  }
 
-    &.framed--circle {
-        background-image: url('../../assets/svg/circle.min.svg');
-        border-radius: 50%;
-    }
+  &.framed--circle {
+    background-image: url('../../assets/svg/circle.min.svg');
+    border-radius: 50%;
+  }
 }
 
 .main {
-    min-height: 100%;
+  min-height: 100%;
 
-    position: relative;
+  position: relative;
 }
 
 .page,
 .map {
-    opacity: 1;
+  opacity: 1;
 
-    &.invisible {
-        opacity: 0;
-        pointer-events: none;
-    }
+  &.invisible {
+    opacity: 0;
+    pointer-events: none;
+  }
 }
 
 .page {
-    min-height: 100%;
+  min-height: 100%;
 
-    transition: opacity 1000ms ease-out;
+  transition: opacity 1000ms ease-out;
 }
 
 .map {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 
+  position: absolute;
+
+  transition: opacity 500ms ease-in;
+
+  .map__content {
     position: absolute;
+    left: 50%;
+    top: 50%;
 
-    transition: opacity 500ms ease-in;
+    transform: translate3d(-50%, -50%, 0);
+  }
 
-    .map__content {
-        position: absolute;
-        left: 50%;
-        top: 50%;
+  .map__room {
+    width: 100px;
+    height: 50px;
+    border: 4px solid $white;
 
-        transform: translate3d(-50%, -50%, 0);
+    display: inline-block;
+    vertical-align: top;
+
+    font-size: 20px;
+    line-height: 40px;
+    text-align: center;
+    text-transform: uppercase;
+
+    &.room--empty {
+      opacity: 0.2;
     }
 
-    .map__room {
-        width: 100px;
-        height: 50px;
-        border: 4px solid $white;
-
-        display: inline-block;
-        vertical-align: top;
-
-        font-size: 20px;
-        line-height: 40px;
-        text-align: center;
-        text-transform: uppercase;
-
-        &.room--empty {
-            opacity: 0.2;
-        }
-
-        &.room--current {
-            background-color: $red;
-            color: $white;
-        }
+    &.room--current {
+      background-color: $red;
+      color: $white;
     }
+  }
 }
 
 .menu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    &:hover {
-        opacity: 0.6;
-    }
+  &:hover {
+    opacity: 0.6;
+  }
 }
 
 .menu__trigger {
-    width: 60px;
-    height: 60px;
-    margin-right: 1em;
+  width: 60px;
+  height: 60px;
+  margin-right: 1em;
 
-    transition: background-color 200ms, opacity 200ms;
-    cursor: pointer;
+  transition: background-color 200ms, opacity 200ms;
+  cursor: pointer;
 
-    &.active {
-        background-color: $black;
-        opacity: 1;
-    }
+  &.active {
+    background-color: $black;
+    opacity: 1;
+  }
 }
 
 .menu__title {
 
-    span,
-    time {
-        margin-bottom: 0;
+  span,
+  time {
+    margin-bottom: 0;
 
-        font-family: $font--header;
-        color: $black;
-    }
+    font-family: $font--header;
+    color: $black;
+  }
 
-    time {
-        display: block;
-    }
+  time {
+    display: block;
+  }
 }
 
 .navigation {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 
-    color: $white;
-    text-align: center;
-    font-family: $font--content;
+  color: $white;
+  text-align: center;
+  font-family: $font--content;
 }
 
 .navigation__setaform {
-    width: 80%;
-    margin: 0 auto;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .navigation__link,
 .navigation__link:hover {
-    color: $black;
+  color: $black;
 }
 
 .redacted {
-    background-color: $black;
-    color: $black;
+  background-color: $black;
+  color: $black;
 }
 
 ////////////////////////////////////////////////// Posts
 .post {
-    margin-bottom: $vertical-rhythm;
+  margin-bottom: $vertical-rhythm;
 
-    &:hover a {
-        color: $red;
-        transition: color 1000ms;
-    }
+  &:hover a {
+    color: $red;
+    transition: color 1000ms;
+  }
 
-    a {
-        color: $black;
-    }
+  a {
+    color: $black;
+  }
 }
 
 .post__title {
-    margin-bottom: 0.4em;
+  margin-bottom: 0.4em;
 }
 
 .post__metadata {
-    .post__pubdate,
-    .taglist {
-        font-family: $font--header;
-    }
+  .post__pubdate,
+  .taglist {
+    font-family: $font--header;
+  }
 }
 
 .taglist,
 .tag {
-    display: inline;
+  display: inline;
 }
 
 a:hover {
-    text-decoration: line-through;
+  text-decoration: line-through;
 }

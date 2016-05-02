@@ -1,23 +1,23 @@
 @mixin clearfix () {
-    &:before,
-    &:after {
-        width: 0;
-        height: 0;
+  &:before,
+  &:after {
+    width: 0;
+    height: 0;
 
-        display: block;
-        overflow: hidden;
-        visibility: hidden;
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
 
-        content: '.';
-        font-size: 0;
-        line-height: 0;
-    }
+    content: '.';
+    font-size: 0;
+    line-height: 0;
+  }
 
-    &:after {
-        clear: both;
-    }
+  &:after {
+    clear: both;
+  }
 }
 
 .clearfix {
-    @include clearfix();
+  @include clearfix();
 }
